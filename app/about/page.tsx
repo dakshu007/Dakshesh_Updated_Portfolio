@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "What does Dakshesh do?",
     answer:
-      "Dakshesh works as a frontend web developer, web engineer and Flutter developer. At Cartrabbit he maintains the front end for six WooCommerce products used by more than 300,000 stores, and he has shipped eight of his own apps and developer tools.",
+      "Dakshesh works as a frontend web developer, web engineer and Flutter developer. At Cartrabbit he maintains the front end for six WooCommerce products used by more than 300,000 stores, and he has shipped nine of his own products, including MyKavo, a website change detection and monitoring SaaS.",
   },
   {
     question: "What technologies does Dakshesh use?",

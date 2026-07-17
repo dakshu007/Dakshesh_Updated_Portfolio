@@ -7,6 +7,7 @@ import {
   Boxes,
   GitBranch,
   Sparkles,
+  Radar,
   Receipt,
   ImageDown,
   Ruler,
@@ -99,9 +100,22 @@ export type Product = {
   url: string;
   icon: LucideIcon;
   soon?: boolean;
+  /** Real brand mark in /public, used instead of the icon where available. */
+  logo?: string;
+  /** Flagship SaaS product, highlighted across the site. */
+  featured?: boolean;
 };
 
 export const products: Product[] = [
+  {
+    id: "mykavo",
+    name: "MyKavo",
+    description: "Website change detection and monitoring SaaS.",
+    url: "https://mykavo.app/",
+    icon: Radar,
+    logo: "/images/logos/mykavo.png",
+    featured: true,
+  },
   {
     id: "billzap",
     name: "BillZap",
@@ -219,10 +233,12 @@ export type HeroProduct = { name: string; color: string };
 
 /**
  * Products cycled through in the hero typewriter. The six Cartrabbit products
- * use the brand colours supplied; the eight shipped products use assigned
- * colours chosen to read well on the light hero background.
+ * use the brand colours supplied; the nine shipped products use assigned
+ * colours chosen to read well on the light hero background. MyKavo leads as
+ * the flagship SaaS (its brand yellow is darkened to amber for contrast).
  */
 export const heroProducts: HeroProduct[] = [
+  { name: "MyKavo", color: "#B45309" },
   { name: "Flycart", color: "#EA242B" },
   { name: "Yuko", color: "#6F65F8" },
   { name: "Retainful", color: "#F85C1B" },

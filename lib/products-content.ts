@@ -16,9 +16,37 @@ export type ProductContent = {
   schemaType: "SoftwareApplication" | "WebApplication" | "MobileApplication";
   applicationCategory: string;
   platform: string;
+  /** Overrides the primary CTA label, e.g. "Try MyKavo free". */
+  ctaLabel?: string;
+  /** Short pricing note shown in the At a glance card. */
+  pricing?: string;
 };
 
 export const productContent: Record<string, ProductContent> = {
+  mykavo: {
+    tagline: "Know what changed. Fix what matters.",
+    overview:
+      "MyKavo is a website change detection and monitoring SaaS, and the largest product I have designed, built and run end to end. It watches your websites for visual, SEO, content, link, script, performance and conversion changes, then alerts you with before and after evidence so small problems are fixed before they become expensive ones. Scans run automatically on a schedule, every alert carries proof of exactly what moved, and a free plan lets you start monitoring in minutes with no credit card.",
+    whoFor:
+      "Agencies managing client websites, developers who want post-deploy regression alerts, SEO teams protecting rankings, e-commerce owners guarding conversion elements, and anyone who needs to know the moment a site changes.",
+    category: "SaaS platform",
+    platform: "Web",
+    schemaType: "WebApplication",
+    applicationCategory: "BusinessApplication",
+    ctaLabel: "Try MyKavo free",
+    pricing: "Free plan, Pro at $20 per month",
+    metaTitle: "MyKavo: Website Change Detection and Monitoring SaaS | Dakshesh B",
+    metaDescription:
+      "MyKavo watches your websites for visual, SEO, content, link, script and performance changes and alerts you with before and after evidence. Start free, no card needed.",
+    features: [
+      { title: "Visual change detection", desc: "Screenshots every monitored page on a schedule and highlights exactly what moved, with a visual diff percentage for each change." },
+      { title: "SEO monitoring", desc: "Tracks titles, meta descriptions, canonicals, robots directives and H1s, so a silent SEO regression never goes unnoticed." },
+      { title: "Broken link and redirect checks", desc: "Finds broken links and risky redirect chains across monitored pages before visitors or crawlers hit them." },
+      { title: "Script and conversion watch", desc: "Alerts you when analytics, payment or marketing scripts disappear, and keeps an eye on the elements that drive conversions." },
+      { title: "Performance, SSL and uptime", desc: "Monitors page weight, response time, SSL expiry and uptime, and flags the moment any of them slips." },
+      { title: "Evidence with every alert", desc: "Each alert carries before and after proof, so you can see the change, judge the impact and fix what matters." },
+    ],
+  },
   billzap: {
     tagline: "Bill with your voice, in your language, GST ready.",
     overview:

@@ -2,7 +2,7 @@
 
 > Frontend Web Engineer building fast, accessible, high-performance web interfaces with HTML, CSS and modern JavaScript, and shipping full web products end to end.
 
-Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India, and open to Bangalore. Around two years of experience. Currently a Web Engineer at Cartrabbit, maintaining the front end for six WooCommerce products used by more than 300,000 stores. Skills include HTML5, CSS3, JavaScript (ES6+), React, Next.js, Tailwind CSS, WordPress and WooCommerce, Chrome Extensions (Manifest V3), Flutter and Dart, Core Web Vitals and on-page SEO. Contact: daksheshbabu@gmail.com.
+Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India. Around two years of experience. Currently a Web Engineer at Cartrabbit, maintaining the front end for six WooCommerce products used by more than 300,000 stores. Founder of MyKavo, a website change detection and monitoring SaaS. Skills include HTML5, CSS3, JavaScript (ES6+), React, Next.js, Tailwind CSS, WordPress and WooCommerce, Chrome Extensions (Manifest V3), Flutter and Dart, Core Web Vitals and on-page SEO. Contact: daksheshbabu@gmail.com.
 
 ## Pages
 
@@ -11,6 +11,7 @@ Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, F
 
 ## Products
 
+- [MyKavo](https://dakshesh.co.in/mykavo): website change detection and monitoring SaaS. Live at https://mykavo.app/.
 - [BillZap](https://dakshesh.co.in/billzap): GST billing app for Indian businesses.
 - [Shrinkto](https://dakshesh.co.in/shrinkto): image compressor for JPG, PNG and WebP.
 - [Spacing Inspector](https://dakshesh.co.in/spacing-inspector): Chrome extension for CSS spacing.

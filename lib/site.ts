@@ -65,7 +65,7 @@ export const metrics = [
   { value: 300000, suffix: "+", label: "Stores served", caption: "across Cartrabbit products" },
   { value: 840, suffix: "+", label: "Extension users", caption: "across my Chrome extensions" },
   { value: 6, suffix: "", label: "Products maintained", caption: "in production at Cartrabbit" },
-  { value: 8, suffix: "", label: "Products shipped", caption: "built and launched end to end" },
+  { value: 9, suffix: "", label: "Products shipped", caption: "built and launched end to end" },
 ] as const;
 
 /**

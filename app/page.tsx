@@ -4,6 +4,7 @@ import { profilePageSchema } from "@/lib/jsonld";
 import ScrollAnimations from "@/components/ScrollAnimations";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
+import SaasSpotlight from "@/components/SaasSpotlight";
 import ProductsStrip from "@/components/ProductsStrip";
 import Work from "@/components/Work";
 import About from "@/components/About";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ScrollAnimations />
       <Hero />
       <LogoStrip />
+      <SaasSpotlight />
       <ProductsStrip />
       <Work />
       <About />

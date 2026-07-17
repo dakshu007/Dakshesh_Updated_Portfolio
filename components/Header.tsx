@@ -183,6 +183,11 @@ export default function Header() {
                         <span className="min-w-0">
                           <span className="flex items-center gap-1.5 text-sm font-semibold text-ink">
                             {product.name}
+                            {product.featured && (
+                              <span className="rounded-full bg-[#FFF3C4] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#A16207]">
+                                SaaS
+                              </span>
+                            )}
                             {product.soon && (
                               <span className="rounded-full bg-accent-soft px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
                                 Soon
@@ -272,6 +277,11 @@ export default function Header() {
                 >
                   <product.icon aria-hidden="true" className="h-4 w-4 shrink-0" />
                   <span className="font-medium text-ink">{product.name}</span>
+                  {product.featured && (
+                    <span className="rounded-full bg-[#FFF3C4] px-1.5 py-0.5 text-[10px] font-bold uppercase text-[#A16207]">
+                      SaaS
+                    </span>
+                  )}
                   {product.soon && (
                     <span className="rounded-full bg-accent-soft px-1.5 py-0.5 text-[10px] font-bold uppercase text-accent">
                       Soon

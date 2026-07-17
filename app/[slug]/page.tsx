@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -123,7 +124,7 @@ export default async function ProductPage({
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Visit {product.name}
+                {content.ctaLabel ?? `Visit ${product.name}`}
                 <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
               </a>
               <Link href="/#contact" className="btn-secondary">
@@ -138,7 +139,17 @@ export default async function ProductPage({
               aria-hidden="true"
               className="absolute inset-0 grid place-items-center"
             >
-              <Icon className="h-28 w-28 text-accent/15" strokeWidth={1.25} />
+              {product.logo ? (
+                <Image
+                  src={product.logo}
+                  alt=""
+                  width={144}
+                  height={144}
+                  className="h-36 w-36 rounded-[28px] shadow-lift ring-1 ring-black/10"
+                />
+              ) : (
+                <Icon className="h-28 w-28 text-accent/15" strokeWidth={1.25} />
+              )}
             </div>
             <div className="absolute bottom-5 left-5 flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent text-white">
@@ -208,6 +219,12 @@ export default async function ProductPage({
                   <dt className="text-ink-soft">Platform</dt>
                   <dd className="font-medium text-ink">{content.platform}</dd>
                 </div>
+                {content.pricing && (
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-ink-soft">Pricing</dt>
+                    <dd className="font-medium text-ink">{content.pricing}</dd>
+                  </div>
+                )}
                 <div className="flex justify-between gap-4">
                   <dt className="text-ink-soft">Built by</dt>
                   <dd className="font-medium text-ink">{person.name}</dd>

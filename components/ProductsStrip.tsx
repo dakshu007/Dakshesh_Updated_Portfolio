@@ -46,8 +46,8 @@ export default function ProductsStrip() {
         <SectionHeading
           headingId="products-heading"
           eyebrow="Products"
-          title="Eight products, each with its own home"
-          description="Side projects and developer tools I designed, built and launched. Open any one to see what it does."
+          title="Nine products, each with its own home"
+          description="A SaaS platform, side projects and developer tools I designed, built and launched. Open any one to see what it does."
         />
 
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -58,9 +58,19 @@ export default function ProductsStrip() {
                 className="group flex h-full flex-col rounded-2xl border border-line bg-surface p-6 shadow-card transition-all hover:-translate-y-1 hover:border-accent hover:shadow-lift"
               >
                 <div className="flex items-center justify-between">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent">
-                    <product.icon aria-hidden="true" className="h-6 w-6" />
-                  </span>
+                  {product.logo ? (
+                    <Image
+                      src={product.logo}
+                      alt=""
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 rounded-2xl ring-1 ring-black/10"
+                    />
+                  ) : (
+                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent">
+                      <product.icon aria-hidden="true" className="h-6 w-6" />
+                    </span>
+                  )}
                   <ArrowUpRight
                     aria-hidden="true"
                     className="h-5 w-5 -translate-x-1 translate-y-1 text-ink-soft opacity-0 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-accent group-hover:opacity-100"
@@ -68,6 +78,11 @@ export default function ProductsStrip() {
                 </div>
                 <h3 className="mt-5 flex items-center gap-2 font-display text-lg font-bold text-ink">
                   {product.name}
+                  {product.featured && (
+                    <span className="rounded-full bg-[#FFF3C4] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#A16207]">
+                      SaaS
+                    </span>
+                  )}
                   {product.soon && (
                     <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
                       Soon

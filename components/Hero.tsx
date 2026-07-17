@@ -87,9 +87,9 @@ export default function Hero() {
             <HeroTyping />
           </span>
           <span className="sr-only">
-            Flycart, Yuko, Retainful, WPLoyalty, UpsellWP, Spark Editor,
-            BillZap, Shrinkto, Spacing Inspector, FocusLens, EEAT Analyser,
-            DesignLock, Melody Flow and Image Size Inspector.
+            MyKavo, Flycart, Yuko, Retainful, WPLoyalty, UpsellWP, Spark
+            Editor, BillZap, Shrinkto, Spacing Inspector, FocusLens, EEAT
+            Analyser, DesignLock, Melody Flow and Image Size Inspector.
           </span>
         </h1>
 
@@ -123,7 +123,7 @@ export default function Hero() {
             </dd>
           </div>
           {[
-            { v: "8", l: "Products shipped" },
+            { v: "9", l: "Products shipped" },
             { v: "6", l: "Products at Cartrabbit" },
             { v: "300k+", l: "Stores served" },
           ].map((item) => (

@@ -93,7 +93,7 @@ export default function Work() {
             href="/#products"
             className="font-semibold text-white underline underline-offset-4 hover:text-white/80"
           >
-            Browse all eight products
+            Browse all nine products
           </Link>
           .
         </p>

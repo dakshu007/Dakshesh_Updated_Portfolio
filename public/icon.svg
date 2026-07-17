@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Dakshesh B">
+  <title>Dakshesh B</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2E6FD6"></stop>
+      <stop offset="1" stop-color="#0E2C6B"></stop>
+    </linearGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BFE9FF"></stop>
+      <stop offset="1" stop-color="#5AA8EC"></stop>
+    </linearGradient>
+    <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"></stop>
+      <stop offset="1" stop-color="#DCEFFF"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="100" height="100" rx="26" fill="url(#bg)"></rect>
+
+  <path fill-rule="evenodd" fill="url(#ice)" d="M28 30 H50 C71 30 82 41 82 55 C82 69 71 80 50 80 H28 Z M43 44 H50 C60 44 64.5 49 64.5 55 C64.5 61 60 66 50 66 H43 Z"></path>
+
+  <path fill="url(#snow)" d="M30 30 L37 30 L33.5 41 Z"></path>
+  <path fill="url(#snow)" d="M45 30 L52 30 L48.5 43 Z"></path>
+  <path fill="url(#snow)" d="M60 31 L66 31 L63 39 Z"></path>
+
+  <g fill="url(#snow)">
+    <rect x="24" y="24" width="52" height="10" rx="5"></rect>
+    <circle cx="31" cy="26" r="7"></circle>
+    <circle cx="43" cy="22" r="9"></circle>
+    <circle cx="56" cy="24" r="8"></circle>
+    <circle cx="68" cy="27" r="6"></circle>
+  </g>
+
+  <g fill="#EAF6FF">
+    <path d="M80 18 L81.4 21.6 L85 23 L81.4 24.4 L80 28 L78.6 24.4 L75 23 L78.6 21.6 Z"></path>
+    <path d="M20 64 L21 66.6 L23.6 67.6 L21 68.6 L20 71.2 L19 68.6 L16.4 67.6 L19 66.6 Z"></path>
+  </g>
+</svg>

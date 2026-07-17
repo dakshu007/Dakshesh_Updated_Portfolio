@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-canvas text-ink antialiased;
+    font-feature-settings: "kern", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.accent.DEFAULT");
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: theme("colors.accent.DEFAULT");
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lift;
+  }
+
+  /* Pill buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-hover;
+  }
+  .btn-secondary {
+    @apply btn border border-ink/15 bg-surface text-ink hover:border-ink/40;
+  }
+  .btn-ghost {
+    @apply btn text-ink hover:bg-ink/5;
+  }
+  /* On dark sections */
+  .btn-on-dark {
+    @apply btn bg-white text-ink hover:bg-white/90;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink-muted;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent;
+  }
+
+  /* Cartrabbit product link: ink by default, brand colour (via --bc) on hover. */
+  .brand-link {
+    @apply text-ink-muted transition-colors duration-200;
+  }
+  .brand-link:hover,
+  .brand-link:focus-visible {
+    color: var(--bc);
+  }
+
+  /* Cartrabbit product logo: visible by default on touch devices (mobile and
+     tablet, where there is no hover), and revealed on hover or focus for
+     pointer devices (laptop and desktop). Space is always reserved so the
+     reveal fades in without shifting the layout. */
+  .product-logo {
+    @apply transition-all duration-200 ease-out;
+  }
+  @media (hover: hover) {
+    .product-logo {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    .brand-link:hover .product-logo,
+    .brand-link:focus-visible .product-logo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Big editorial headings */
+  .display-1 {
+    @apply font-display font-bold leading-[1.02] tracking-tight;
+    font-size: clamp(2.5rem, 6vw, 4.75rem);
+  }
+  .display-2 {
+    @apply font-display font-bold leading-[1.05] tracking-tight;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Blinking caret for the hero typewriter. */
+.type-cursor {
+  display: inline-block;
+  margin-left: 0.04em;
+  font-weight: 400;
+  animation: blink 1.05s steps(1, start) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* GSAP reveal: hidden only once JS confirms motion is allowed, so content is
+   always visible without JS (crawler and a11y safe). */
+.gsap-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .gsap-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}

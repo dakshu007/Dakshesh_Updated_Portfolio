@@ -1,0 +1,30 @@
+# Dakshesh B
+
+> Frontend Web Engineer building fast, accessible, high-performance web interfaces with HTML, CSS and modern JavaScript, and shipping full web products end to end.
+
+Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India, and open to Bangalore. Around two years of experience. Currently a Web Engineer at Cartrabbit, maintaining the front end for six WooCommerce products used by more than 300,000 stores. Skills include HTML5, CSS3, JavaScript (ES6+), React, Next.js, Tailwind CSS, WordPress and WooCommerce, Chrome Extensions (Manifest V3), Flutter and Dart, Core Web Vitals and on-page SEO. Contact: daksheshbabu@gmail.com.
+
+## Pages
+
+- [Home](https://dakshesh.co.in/): overview, work, products, skills and contact.
+- [About](https://dakshesh.co.in/about): more about Dakshesh, plus a photo gallery.
+
+## Products
+
+- [BillZap](https://dakshesh.co.in/billzap): GST billing app for Indian businesses.
+- [Shrinkto](https://dakshesh.co.in/shrinkto): image compressor for JPG, PNG and WebP.
+- [Spacing Inspector](https://dakshesh.co.in/spacing-inspector): Chrome extension for CSS spacing.
+- [FocusLens](https://dakshesh.co.in/focuslens): Chrome productivity tracker.
+- [EEAT Analyser](https://dakshesh.co.in/eeat-analyser): Google E-E-A-T SEO audit tool.
+- [DesignLock](https://dakshesh.co.in/designlock): WordPress design drift plugin.
+- [Melody Flow](https://dakshesh.co.in/melody-flow): offline Android music player.
+- [Image Size Inspector](https://dakshesh.co.in/image-size-inspector): Chrome image inspection tool.
+
+## Work
+
+- [JP Fitness](https://dakshesh.co.in/work/jp-fitness): fast, SEO-optimised gym website.
+
+## Links
+
+- [GitHub](https://github.com/dakshu007): code and projects.
+- [LinkedIn](https://www.linkedin.com/in/dakshesh-b-wordpress-developer/): professional profile.

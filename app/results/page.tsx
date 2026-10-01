@@ -123,7 +123,7 @@ export default async function ResultsPage() {
             <KpiGrid report={report} tone="light" />
           </div>
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-[1.55fr_1fr]">
+          <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-[1.55fr_1fr]">
             <section aria-labelledby="trend-heading" className={`${cardClass("light")} p-5 sm:p-7`}>
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
@@ -202,7 +202,7 @@ export default async function ResultsPage() {
           </section>
 
           {/* Rankings */}
-          <section aria-labelledby="rankings-heading" className="mt-20 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <section aria-labelledby="rankings-heading" className="mt-20 grid grid-cols-1 gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="eyebrow">Rankings</p>
               <h2 id="rankings-heading" className="mt-3 display-2 text-ink">
@@ -219,7 +219,7 @@ export default async function ResultsPage() {
                 {compact(report.rankings[0]?.clicks ?? 0)} clicks.
               </p>
             </div>
-            <div className={`${cardClass("light")} px-5 py-2 sm:px-7`}>
+            <div className={`${cardClass("light")} min-w-0 px-5 py-2 sm:px-7`}>
               <RankingsList rankings={report.rankings} tone="light" />
             </div>
           </section>

@@ -17,6 +17,7 @@ import {
   Music,
   Scaling,
   Dumbbell,
+  Scissors,
 } from "lucide-react";
 
 /* ----------------------------- Skills ----------------------------- */
@@ -100,6 +101,10 @@ export type Product = {
   url: string;
   icon: LucideIcon;
   soon?: boolean;
+  /** Custom text for the "soon" badge, e.g. "Play Store soon". */
+  soonLabel?: string;
+  /** One of the main products I actively build and grow (shown first). */
+  focus?: boolean;
   /** Real brand mark in /public, used instead of the icon where available. */
   logo?: string;
   /** Flagship SaaS product, highlighted across the site. */
@@ -107,6 +112,7 @@ export type Product = {
 };
 
 export const products: Product[] = [
+  // Main focus, in priority order.
   {
     id: "mykavo",
     name: "MyKavo",
@@ -115,20 +121,23 @@ export const products: Product[] = [
     icon: Radar,
     logo: "/images/logos/mykavo.png",
     featured: true,
-  },
-  {
-    id: "billzap",
-    name: "BillZap",
-    description: "India's best GST billing app.",
-    url: "https://billzap.netlify.app/",
-    icon: Receipt,
+    focus: true,
   },
   {
     id: "shrinkto",
     name: "Shrinkto",
-    description: "Image compressor for JPG, PNG and WebP.",
+    description: "Compress images to an exact file size, in the browser.",
     url: "https://shrinkto.com/",
     icon: ImageDown,
+    focus: true,
+  },
+  {
+    id: "image-size-inspector",
+    name: "Image Size Inspector",
+    description: "Chrome extension to inspect any image size instantly.",
+    url: "https://imageinspect.netlify.app/",
+    icon: Scaling,
+    focus: true,
   },
   {
     id: "spacing-inspector",
@@ -136,13 +145,7 @@ export const products: Product[] = [
     description: "Chrome extension to measure element spacing.",
     url: "https://spacinginspector.netlify.app/",
     icon: Ruler,
-  },
-  {
-    id: "focuslens",
-    name: "FocusLens",
-    description: "Chrome productivity tracker.",
-    url: "https://focuslens-productivity-tracker.netlify.app/",
-    icon: Timer,
+    focus: true,
   },
   {
     id: "eeat-analyser",
@@ -150,6 +153,25 @@ export const products: Product[] = [
     description: "SEO E-E-A-T audit tool.",
     url: "https://eeatanalyser.netlify.app/",
     icon: Search,
+    focus: true,
+  },
+  {
+    id: "billzap",
+    name: "BillZap",
+    description: "Voice GST billing app for India, coming to Google Play.",
+    url: "https://billzap.netlify.app/",
+    icon: Receipt,
+    soon: true,
+    soonLabel: "Play Store soon",
+    focus: true,
+  },
+  // Earlier side projects.
+  {
+    id: "focuslens",
+    name: "FocusLens",
+    description: "Chrome productivity tracker.",
+    url: "https://focuslens-productivity-tracker.netlify.app/",
+    icon: Timer,
   },
   {
     id: "designlock",
@@ -166,14 +188,10 @@ export const products: Product[] = [
     icon: Music,
     soon: true,
   },
-  {
-    id: "image-size-inspector",
-    name: "Image Size Inspector",
-    description: "Inspect any image size instantly.",
-    url: "https://imageinspect.netlify.app/",
-    icon: Scaling,
-  },
 ];
+
+export const focusProducts = products.filter((p) => p.focus);
+export const otherProducts = products.filter((p) => !p.focus);
 
 /* ----------------------------- Projects ----------------------------- */
 
@@ -195,6 +213,10 @@ export type Project = {
   metaDescription: string;
   // schema.org type used on the case-study page.
   schemaType: "WebSite" | "SoftwareApplication" | "MobileApplication";
+  /** Short label for the kind of business, shown on cards. */
+  category: string;
+  /** Marks a recent client. */
+  isNew?: boolean;
 };
 
 export const projects: Project[] = [
@@ -220,6 +242,32 @@ export const projects: Project[] = [
     metaDescription:
       "How I built JP Fitness, a fast and SEO-optimised gym website with WebP images, deferred map loading and click-to-call CTAs. A case study by Dakshesh B.",
     schemaType: "WebSite",
+    category: "Gym business website",
+  },
+  {
+    slug: "harsa-designer-boutique",
+    title: "Harsa Designer Boutique",
+    tagline: "A local-SEO website for a designer boutique in RS Puram, Coimbatore.",
+    summary:
+      "A website for a designer boutique in RS Puram, Coimbatore, offering blouse stitching, bridal blouse design, aari work and customised outfits. The goal was simple: be found by women searching for a boutique in Coimbatore, show the work beautifully, and make it one tap to enquire.",
+    impact: [
+      "A dedicated page for every service (blouse stitching, bridal blouse design, aari work, customised outfits), each targeting its own local search.",
+      "Local SEO blog content for searches like the best designer boutiques in Coimbatore and RS Puram.",
+      "A gallery, FAQ and contact page built to turn browsing into WhatsApp and call enquiries, tracked in GA4.",
+    ],
+    stack: ["Website design", "Local SEO", "Content", "GA4", "Search Console"],
+    liveUrl: "https://harshdesignerboutique.com/",
+    liveLabel: "harshdesignerboutique.com",
+    icon: Scissors,
+    thumbnail: "/images/projects/harsa-designer-boutique.svg",
+    thumbnailAlt: "Harsa Designer Boutique website preview",
+    focusKeyword: "Harsa Designer Boutique website",
+    metaTitle: "Harsa Designer Boutique Website Case Study | Dakshesh B",
+    metaDescription:
+      "How I built a local-SEO website for Harsa Designer Boutique in RS Puram, Coimbatore: service pages, local blog content and one-tap enquiries. A case study by Dakshesh B.",
+    schemaType: "WebSite",
+    category: "Designer boutique website",
+    isNew: true,
   },
 ];
 
@@ -232,25 +280,15 @@ export function getProject(slug: string): Project | undefined {
 export type HeroProduct = { name: string; color: string };
 
 /**
- * Products cycled through in the hero typewriter. The six Cartrabbit products
- * use the brand colours supplied; the nine shipped products use assigned
- * colours chosen to read well on the light hero background. MyKavo leads as
- * the flagship SaaS (its brand yellow is darkened to amber for contrast).
+ * Products cycled through in the hero typewriter: the six products I actively
+ * build and grow, MyKavo first (its brand yellow darkened to amber for
+ * contrast on the light hero).
  */
 export const heroProducts: HeroProduct[] = [
   { name: "MyKavo", color: "#B45309" },
-  { name: "Flycart", color: "#EA242B" },
-  { name: "Yuko", color: "#6F65F8" },
-  { name: "Retainful", color: "#F85C1B" },
-  { name: "WPLoyalty", color: "#4F47EB" },
-  { name: "UpsellWP", color: "#03337B" },
-  { name: "Spark Editor", color: "#165134" },
-  { name: "BillZap", color: "#0F9D58" },
   { name: "Shrinkto", color: "#0D9488" },
-  { name: "Spacing Inspector", color: "#4F46E5" },
-  { name: "FocusLens", color: "#7C3AED" },
-  { name: "EEAT Analyser", color: "#D97706" },
-  { name: "DesignLock", color: "#2563EB" },
-  { name: "Melody Flow", color: "#DB2777" },
   { name: "Image Size Inspector", color: "#0891B2" },
+  { name: "Spacing Inspector", color: "#4F46E5" },
+  { name: "EEAT Analyser", color: "#D97706" },
+  { name: "BillZap", color: "#0F9D58" },
 ];

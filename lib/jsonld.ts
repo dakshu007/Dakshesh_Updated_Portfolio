@@ -1,4 +1,4 @@
-import { SITE_URL, person, experience, sameAs } from "./site";
+import { SITE_URL, person, experience, currentRole, sameAs } from "./site";
 import { skillGroups, products, type Project } from "./data";
 import { productContent } from "./products-content";
 
@@ -35,6 +35,7 @@ export function personSchema() {
       "Frontend Developer",
       "Flutter Developer",
       "Full Stack Developer",
+      "Founder of MyKavo",
     ],
     description:
       "Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India. He builds fast, accessible, high-performance web interfaces and ships full web products end to end.",
@@ -50,6 +51,12 @@ export function personSchema() {
       addressCountry: "IN",
     },
     worksFor: {
+      "@type": "Organization",
+      name: currentRole.company,
+      url: currentRole.companyUrl,
+    },
+    // Previous employer (Oct 2024 to Jul 2026).
+    alumniOf: {
       "@type": "Organization",
       name: experience.company,
       url: experience.companyUrl,

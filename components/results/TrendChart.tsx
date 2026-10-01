@@ -145,7 +145,8 @@ export default function TrendChart({
       </div>
 
       {/* Table view for screen readers */}
-      <table className="sr-only">
+      <div className="sr-only">
+      <table>
         <caption>{caption}</caption>
         <thead>
           <tr>
@@ -164,6 +165,7 @@ export default function TrendChart({
           ))}
         </tbody>
       </table>
+      </div>
     </figure>
   );
 }

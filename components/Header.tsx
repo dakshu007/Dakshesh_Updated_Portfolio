@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, ArrowUpRight, Boxes } from "lucide-react";
-import { products } from "@/lib/data";
+import { products, focusProducts, otherProducts } from "@/lib/data";
 
 const navLinks = [
   { href: "/results", label: "Live results" },
@@ -176,10 +176,10 @@ export default function Header() {
             >
               <div className="rounded-2xl border border-line bg-surface p-3 shadow-lift">
                 <p className="px-3 pb-2 pt-1 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
-                  Products I have shipped
+                  Products I build and grow
                 </p>
                 <ul className="grid gap-1 sm:grid-cols-2">
-                  {products.map((product) => (
+                  {focusProducts.map((product) => (
                     <li key={product.id}>
                       <Link
                         data-product-link
@@ -199,8 +199,8 @@ export default function Header() {
                               </span>
                             )}
                             {product.soon && (
-                              <span className="rounded-full bg-accent-soft px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
-                                Soon
+                              <span className="rounded-full bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                                {product.soonLabel ?? "Soon"}
                               </span>
                             )}
                           </span>
@@ -212,6 +212,22 @@ export default function Header() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-2 flex flex-wrap items-center gap-1.5 border-t border-line px-3 pb-1 pt-3">
+                  <span className="mr-1 text-[11px] font-bold uppercase tracking-[0.14em] text-ink-soft">
+                    Earlier
+                  </span>
+                  {otherProducts.map((product) => (
+                    <Link
+                      key={product.id}
+                      data-product-link
+                      href={`/${product.id}`}
+                      onClick={() => setMenuOpen(false)}
+                      className="rounded-full px-2.5 py-1 text-xs font-semibold text-ink-muted transition-colors hover:bg-accent-soft hover:text-accent focus-visible:bg-accent-soft"
+                    >
+                      {product.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -297,8 +313,8 @@ export default function Header() {
                     </span>
                   )}
                   {product.soon && (
-                    <span className="rounded-full bg-accent-soft px-1.5 py-0.5 text-[10px] font-bold uppercase text-accent">
-                      Soon
+                    <span className="rounded-full bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold uppercase text-emerald-700">
+                      {product.soonLabel ?? "Soon"}
                     </span>
                   )}
                 </Link>

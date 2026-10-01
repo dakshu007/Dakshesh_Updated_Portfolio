@@ -2,7 +2,7 @@
 
 > Frontend Web Engineer building fast, accessible, high-performance web interfaces with HTML, CSS and modern JavaScript, and shipping full web products end to end.
 
-Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India. Around two years of experience. Currently a Web Engineer at Cartrabbit, maintaining the front end for six WooCommerce products used by more than 300,000 stores. Founder of MyKavo, a website change detection and monitoring SaaS. Skills include HTML5, CSS3, JavaScript (ES6+), React, Next.js, Tailwind CSS, WordPress and WooCommerce, Chrome Extensions (Manifest V3), Flutter and Dart, Core Web Vitals and on-page SEO. Available for freelance projects: business websites, SaaS and web apps, SEO and AI search optimisation, and Chrome extensions. Contact: daksheshbabu@gmail.com, WhatsApp +91 87784 81650.
+Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India. 1 year and 10 months of professional experience: Web Engineer at Cartrabbit from October 2024 to July 2026, maintaining the front end for six WooCommerce products used by more than 300,000 stores. Since August 2026 he builds MyKavo, a website change detection and monitoring SaaS, full time. Clients include JP Fitness and Harsa Designer Boutique. Skills include HTML5, CSS3, JavaScript (ES6+), React, Next.js, Tailwind CSS, WordPress and WooCommerce, Chrome Extensions (Manifest V3), Flutter and Dart, Core Web Vitals and on-page SEO. Available for freelance projects: business websites, SaaS and web apps, SEO and AI search optimisation, and Chrome extensions. Contact: daksheshbabu@gmail.com, WhatsApp +91 87784 81650.
 
 ## Pages
 
@@ -12,19 +12,25 @@ Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, F
 
 ## Products
 
-- [MyKavo](https://dakshesh.co.in/mykavo): website change detection and monitoring SaaS. Live at https://mykavo.app/.
-- [BillZap](https://dakshesh.co.in/billzap): GST billing app for Indian businesses.
-- [Shrinkto](https://dakshesh.co.in/shrinkto): image compressor for JPG, PNG and WebP.
+Main products:
+
+- [MyKavo](https://dakshesh.co.in/mykavo): website change detection and monitoring SaaS, built full time. Live at https://mykavo.app/.
+- [Shrinkto](https://dakshesh.co.in/shrinkto): compress JPG, PNG and WebP to an exact file size in the browser.
+- [Image Size Inspector](https://dakshesh.co.in/image-size-inspector): Chrome extension to inspect image sizes.
 - [Spacing Inspector](https://dakshesh.co.in/spacing-inspector): Chrome extension for CSS spacing.
-- [FocusLens](https://dakshesh.co.in/focuslens): Chrome productivity tracker.
 - [EEAT Analyser](https://dakshesh.co.in/eeat-analyser): Google E-E-A-T SEO audit tool.
+- [BillZap](https://dakshesh.co.in/billzap): voice GST billing app for Indian businesses, Android app coming to Google Play.
+
+Earlier side projects:
+
+- [FocusLens](https://dakshesh.co.in/focuslens): Chrome productivity tracker.
 - [DesignLock](https://dakshesh.co.in/designlock): WordPress design drift plugin.
 - [Melody Flow](https://dakshesh.co.in/melody-flow): offline Android music player.
-- [Image Size Inspector](https://dakshesh.co.in/image-size-inspector): Chrome image inspection tool.
 
 ## Work
 
 - [JP Fitness](https://dakshesh.co.in/work/jp-fitness): fast, SEO-optimised gym website.
+- [Harsa Designer Boutique](https://dakshesh.co.in/work/harsa-designer-boutique): local-SEO website for a designer boutique in RS Puram, Coimbatore (new client).
 
 ## Links
 

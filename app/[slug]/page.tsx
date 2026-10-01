@@ -117,8 +117,8 @@ export default async function ProductPage({
               <Layers aria-hidden="true" className="h-4 w-4 text-accent" />
               {content.category}
               {product.soon && (
-                <span className="ml-1 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
-                  Soon
+                <span className="ml-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                  {product.soonLabel ?? "Soon"}
                 </span>
               )}
             </span>

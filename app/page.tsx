@@ -34,9 +34,9 @@ export default async function HomePage() {
       <LogoStrip />
       <LiveResults report={report} />
       <Services report={report} />
-      <SaasSpotlight />
-      <ProductsStrip />
-      <Work />
+      <SaasSpotlight report={report} />
+      <ProductsStrip report={report} />
+      <Work report={report} />
       <About />
       <Skills />
       <Experience />

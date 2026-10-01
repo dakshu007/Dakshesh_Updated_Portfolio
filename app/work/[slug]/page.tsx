@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowUpRight, ArrowLeft, Check } from "lucide-react";
-import { getProject } from "@/lib/data";
+import { getProject, projects } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 import { projectSchema, breadcrumbSchema } from "@/lib/jsonld";
 import JsonLd from "@/components/JsonLd";
@@ -10,36 +11,59 @@ import CtaBand from "@/components/CtaBand";
 import SiteResults from "@/components/results/SiteResults";
 import { getAnalytics } from "@/lib/analytics";
 
-const project = getProject("jp-fitness")!;
+type Params = { slug: string };
 
-export const metadata: Metadata = {
-  title: project.metaTitle,
-  description: project.metaDescription,
-  alternates: { canonical: "/work/jp-fitness" },
-  openGraph: {
-    type: "article",
-    url: `${SITE_URL}/work/jp-fitness`,
-    siteName: "Dakshesh B",
-    locale: "en_IN",
+export const dynamicParams = false;
+
+export function generateStaticParams(): Params[] {
+  return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProject(slug);
+  if (!project) return {};
+  const url = `${SITE_URL}/work/${project.slug}`;
+  return {
     title: project.metaTitle,
     description: project.metaDescription,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: project.metaTitle,
-    description: project.metaDescription,
-  },
-};
+    alternates: { canonical: `/work/${project.slug}` },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: "Dakshesh B",
+      locale: "en_IN",
+      title: project.metaTitle,
+      description: project.metaDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.metaTitle,
+      description: project.metaDescription,
+    },
+  };
+}
 
 // Live results refresh every 6 hours (ISR).
 export const revalidate = 21600;
 
-export default async function JpFitnessPage() {
+export default async function WorkPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { slug } = await params;
+  const project = getProject(slug);
+  if (!project) notFound();
   const report = await getAnalytics();
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: `${SITE_URL}/` },
     { name: "Work", url: `${SITE_URL}/#work` },
-    { name: project.title, url: `${SITE_URL}/work/jp-fitness` },
+    { name: project.title, url: `${SITE_URL}/work/${project.slug}` },
   ]);
 
   return (
@@ -68,7 +92,14 @@ export default async function JpFitnessPage() {
       </nav>
 
       <header className="mt-10 max-w-prose">
-        <span className="eyebrow">Client work</span>
+        <span className="eyebrow">
+          Client work · {project.category}
+          {project.isNew && (
+            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] tracking-wide text-emerald-700">
+              New client
+            </span>
+          )}
+        </span>
         <h1 className="mt-4 display-2 text-ink">{project.title}</h1>
         <p className="mt-4 text-xl leading-relaxed text-ink-muted">
           {project.tagline}
@@ -140,7 +171,7 @@ export default async function JpFitnessPage() {
         </aside>
       </div>
 
-      <SiteResults report={report} siteId="jp-fitness" />
+      <SiteResults report={report} siteId={project.slug} />
 
       <Link
         href="/#work"
@@ -152,7 +183,7 @@ export default async function JpFitnessPage() {
     </article>
     <CtaBand
       id="case-study-cta"
-      title="Want results like JP Fitness?"
+      title={`Want results like ${project.title}?`}
       subtitle="A fast, local-SEO website that ranks for your business and makes it easy to call or WhatsApp you."
     />
     </>

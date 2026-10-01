@@ -43,12 +43,12 @@ const cartrabbitProducts = [
 export default function LogoStrip() {
   return (
     <section
-      aria-label="Products I build for at Cartrabbit"
+      aria-label="Products I built for at Cartrabbit"
       className="bg-black py-12"
     >
       <div className="section">
         <p className="text-center text-sm font-medium text-white/70">
-          Front end I build and maintain at Cartrabbit, used by 300,000+ stores
+          Front end I built and maintained at Cartrabbit for 1.10 years, used by 300,000+ stores
         </p>
         <ul className="mt-7 flex flex-wrap items-start justify-center gap-x-10 gap-y-6">
           {cartrabbitProducts.map((product) => (

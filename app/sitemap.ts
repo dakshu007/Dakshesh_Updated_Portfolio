@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { products } from "@/lib/data";
+import { products, projects } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -30,11 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-    {
-      url: `${SITE_URL}/work/jp-fitness`,
+    ...projects.map((project) => ({
+      url: `${SITE_URL}/work/${project.slug}`,
       lastModified,
-      changeFrequency: "yearly",
+      changeFrequency: "monthly" as const,
       priority: 0.7,
-    },
+    })),
   ];
 }

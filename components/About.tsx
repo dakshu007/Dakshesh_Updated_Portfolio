@@ -66,8 +66,8 @@ export default function About() {
             >
               I care about the details users feel: fast loads, clean
               accessibility, and interfaces that behave the same on a budget
-              phone and a desktop. Beyond client work, I design and ship my own
-              products and developer tools end to end.
+              phone and a desktop. Right now that means MyKavo, which I build
+              full time, plus a few client websites I take on alongside it.
             </p>
             <div
               data-reveal

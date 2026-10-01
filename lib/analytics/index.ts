@@ -45,7 +45,7 @@ const SITES: SiteMeta[] = [
   { id: "jp-fitness", name: "JP Fitness", kind: "Client website", href: "/work/jp-fitness", domain: "jpfitness.co.in" },
   { id: "spacing-inspector", name: "Spacing Inspector", kind: "Chrome extension", href: "/spacing-inspector", domain: "spacinginspector.netlify.app" },
   { id: "portfolio", name: "dakshesh.co.in", kind: "Portfolio", href: "/", domain: "dakshesh.co.in" },
-  { id: "harsa", name: "Harsa Designer Boutique", kind: "Client website", href: "https://harshdesignerboutique.com/", domain: "harshdesignerboutique.com", ga: ["Harsa Designer Boutique", "552223904"] },
+  { id: "harsa-designer-boutique", name: "Harsa Designer Boutique", kind: "Client website", href: "/work/harsa-designer-boutique", domain: "harshdesignerboutique.com", ga: ["Harsa Designer Boutique", "552223904"] },
   { id: "billzap", name: "BillZap", kind: "Product", href: "/billzap", domain: "billzap.netlify.app", hidden: true },
 ];
 
@@ -403,9 +403,26 @@ async function windsor(
   return rows as Row[];
 }
 
+/**
+ * The report is monthly: it always covers TRACKING_START to the last day of
+ * the previous month (India time), so on the 1st of every month the next
+ * regeneration rolls it forward by a month on its own. Search Console needs
+ * two or three days to finalise a month, so pages keep revalidating every
+ * 6 hours and the scheduled warm-up in netlify/functions runs on the 1st to
+ * 3rd to pick up the late rows.
+ */
+export function monthWindow(now: Date = new Date()) {
+  const ist = new Date(now.getTime() + 5.5 * 3600 * 1000);
+  const firstOfMonth = new Date(Date.UTC(ist.getUTCFullYear(), ist.getUTCMonth(), 1));
+  const lastOfPrev = new Date(firstOfMonth.getTime() - 86400000);
+  return {
+    dateTo: lastOfPrev.toISOString().slice(0, 10),
+    reportDate: firstOfMonth.toISOString(),
+  };
+}
+
 async function fetchLive(key: string): Promise<RawData> {
-  const now = new Date();
-  const dateTo = new Date(now.getTime() - 86400000).toISOString().slice(0, 10);
+  const { dateTo, reportDate } = monthWindow();
   const dateFrom = TRACKING_START;
   const call = (c: string, f: string[]) => windsor(c, f, key, dateFrom, dateTo);
 
@@ -429,7 +446,7 @@ async function fetchLive(key: string): Promise<RawData> {
     ]);
 
   return {
-    fetchedAt: now.toISOString(),
+    fetchedAt: reportDate,
     dateFrom,
     dateTo,
     gscSites,

@@ -18,6 +18,14 @@ The site was redesigned to a light, minimal, high-contrast look inspired by hack
 - Cartrabbit logo: the Experience card uses the real Cartrabbit mark at `public/images/cartrabbit-logo.svg`.
 - Cartrabbit product strip: the six product names link to their live sites (new tab) and turn their brand colour on hover, set per item via a `--bc` CSS variable and the `.brand-link` rule in `app/globals.css` (Tailwind does not generate arbitrary `var()` hover utilities, so the hover lives in CSS).
 
+## Career update and focus (Oct 2026)
+
+- Cartrabbit is past tense everywhere (Oct 2024 to 31 Jul 2026, 1 year 10 months); MyKavo is the current, full-time role. The Cartrabbit start month was set to October 2024 so the tenure reads exactly 1.10 years, matching the owner's statement (an older note said November 2024).
+- The hero experience figure is fixed at 1.10 on request, rather than the old auto-incrementing counter.
+- The products grid shows six focus products; older side projects keep their pages (for SEO) but sit in a small "Earlier side projects" row and in the header dropdown footer.
+- The hero typewriter cycles only the six focus products, since the Cartrabbit products are no longer current work.
+- The live results section on home is light to match the rest of the site; the black sections (Cartrabbit strip, Work, Skills, Metrics, Footer) stay as the site's contrast bands.
+
 ## Live results and conversion (Oct 2026)
 
 - Goal: the site was getting clicks but few enquiries, so it now leads with proof and makes contact one tap away.

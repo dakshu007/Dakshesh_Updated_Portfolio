@@ -16,7 +16,7 @@ export const person = {
   tagline:
     "I build fast, accessible, high-performance interfaces and ship full web products end to end.",
   summary:
-    "Frontend web developer with around two years of experience building responsive, accessible and high-performance interfaces with HTML, CSS and modern JavaScript. I work as a Web Engineer at Cartrabbit, where I help maintain six production WooCommerce products serving more than 300,000 stores. I also build with Flutter and Dart, and ship full stack products end to end.",
+    "Frontend web developer with 1 year and 10 months of professional experience building responsive, accessible and high-performance interfaces with HTML, CSS and modern JavaScript. I was a Web Engineer at Cartrabbit until July 2026, maintaining the front end for six production WooCommerce products serving more than 300,000 stores. Today I work full time on MyKavo, my own website monitoring SaaS, and take on a few client websites alongside it.",
   location: "Kotagiri, India",
   locationNote: "Remote friendly",
   email: "daksheshbabu@gmail.com",
@@ -51,19 +51,37 @@ export const sameAs = [
   socials.oldSite2,
 ];
 
+/** Current focus: building MyKavo full time. */
+export const currentRole = {
+  company: "MyKavo",
+  companyUrl: "https://mykavo.app/",
+  title: "Founder and Developer",
+  period: "Aug 2026 - Present",
+  location: "Kotagiri, India (remote)",
+  summary:
+    "After 1 year and 10 months at Cartrabbit, I now build MyKavo full time: a website change detection and monitoring SaaS I design, develop, market and run end to end.",
+  highlights: [
+    "Design and build the whole product: visual diffs, SEO, link, script and performance monitoring, alerts and billing.",
+    "Run growth myself: the marketing site, technical SEO and content that took MyKavo from zero to tens of thousands of Google impressions.",
+    "Take on a small number of client websites alongside, such as JP Fitness and Harsa Designer Boutique.",
+  ],
+} as const;
+
+/** Previous role. Left on 31 July 2026 after 1 year 10 months. */
 export const experience = {
   company: "Cartrabbit",
   companyUrl: "https://cartrabbit.io/",
   title: "Web Engineer and Developer",
-  period: "Nov 2024 - Present",
+  period: "Oct 2024 - Jul 2026",
+  duration: "1 yr 10 mos",
   location: "Coimbatore, India",
   summary:
-    "Cartrabbit is a WooCommerce product company. I develop and maintain the front end for six production products used by more than 300,000 stores.",
+    "Cartrabbit is a WooCommerce product company. For 1 year and 10 months I developed and maintained the front end for six production products used by more than 300,000 stores.",
   highlights: [
-    "Develop and maintain the front end for six production WooCommerce products: Retainful, Flycart, WPLoyalty, UpsellWP, Spark Editor and Yuko.",
-    "Ship pixel-perfect, responsive interfaces from Figma using semantic HTML, modern CSS and vanilla JavaScript.",
-    "Tune Core Web Vitals and on-page SEO so product pages load fast and rank well.",
-    "Work the full pull request flow: code review, payment gateway and REST API integration, and AI-assisted development with Claude Code and Cursor.",
+    "Developed and maintained the front end for six production WooCommerce products: Retainful, Flycart, WPLoyalty, UpsellWP, Spark Editor and Yuko.",
+    "Shipped pixel-perfect, responsive interfaces from Figma using semantic HTML, modern CSS and vanilla JavaScript.",
+    "Tuned Core Web Vitals and on-page SEO so product pages loaded fast and ranked well.",
+    "Worked the full pull request flow: code review, payment gateway and REST API integration, and AI-assisted development with Claude Code and Cursor.",
   ],
 } as const;
 
@@ -76,20 +94,7 @@ export const metrics = [
 ] as const;
 
 /**
- * Live experience counter. Anchored so that as of June 2026 it reads "1.8"
- * (1 year 8 months) and rolls forward one month on the 1st of each month:
- * 1.8 -> 1.9 -> 1.10 -> 1.11 -> 2.0 and so on. Computed from the current date,
- * so it updates on its own without a redeploy when viewed client-side.
+ * Professional experience shown in the hero. Fixed on purpose: 1 year and 10
+ * months at Cartrabbit (Oct 2024 to 31 Jul 2026). Shown as "1.10 yrs".
  */
-export const EXPERIENCE_START_YEAR = 2024;
-export const EXPERIENCE_START_MONTH = 9; // October, 0-based
-
-export function experienceLabel(now: Date = new Date()): string {
-  let months =
-    (now.getFullYear() - EXPERIENCE_START_YEAR) * 12 +
-    (now.getMonth() - EXPERIENCE_START_MONTH);
-  if (months < 0) months = 0;
-  const years = Math.floor(months / 12);
-  const remainder = months % 12;
-  return `${years}.${remainder}`;
-}
+export const EXPERIENCE_LABEL = "1.10";

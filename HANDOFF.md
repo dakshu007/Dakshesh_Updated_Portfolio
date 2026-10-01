@@ -20,8 +20,17 @@ Netlify site: `daksheshb` (id `dc5cdbdb-3fb5-4c5f-b6c4-090c98fa4091`). If a depl
 - Google Analytics: GA4 `G-3JWWGHRKZ2` (`app/layout.tsx` + `components/Analytics.tsx`).
 - Google Search Console: verification file is live at `/googled23738155d4d0020.html`.
 
+## Career and focus (Oct 2026)
+- Left Cartrabbit on 31 Jul 2026 after 1 year 10 months (Oct 2024 to Jul 2026); now building MyKavo full time. Data in `lib/site.ts` (`currentRole`, `experience`); the Experience section shows both as a timeline, and Person JSON-LD has `worksFor` MyKavo and `alumniOf` Cartrabbit.
+- Hero experience figure is fixed at "1.10 yrs" (`EXPERIENCE_LABEL` in `lib/site.ts`); it no longer counts up.
+- Main products (in this order, `focus: true` in `lib/data.ts`): MyKavo, Shrinkto, Image Size Inspector, Spacing Inspector, EEAT Analyser, BillZap (Android app, "Play Store soon"). FocusLens, DesignLock and Melody Flow are shown as "Earlier side projects".
+- Clients: JP Fitness and Harsa Designer Boutique (new client). Case studies are generated from `projects` in `lib/data.ts` at `/work/<slug>` (`app/work/[slug]/`).
+- MyKavo home section (`components/SaasSpotlight.tsx`) has a CSS-only animated product moment (`.mk-*` keyframes in `app/globals.css`), static under reduced motion.
+
 ## Live results and conversion (Oct 2026)
-- Live analytics: `lib/analytics/index.ts` builds one report from Windsor.ai (Google Search Console for 8 sites, GA4 for MyKavo, Shrinkto and Harsa Designer Boutique). Set `WINDSOR_API_KEY` in Netlify (Site configuration > Environment variables, server-side, not NEXT_PUBLIC) and the numbers refresh every 6 hours with no redeploy. Without the key the page shows `lib/analytics/snapshot.json` (data to 30 Sep 2026) and the badge reads "Verified" instead of "Live".
+- Live analytics: `lib/analytics/index.ts` builds one report from Windsor.ai (Google Search Console for 8 sites, GA4 for MyKavo, Shrinkto and Harsa Designer Boutique). Set `WINDSOR_API_KEY` in Netlify (Site configuration > Environment variables, server-side, not NEXT_PUBLIC) and the numbers refresh every 6 hours with no redeploy. Without the key the page shows `lib/analytics/snapshot.json` (data to 30 Sep 2026) and the badge reads "Verified" instead of "Live". The live results section on home uses the site's light palette.
+- Monthly: the report always runs to the last day of the previous month (India time), so it rolls forward on the 1st by itself. `netlify/functions/monthly-refresh.mts` is a scheduled function (00:30 UTC on the 1st to 3rd) that visits the live pages so they regenerate straight away; Search Console finishes a month 2 to 3 days late, which the 1st to 3rd runs and the 6 hour ISR cover.
+- Windsor.ai was on a Trial plan in Oct 2026. If the trial ends and the API stops answering, the site quietly falls back to the snapshot.
 - To refresh the snapshot by hand, re-pull the same fields listed in `fetchLive()` and replace the rows in `snapshot.json`.
 - Where it shows: hero proof card, the dark "Live results" section on home (`components/LiveResults.tsx`), the full report at `/results`, and a per-site strip on product pages and `/work/jp-fitness` (`components/results/SiteResults.tsx`). Site names and links are mapped in `SITES` in `lib/analytics/index.ts`; add a new domain there when you connect it in Windsor.
 - Conversion: hero CTAs (Start your project, WhatsApp), Services section with live proof, a CTA band, a sticky mobile bar and desktop pill (`components/StickyCta.tsx`), and a contact section with one-tap WhatsApp, call and email plus a short form with project type.

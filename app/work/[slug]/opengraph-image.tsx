@@ -1,12 +1,17 @@
 import { ImageResponse } from "next/og";
-import { getProject } from "@/lib/data";
+import { getProject, projects } from "@/lib/data";
 
-export const alt = "JP Fitness website case study by Dakshesh B";
+export const alt = "Client website case study by Dakshesh B";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function Image() {
-  const project = getProject("jp-fitness")!;
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
+
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProject(slug) ?? projects[0];
 
   return new ImageResponse(
     (

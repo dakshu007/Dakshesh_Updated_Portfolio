@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowDown, Check, TrendingUp, Trophy, Bot, Globe2 } from "lucide-react";
-import { person, experienceLabel } from "@/lib/site";
+import { person, EXPERIENCE_LABEL } from "@/lib/site";
 import type { AnalyticsReport } from "@/lib/analytics";
 import { compact } from "@/lib/analytics";
-import ExperienceValue from "./ExperienceValue";
 import HeroTyping from "./HeroTyping";
 import WhatsAppIcon from "./icons/WhatsApp";
 import { Sparkline } from "./results/parts";
@@ -91,9 +90,8 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
               <HeroTyping />
             </span>
             <span className="sr-only">
-              MyKavo, Flycart, Yuko, Retainful, WPLoyalty, UpsellWP, Spark
-              Editor, BillZap, Shrinkto, Spacing Inspector, FocusLens, EEAT
-              Analyser, DesignLock, Melody Flow and Image Size Inspector.
+              MyKavo, Shrinkto, Image Size Inspector, Spacing Inspector, EEAT
+              Analyser and BillZap.
             </span>
           </h1>
 
@@ -101,8 +99,9 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
             I design and build fast websites, SaaS products and web apps that{" "}
             <span className="font-semibold text-ink">rank on Google</span> and{" "}
             <span className="font-semibold text-ink">turn visitors into customers</span>.
-            Web Engineer at Cartrabbit, where my front end reaches more than
-            300,000 stores.
+            1.10 years as a Web Engineer at Cartrabbit (300,000+ stores), now
+            building <span className="font-semibold text-ink">MyKavo</span> full
+            time.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -149,7 +148,7 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
               <dt className="sr-only">Building for the web</dt>
               <dd>
                 <span className="block font-display text-2xl font-bold text-ink sm:text-3xl">
-                  <ExperienceValue initial={experienceLabel()} />
+                  {EXPERIENCE_LABEL} yrs
                 </span>
                 <span className="mt-1 block text-sm text-ink-muted">
                   Building for the web
@@ -158,7 +157,7 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
             </div>
             {[
               { v: "9", l: "Products shipped" },
-              { v: "300k+", l: "Stores served" },
+              { v: "300k+", l: "Stores reached at Cartrabbit" },
               { v: String(report.totals.countries), l: "Countries reached" },
             ].map((item) => (
               <div key={item.l}>

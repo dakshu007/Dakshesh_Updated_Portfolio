@@ -3,8 +3,8 @@ import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Building2, Rocket, Camera } from "lucide-react";
-import { SITE_URL, person, experience } from "@/lib/site";
+import { ArrowRight, MapPin, Building2, Rocket, Camera, Radar } from "lucide-react";
+import { SITE_URL, person } from "@/lib/site";
 import { breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import JsonLd from "@/components/JsonLd";
 
@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "What does Dakshesh do?",
     answer:
-      "Dakshesh works as a frontend web developer, web engineer and Flutter developer. At Cartrabbit he maintains the front end for six WooCommerce products used by more than 300,000 stores, and he has shipped nine of his own products, including MyKavo, a website change detection and monitoring SaaS.",
+      "Dakshesh is a frontend web developer and web engineer who now builds MyKavo, a website change detection and monitoring SaaS, full time. Before that he spent 1 year and 10 months at Cartrabbit (until July 2026), maintaining the front end for six WooCommerce products used by more than 300,000 stores. His main products are MyKavo, Shrinkto, Image Size Inspector, Spacing Inspector, EEAT Analyser and BillZap, and he builds websites for clients such as JP Fitness and Harsa Designer Boutique.",
   },
   {
     question: "What technologies does Dakshesh use?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Is Dakshesh available for work?",
     answer:
-      "Yes. Dakshesh is open to frontend and full stack roles, remote friendly, and based in Kotagiri, India. You can reach him at daksheshbabu@gmail.com.",
+      "Yes, for selected client projects. Alongside MyKavo, Dakshesh takes on business websites, web apps and SEO work, remotely from Kotagiri, India. You can reach him at daksheshbabu@gmail.com or on WhatsApp at +91 87784 81650.",
   },
 ];
 
@@ -64,8 +64,9 @@ function galleryImages(): string[] {
 }
 
 const facts = [
-  { icon: Rocket, label: "Around 2 years building for the web" },
-  { icon: Building2, label: "Web Engineer at Cartrabbit" },
+  { icon: Radar, label: "Building MyKavo full time" },
+  { icon: Building2, label: "1.10 years at Cartrabbit" },
+  { icon: Rocket, label: "6 products, 2 client sites" },
   { icon: MapPin, label: person.location },
 ];
 
@@ -108,10 +109,11 @@ export default function AboutPage() {
               {person.summary}
             </p>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink-muted">
-              At {experience.company} I help maintain the front end for six
-              production products used by more than 300,000 stores. Outside of
-              that, I design and ship my own apps and developer tools end to
-              end, from the first commit to the page that sells them.
+              For 1 year and 10 months at Cartrabbit I helped maintain the
+              front end for six production products used by more than 300,000
+              stores. Since August 2026 I build MyKavo full time, and design
+              and ship my own tools end to end, from the first commit to the
+              page that sells them.
             </p>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink-muted">
               I care most about how a site feels: fast loads, clean

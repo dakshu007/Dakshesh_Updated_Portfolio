@@ -50,7 +50,7 @@ export const productContent: Record<string, ProductContent> = {
   billzap: {
     tagline: "Bill with your voice, in your language, GST ready.",
     overview:
-      "BillZap is a free GST billing app built for small businesses in India. Shop owners create GST-compliant invoices by speaking instead of typing, with the app handling tax, payment codes and sharing automatically. It is designed to work in everyday Indian languages and to keep running even without a network connection.",
+      "BillZap is a free GST billing app built for small businesses in India. Shop owners create GST-compliant invoices by speaking instead of typing, with the app handling tax, payment codes and sharing automatically. It is designed to work in everyday Indian languages and to keep running even without a network connection. The Android app is releasing soon on Google Play.",
     whoFor:
       "Small Indian business owners such as kirana stores, restaurants, hardware shops, salons, tailors, wholesalers and pharmacies who want fast billing without manual data entry.",
     category: "Android app",
@@ -59,7 +59,7 @@ export const productContent: Record<string, ProductContent> = {
     applicationCategory: "BusinessApplication",
     metaTitle: "BillZap GST Billing App for Indian Business | Dakshesh B",
     metaDescription:
-      "BillZap is a free GST billing app for Indian small businesses. Create voice invoices in your own language, apply GST automatically and share bills on WhatsApp.",
+      "BillZap is a free GST billing app for Indian small businesses, coming soon to Google Play. Create voice invoices in your own language, apply GST automatically and share bills on WhatsApp.",
     features: [
       { title: "Voice billing", desc: "Speak the order and BillZap turns it into a ready invoice in seconds, no typing needed." },
       { title: "Multilingual input", desc: "Works across several Indian languages including Hindi, Tamil, Telugu and Kannada, with mixed language support." },

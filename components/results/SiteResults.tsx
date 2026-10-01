@@ -41,7 +41,7 @@ export default function SiteResults({
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="eyebrow">Live results</p>
+          <p className="eyebrow">Results</p>
           <h2 id={`site-results-${siteId}`} className="mt-3 text-2xl font-bold text-ink">
             What {site.name} has earned so far
           </h2>

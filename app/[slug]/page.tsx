@@ -23,8 +23,7 @@ type Params = { slug: string };
 
 export const dynamicParams = false;
 
-// Live results on product pages refresh every 6 hours (ISR).
-export const revalidate = 21600;
+
 
 export function generateStaticParams(): Params[] {
   return products.map((p) => ({ slug: p.id }));

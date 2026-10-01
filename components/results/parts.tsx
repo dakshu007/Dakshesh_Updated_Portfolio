@@ -9,7 +9,7 @@ import {
   Globe2,
 } from "lucide-react";
 import type { AnalyticsReport, MonthPoint, Ranking, SiteReport } from "@/lib/analytics";
-import { compact, formatUpdated, monthLabel } from "@/lib/analytics";
+import { compact, monthLabel } from "@/lib/analytics";
 import CountUp from "../CountUp";
 
 export type Tone = "dark" | "light";
@@ -29,7 +29,6 @@ const text = {
 /* ----------------------------- Live badge ----------------------------- */
 
 export function LiveBadge({ report, tone }: { report: AnalyticsReport; tone: Tone }) {
-  const isLive = report.source === "live";
   return (
     <p
       className={`inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border px-3.5 py-1.5 text-xs font-medium ${
@@ -43,12 +42,12 @@ export function LiveBadge({ report, tone }: { report: AnalyticsReport; tone: Ton
         <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
       </span>
       <span className={`font-semibold ${text[tone].primary}`}>
-        {isLive ? "Live" : "Verified"}
+        Verified
       </span>
       <span aria-hidden="true">·</span>
-      <span>Updated {formatUpdated(report.updatedAt)}</span>
+      <span>Data to {monthLabel(report.periodEnd, true)}</span>
       <span aria-hidden="true" className="max-sm:hidden">·</span>
-      <span className="max-sm:hidden">Google Search Console and GA4 via Windsor.ai</span>
+      <span className="max-sm:hidden">Google Search Console and GA4</span>
     </p>
   );
 }

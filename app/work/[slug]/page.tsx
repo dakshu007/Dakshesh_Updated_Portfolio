@@ -48,8 +48,7 @@ export async function generateMetadata({
   };
 }
 
-// Live results refresh every 6 hours (ISR).
-export const revalidate = 21600;
+
 
 export default async function WorkPage({
   params,

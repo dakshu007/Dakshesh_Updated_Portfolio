@@ -19,7 +19,6 @@ const trust = [
 ];
 
 export default function Hero({ report }: { report: AnalyticsReport }) {
-  const month = new Date().toLocaleString("en-US", { month: "long", timeZone: "Asia/Kolkata" });
   const top = report.rankings[0];
   const growth = report.growth && report.growth > 1.2 ? report.growth : null;
 
@@ -75,7 +74,7 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
             </span>
-            Available for new projects in {month}
+            Available for new projects
             <ArrowRight aria-hidden="true" className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </Link>
 
@@ -128,7 +127,7 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
               data-cta="hero-see-results"
               className="btn px-3 py-3.5 text-base text-ink-muted hover:text-accent"
             >
-              See live results
+              See my results
               <ArrowDown aria-hidden="true" className="h-4 w-4" />
             </Link>
           </div>
@@ -175,9 +174,9 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
           </dl>
         </div>
 
-        {/* Live proof card */}
+        {/* Proof card */}
         <aside
-          aria-label="Live results snapshot"
+          aria-label="Results snapshot"
           className="viz-light relative mx-auto w-full max-w-sm motion-safe:animate-float lg:mx-0 lg:justify-self-end"
         >
           <div className="rounded-3xl border border-white/70 bg-white/75 p-6 shadow-lift ring-1 ring-black/5 backdrop-blur-xl">
@@ -187,7 +186,7 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
-                Live from Google
+                Verified on Google
               </p>
               {growth && (
                 <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700">
@@ -253,7 +252,7 @@ export default function Hero({ report }: { report: AnalyticsReport }) {
               data-cta="hero-proof-card"
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover"
             >
-              See the full live report
+              See the full report
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Link>
           </div>

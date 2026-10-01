@@ -21,9 +21,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-// Live results refresh in the background every 6 hours (ISR).
-export const revalidate = 21600;
-
 export default async function HomePage() {
   const report = await getAnalytics();
   return (

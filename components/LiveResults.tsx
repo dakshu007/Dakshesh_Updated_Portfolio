@@ -42,14 +42,14 @@ export default function LiveResults({ report }: { report: AnalyticsReport }) {
       <div className="section">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl" data-reveal>
-            <p className="eyebrow">Live results</p>
+            <p className="eyebrow">Proven results</p>
             <h2 id="results-heading" className="mt-4 display-2 text-ink">
               I do not just build websites. I build websites that get found.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-muted">
               Every site I ship is tracked. These are the real numbers my
               products and client sites have earned on Google, ChatGPT and in
-              real visits from {periodText(report)}, refreshed automatically.
+              real visits from {periodText(report)}, verified in Search Console and Google Analytics.
             </p>
           </div>
           <div data-reveal className="shrink-0">
@@ -173,7 +173,7 @@ export default function LiveResults({ report }: { report: AnalyticsReport }) {
             data-cta="results-full-report"
             className="font-semibold text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
           >
-            See the full live report
+            See the full report
           </Link>{" "}
           with every site, keyword and trend.
         </p>

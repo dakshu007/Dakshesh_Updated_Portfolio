@@ -1,25 +1,16 @@
 /**
- * Live results: Google Search Console + Google Analytics 4 numbers for every
- * site Dakshesh has built, pulled through Windsor.ai.
+ * Results: Google Search Console + Google Analytics 4 numbers for every site
+ * Dakshesh has built, analysed from Windsor.ai and committed as a snapshot
+ * in ./snapshot.json (data to 30 Sep 2026).
  *
- * How "live" works:
- * - When WINDSOR_API_KEY is set (server-side only, never NEXT_PUBLIC), the
- *   report is fetched from the Windsor.ai REST API and the pages that use it
- *   regenerate in the background every REVALIDATE_SECONDS (ISR). No redeploy.
- * - When the key is missing or any call fails, the committed snapshot in
- *   ./snapshot.json is used, so the site never shows empty or broken numbers.
- *
- * Both paths run through the same buildReport(), so the UI cannot drift
- * between live and snapshot data. Import this from server components only.
+ * There is no live fetching for now. To update the numbers, replace the rows
+ * in snapshot.json and redeploy; buildReport() derives everything the UI
+ * shows (totals, trends, rankings, sources) from those raw rows. A future
+ * in-house analytics tool can feed the same RawData shape.
+ * Import this from server components only.
  */
 
 import snapshot from "./snapshot.json";
-
-/** How often live numbers refresh, in seconds (6 hours). */
-export const REVALIDATE_SECONDS = 21600;
-
-/** Windsor date window starts here; Search Console keeps about 16 months. */
-const TRACKING_START = "2025-06-01";
 
 /* ----------------------------- Site metadata ----------------------------- */
 
@@ -378,104 +369,13 @@ export function buildReport(raw: RawData, source: AnalyticsReport["source"]): An
   };
 }
 
-/* ----------------------------- Live fetch ----------------------------- */
+/* ----------------------------- Report ----------------------------- */
 
-async function windsor(
-  connector: string,
-  fields: string[],
-  key: string,
-  dateFrom: string,
-  dateTo: string
-): Promise<Row[]> {
-  const url = new URL(`https://connectors.windsor.ai/${connector}`);
-  url.searchParams.set("api_key", key);
-  url.searchParams.set("date_from", dateFrom);
-  url.searchParams.set("date_to", dateTo);
-  url.searchParams.set("fields", fields.join(","));
-  const res = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS },
-    signal: AbortSignal.timeout(20000),
-  });
-  if (!res.ok) throw new Error(`Windsor ${connector} responded ${res.status}`);
-  const json: unknown = await res.json();
-  const rows = Array.isArray(json) ? json : (json as { data?: unknown })?.data;
-  if (!Array.isArray(rows)) throw new Error(`Windsor ${connector}: unexpected response shape`);
-  return rows as Row[];
-}
+const report = buildReport(snapshot as unknown as RawData, "snapshot");
 
-/**
- * The report is monthly: it always covers TRACKING_START to the last day of
- * the previous month (India time), so on the 1st of every month the next
- * regeneration rolls it forward by a month on its own. Search Console needs
- * two or three days to finalise a month, so pages keep revalidating every
- * 6 hours and the scheduled warm-up in netlify/functions runs on the 1st to
- * 3rd to pick up the late rows.
- */
-export function monthWindow(now: Date = new Date()) {
-  const ist = new Date(now.getTime() + 5.5 * 3600 * 1000);
-  const firstOfMonth = new Date(Date.UTC(ist.getUTCFullYear(), ist.getUTCMonth(), 1));
-  const lastOfPrev = new Date(firstOfMonth.getTime() - 86400000);
-  return {
-    dateTo: lastOfPrev.toISOString().slice(0, 10),
-    reportDate: firstOfMonth.toISOString(),
-  };
-}
-
-async function fetchLive(key: string): Promise<RawData> {
-  const { dateTo, reportDate } = monthWindow();
-  const dateFrom = TRACKING_START;
-  const call = (c: string, f: string[]) => windsor(c, f, key, dateFrom, dateTo);
-
-  const [gscSites, gscMonthly, gscQueries, gscCountries, gaProperties, gaSources, gaCountries] =
-    await Promise.all([
-      call("searchconsole", ["account_id", "clicks", "impressions", "position"]),
-      call("searchconsole", ["account_id", "year_month", "clicks", "impressions"]),
-      call("searchconsole", ["account_id", "query", "clicks", "impressions", "position"]),
-      call("searchconsole", ["country", "clicks"]),
-      call("googleanalytics4", [
-        "account_id",
-        "account_name",
-        "sessions",
-        "totalusers",
-        "screen_page_views",
-        "engagement_rate",
-        "average_session_duration",
-      ]),
-      call("googleanalytics4", ["account_id", "account_name", "source", "sessions"]),
-      call("googleanalytics4", ["country", "totalusers"]),
-    ]);
-
-  return {
-    fetchedAt: reportDate,
-    dateFrom,
-    dateTo,
-    gscSites,
-    gscMonthly,
-    gscQueries,
-    gscCountries,
-    gaProperties,
-    gaSources,
-    gaCountries,
-  };
-}
-
-/**
- * The report every results component reads. Live when WINDSOR_API_KEY is set,
- * otherwise (or on any error, or if the live data looks empty) the snapshot.
- */
+/** The report every results component reads (the committed snapshot). */
 export async function getAnalytics(): Promise<AnalyticsReport> {
-  const fallback = () => buildReport(snapshot as unknown as RawData, "snapshot");
-  const key = process.env.WINDSOR_API_KEY;
-  if (!key) return fallback();
-  try {
-    const report = buildReport(await fetchLive(key), "live");
-    // Guard against a silently empty response (expired key, revoked access).
-    if (report.totals.impressions === 0 && report.totals.sessions === 0) return fallback();
-    return report;
-  } catch (error) {
-    console.warn("[analytics] Live Windsor.ai fetch failed, using snapshot.", error);
-    return fallback();
-  }
+  return report;
 }
 
 /* ----------------------------- Formatting ----------------------------- */

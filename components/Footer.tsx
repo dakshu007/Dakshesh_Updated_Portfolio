@@ -5,7 +5,7 @@ import { person, socials } from "@/lib/site";
 import { products } from "@/lib/data";
 
 const explore = [
-  { href: "/results", label: "Live results" },
+  { href: "/results", label: "Results" },
   { href: "/#services", label: "Services" },
   { href: "/#work", label: "Work" },
   { href: "/#products", label: "Products" },

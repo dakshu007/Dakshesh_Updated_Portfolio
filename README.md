@@ -54,7 +54,6 @@ cp .env.example .env.local
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_FORMSPREE_ENDPOINT` | The contact form posts here. Create a form at https://formspree.io and paste its endpoint, for example `https://formspree.io/f/abcdwxyz`. Until this is set, the form validates and shows a clear "not configured yet" message instead of failing silently. |
-| `WINDSOR_API_KEY` | Makes the live results live. Server-side only. When set, the home page, `/results`, product pages and the client case studies fetch Google Search Console and GA4 numbers from the Windsor.ai API and regenerate every 6 hours (ISR); the report rolls to the next month on the 1st, and `netlify/functions/monthly-refresh.mts` warms the pages on the 1st to 3rd. When unset or if Windsor fails, the snapshot in `lib/analytics/snapshot.json` is used. |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin used for metadata, canonicals, sitemap, robots and JSON-LD. Defaults to `https://dakshesh.co.in` when unset. |
 
 ## Where to drop real images
@@ -90,7 +89,7 @@ app/
     page.tsx              Product detail, SoftwareApplication/WebApplication/MobileApplication + Breadcrumb JSON-LD
     opengraph-image.tsx   Per-product 1200x630 OG image
   work/[slug]/            Client case studies from `projects` in lib/data.ts (JP Fitness, Harsa Designer Boutique) + OG images
-  results/                Live results report (Search Console + GA4 via Windsor.ai)
+  results/                Results report (Search Console + GA4 data analysed via Windsor.ai, snapshot in lib/analytics/snapshot.json)
   opengraph-image.tsx     Home 1200x630 OG image
   icon.svg                Favicon
   manifest.ts             Web app manifest

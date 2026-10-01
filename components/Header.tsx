@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown, ArrowUpRight, Boxes } from "lucide-react";
 import { products, focusProducts, otherProducts } from "@/lib/data";
 
 const navLinks = [
-  { href: "/results", label: "Live results" },
+  { href: "/results", label: "Results" },
   { href: "/#services", label: "Services" },
   { href: "/#work", label: "Work" },
   { href: "/#about", label: "About" },
@@ -131,7 +131,6 @@ export default function Header() {
         <nav aria-label="Primary" className="hidden items-center gap-0.5 md:flex">
           <NavItem href="/results">
             <span className="relative mr-1.5 inline-flex h-2 w-2 align-middle">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
             Results

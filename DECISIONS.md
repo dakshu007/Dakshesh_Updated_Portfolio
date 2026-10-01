@@ -30,7 +30,7 @@ The site was redesigned to a light, minimal, high-contrast look inspired by hack
 
 - Goal: the site was getting clicks but few enquiries, so it now leads with proof and makes contact one tap away.
 - Proof is real data only: Google Search Console and GA4 via Windsor.ai. Claims that depend on data are computed (for example "ChatGPT sends more visitors than Google" only shows while that is true), so live numbers can never contradict the copy.
-- Live without a redeploy: ISR every 6 hours on the pages that show numbers. The hero background is now a fixed path rather than a filesystem probe, so background regeneration renders the same page.
+- Static snapshot (owner's call, Oct 2026): live Windsor.ai fetching and the monthly refresh were removed; the numbers come from the committed snapshot until an in-house analytics tool replaces it. Copy says "verified" and shows the data month instead of claiming the numbers are live.
 - Page 1 keywords means an average Google position of 10 or better with at least three clicks in the period. "Non-brand" marks queries that do not contain the site's own name.
 - Charts: one series in the accent (lifted to #6B94FF on dark for contrast), a grey for de-emphasised bars, hairline grid, hover tooltips, and a screen-reader table behind the trend chart.
 - WhatsApp is the primary fast channel (JP Fitness showed it converts mobile visitors), with call and email next to it. The form asks only for project type, name, email, optional phone and a message.

@@ -98,7 +98,7 @@ export default function Services({ report }: { report: AnalyticsReport }) {
             headingId="services-heading"
             eyebrow="What I can build for you"
             title="Pick what you need. I handle the rest."
-            description="Design, development, SEO and launch, from one person who has done it for his own products first. Every offer below is backed by live numbers."
+            description="Design, development, SEO and launch, from one person who has done it for his own products first. Every offer below is backed by real numbers."
           />
           <Link
             href="/#contact"
@@ -146,7 +146,7 @@ export default function Services({ report }: { report: AnalyticsReport }) {
                   <p className="mt-6 rounded-2xl bg-canvas px-4 py-3 text-sm text-ink-muted ring-1 ring-line">
                     <span className="mr-1.5 inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-emerald-700">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      Live proof
+                      Proof
                     </span>
                     <span className="font-semibold text-ink">{s.proofSite}:</span> {proof}
                   </p>

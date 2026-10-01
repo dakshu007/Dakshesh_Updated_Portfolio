@@ -18,12 +18,9 @@ import {
   periodText,
 } from "@/components/results/parts";
 
-// Regenerate in the background every 6 hours so the numbers stay live.
-export const revalidate = 21600;
-
-const title = "Live SEO and Growth Results | Dakshesh B, Web Developer";
+const title = "SEO and Growth Results | Dakshesh B, Web Developer";
 const description =
-  "Real Google Search Console and GA4 numbers for every site Dakshesh B has built: impressions, clicks, page 1 rankings, ChatGPT referrals and visitors, updated automatically.";
+  "Real Google Search Console and GA4 numbers for every site Dakshesh B has built: impressions, clicks, page 1 rankings, ChatGPT referrals and visitors.";
 
 export const metadata: Metadata = {
   title,
@@ -40,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Live SEO and Growth Results | Dakshesh B",
+    title: "SEO and Growth Results | Dakshesh B",
     description,
   },
 };
@@ -99,15 +96,15 @@ export default async function ResultsPage() {
 
           <header className="mt-10 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end">
             <div>
-              <p className="eyebrow">Live results</p>
+              <p className="eyebrow">Results</p>
               <h1 className="mt-4 display-1 text-ink">
                 Proof, not promises.
               </h1>
               <p className="mt-6 max-w-prose text-lg leading-relaxed text-ink-muted">
                 Every site and product I build is connected to Google Search
-                Console and Google Analytics. This page pulls those numbers
-                through Windsor.ai and refreshes itself, so what you see is what
-                my work is doing right now, from {periodText(report)}.
+                Console and Google Analytics. These are the real numbers my work
+                has earned from {periodText(report)}, analysed through
+                Windsor.ai.
               </p>
             </div>
             <div className="flex flex-col items-start gap-4 lg:items-end">
@@ -166,7 +163,7 @@ export default async function ResultsPage() {
               What each project has earned
             </h2>
             <p className="mt-3 max-w-prose text-lg text-ink-muted">
-              {report.totals.sites} live sites tracked: my SaaS, my own products
+              {report.totals.sites} sites tracked: my SaaS, my own products
               and Chrome extensions, and client websites.
             </p>
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

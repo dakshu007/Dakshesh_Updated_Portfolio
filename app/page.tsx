@@ -12,18 +12,28 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Metrics from "@/components/Metrics";
 import Contact from "@/components/Contact";
+import LiveResults from "@/components/LiveResults";
+import Services from "@/components/Services";
+import CtaBand from "@/components/CtaBand";
+import { getAnalytics } from "@/lib/analytics";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function HomePage() {
+// Live results refresh in the background every 6 hours (ISR).
+export const revalidate = 21600;
+
+export default async function HomePage() {
+  const report = await getAnalytics();
   return (
     <>
       <JsonLd schema={profilePageSchema()} />
       <ScrollAnimations />
-      <Hero />
+      <Hero report={report} />
       <LogoStrip />
+      <LiveResults report={report} />
+      <Services report={report} />
       <SaasSpotlight />
       <ProductsStrip />
       <Work />
@@ -31,6 +41,7 @@ export default function HomePage() {
       <Skills />
       <Experience />
       <Metrics />
+      <CtaBand />
       <Contact />
     </>
   );

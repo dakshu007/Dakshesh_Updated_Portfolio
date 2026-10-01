@@ -122,6 +122,61 @@
   }
 }
 
+/* Chart tokens for the live results. One series colour (the accent, lifted
+   on dark so it keeps >= 6:1 against the card), a de-emphasis grey for
+   non-highlighted bars (>= 3:1), hairline grid, and text tokens. */
+.viz-dark {
+  --viz-mark: #6b94ff;
+  --viz-muted-mark: #7c7c8a;
+  --viz-track: rgba(255, 255, 255, 0.06);
+  --viz-grid: #26262e;
+  --viz-surface: #16161c;
+  --viz-text: #ffffff;
+  --viz-text-2: rgba(255, 255, 255, 0.72);
+  --viz-text-3: rgba(255, 255, 255, 0.5);
+}
+.viz-light {
+  --viz-mark: #1a53f0;
+  --viz-muted-mark: #8e8e98;
+  --viz-track: #f1f0eb;
+  --viz-grid: #eceae4;
+  --viz-surface: #ffffff;
+  --viz-text: #0a0a0a;
+  --viz-text-2: #52525b;
+  --viz-text-3: #6b6b72;
+}
+
+/* Subtle engineering grid used behind dark premium sections. */
+.bg-grid-dark {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 40%, transparent 100%);
+}
+
+/* Animated gradient border for the primary hero CTA. */
+.cta-glow {
+  position: relative;
+  isolation: isolate;
+}
+.cta-glow::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #1a53f0, #7c3aed, #10b981, #1a53f0);
+  background-size: 300% 100%;
+  filter: blur(10px);
+  opacity: 0.55;
+  animation: cta-shift 6s linear infinite;
+}
+@keyframes cta-shift {
+  to {
+    background-position: 300% 0;
+  }
+}
+
 /* Blinking caret for the hero typewriter. */
 .type-cursor {
   display: inline-block;

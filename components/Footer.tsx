@@ -1,9 +1,12 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight, ArrowRight } from "lucide-react";
+import WhatsAppIcon from "./icons/WhatsApp";
 import { person, socials } from "@/lib/site";
 import { products } from "@/lib/data";
 
 const explore = [
+  { href: "/results", label: "Live results" },
+  { href: "/#services", label: "Services" },
   { href: "/#work", label: "Work" },
   { href: "/#products", label: "Products" },
   { href: "/#about", label: "About" },
@@ -26,9 +29,18 @@ export default function Footer() {
               dakshesh<span className="text-accent">.</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              {person.role} in {person.location}. Building fast, accessible web
-              interfaces and shipping products end to end.
+              {person.role} in {person.location}. Building fast websites,
+              SaaS products and SEO that bring real customers, for clients
+              worldwide.
             </p>
+            <Link
+              href="/#contact"
+              data-cta="footer-start-project"
+              className="btn-on-dark mt-5"
+            >
+              Start your project
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </Link>
             <div className="mt-5 flex items-center gap-2">
               <a
                 href={socials.github}
@@ -47,6 +59,16 @@ export default function Footer() {
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white hover:text-white"
               >
                 <Linkedin aria-hidden="true" className="h-5 w-5" />
+              </a>
+              <a
+                href={person.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
+                data-cta="footer-whatsapp"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-[#25D366] hover:text-[#25D366]"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
               </a>
               <a
                 href={`mailto:${person.email}`}

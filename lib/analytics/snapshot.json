@@ -1,0 +1,1238 @@
+{
+ "_note": "Windsor.ai snapshot (Google Search Console + GA4), 2025-06-01 to 2026-09-30. Used when WINDSOR_API_KEY is not set or the live fetch fails. Country rows list only countries with at least one visitor or click.",
+ "fetchedAt": "2026-10-01T10:45:00.000Z",
+ "dateFrom": "2025-06-01",
+ "dateTo": "2026-09-30",
+ "gscSites": [
+  {
+   "account_id": "https://mykavo.app/",
+   "clicks": 175,
+   "impressions": 36578,
+   "position": 51.8057
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "clicks": 648,
+   "impressions": 16184,
+   "position": 11.2877
+  },
+  {
+   "account_id": "https://harshdesignerboutique.com/",
+   "clicks": 18,
+   "impressions": 733,
+   "position": 9.1528
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "clicks": 250,
+   "impressions": 7877,
+   "position": 5.8266
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "clicks": 149,
+   "impressions": 3474,
+   "position": 9.5648
+  },
+  {
+   "account_id": "https://billzap.netlify.app/",
+   "clicks": 1,
+   "impressions": 6,
+   "position": 21.1667
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "clicks": 95,
+   "impressions": 3930,
+   "position": 8.3776
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "clicks": 417,
+   "impressions": 1451,
+   "position": 28.3515
+  }
+ ],
+ "gscMonthly": [
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2025|11",
+   "clicks": 0,
+   "impressions": 0
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2025|11",
+   "clicks": 23,
+   "impressions": 138
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2025|12",
+   "clicks": 16,
+   "impressions": 53
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2025|12",
+   "clicks": 27,
+   "impressions": 579
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|1",
+   "clicks": 11,
+   "impressions": 164
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|1",
+   "clicks": 31,
+   "impressions": 1474
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|2",
+   "clicks": 18,
+   "impressions": 251
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|2",
+   "clicks": 48,
+   "impressions": 1665
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|3",
+   "clicks": 23,
+   "impressions": 369
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|3",
+   "clicks": 64,
+   "impressions": 1390
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|4",
+   "clicks": 18,
+   "impressions": 353
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|4",
+   "clicks": 80,
+   "impressions": 1746
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|5",
+   "clicks": 15,
+   "impressions": 379
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "year_month": "2026|5",
+   "clicks": 12,
+   "impressions": 469
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|5",
+   "clicks": 97,
+   "impressions": 1758
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "year_month": "2026|6",
+   "clicks": 21,
+   "impressions": 180
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|6",
+   "clicks": 12,
+   "impressions": 428
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "year_month": "2026|6",
+   "clicks": 44,
+   "impressions": 743
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "year_month": "2026|6",
+   "clicks": 14,
+   "impressions": 157
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|6",
+   "clicks": 65,
+   "impressions": 1341
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "year_month": "2026|7",
+   "clicks": 35,
+   "impressions": 1247
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|7",
+   "clicks": 8,
+   "impressions": 648
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "year_month": "2026|7",
+   "clicks": 31,
+   "impressions": 8294
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "year_month": "2026|7",
+   "clicks": 59,
+   "impressions": 1644
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "year_month": "2026|7",
+   "clicks": 25,
+   "impressions": 170
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|7",
+   "clicks": 52,
+   "impressions": 2016
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "year_month": "2026|8",
+   "clicks": 11,
+   "impressions": 1443
+  },
+  {
+   "account_id": "https://harshdesignerboutique.com/",
+   "year_month": "2026|8",
+   "clicks": 5,
+   "impressions": 32
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|8",
+   "clicks": 15,
+   "impressions": 539
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "year_month": "2026|8",
+   "clicks": 28,
+   "impressions": 11802
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "year_month": "2026|8",
+   "clicks": 60,
+   "impressions": 2560
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "year_month": "2026|8",
+   "clicks": 210,
+   "impressions": 401
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|8",
+   "clicks": 106,
+   "impressions": 2757
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "year_month": "2026|9",
+   "clicks": 28,
+   "impressions": 1060
+  },
+  {
+   "account_id": "https://billzap.netlify.app/",
+   "year_month": "2026|9",
+   "clicks": 1,
+   "impressions": 6
+  },
+  {
+   "account_id": "https://harshdesignerboutique.com/",
+   "year_month": "2026|9",
+   "clicks": 13,
+   "impressions": 701
+  },
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "year_month": "2026|9",
+   "clicks": 13,
+   "impressions": 290
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "year_month": "2026|9",
+   "clicks": 116,
+   "impressions": 16482
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "year_month": "2026|9",
+   "clicks": 87,
+   "impressions": 2930
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "year_month": "2026|9",
+   "clicks": 156,
+   "impressions": 254
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "year_month": "2026|9",
+   "clicks": 55,
+   "impressions": 1320
+  }
+ ],
+ "gscQueries": [
+  {
+   "account_id": "https://spacinginspector.netlify.app/",
+   "query": "spacing inspector",
+   "clicks": 30,
+   "impressions": 182,
+   "position": 1.9505
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image size inspector",
+   "clicks": 66,
+   "impressions": 231,
+   "position": 2.3377
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image inspector",
+   "clicks": 32,
+   "impressions": 781,
+   "position": 7.0128
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image size extension",
+   "clicks": 13,
+   "impressions": 256,
+   "position": 6.2266
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "inspect image",
+   "clicks": 11,
+   "impressions": 130,
+   "position": 13.0
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image inspect",
+   "clicks": 8,
+   "impressions": 87,
+   "position": 7.5402
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "size inspector",
+   "clicks": 8,
+   "impressions": 210,
+   "position": 3.2
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image size extension chrome",
+   "clicks": 7,
+   "impressions": 34,
+   "position": 7.2647
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image size checker chrome extension",
+   "clicks": 4,
+   "impressions": 41,
+   "position": 3.7561
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image size chrome extension",
+   "clicks": 4,
+   "impressions": 44,
+   "position": 13.6364
+  },
+  {
+   "account_id": "https://imageinspect.netlify.app/",
+   "query": "image inspection tool",
+   "clicks": 3,
+   "impressions": 17,
+   "position": 9.4118
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "jp fitness",
+   "clicks": 31,
+   "impressions": 490,
+   "position": 5.0061
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "jp fitness coimbatore",
+   "clicks": 15,
+   "impressions": 352,
+   "position": 2.875
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "jp fitness kalapatti",
+   "clicks": 12,
+   "impressions": 155,
+   "position": 2.6194
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "gym near me",
+   "clicks": 5,
+   "impressions": 207,
+   "position": 6.6184
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "jp fitness gym",
+   "clicks": 4,
+   "impressions": 522,
+   "position": 7.0134
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "gym fees in coimbatore",
+   "clicks": 3,
+   "impressions": 106,
+   "position": 5.1038
+  },
+  {
+   "account_id": "https://jpfitness.co.in/",
+   "query": "jp gym near me",
+   "clicks": 3,
+   "impressions": 45,
+   "position": 6.5333
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "query": "dakshesh",
+   "clicks": 12,
+   "impressions": 1099,
+   "position": 7.3612
+  },
+  {
+   "account_id": "https://dakshesh.co.in/",
+   "query": "billzap",
+   "clicks": 4,
+   "impressions": 34,
+   "position": 3.4412
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "query": "mykavo",
+   "clicks": 58,
+   "impressions": 181,
+   "position": 2.3425
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "query": "script detector",
+   "clicks": 7,
+   "impressions": 68,
+   "position": 6.6176
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "query": "script checker",
+   "clicks": 6,
+   "impressions": 103,
+   "position": 17.7476
+  },
+  {
+   "account_id": "https://mykavo.app/",
+   "query": "website change detection",
+   "clicks": 3,
+   "impressions": 454,
+   "position": 45.4868
+  },
+  {
+   "account_id": "https://harshdesignerboutique.com/",
+   "query": "harsa designer boutique",
+   "clicks": 5,
+   "impressions": 26,
+   "position": 2.6538
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "query": "shrinkto",
+   "clicks": 325,
+   "impressions": 387,
+   "position": 1.0052
+  },
+  {
+   "account_id": "https://shrinkto.com/",
+   "query": "shrink to",
+   "clicks": 44,
+   "impressions": 78,
+   "position": 3.6154
+  }
+ ],
+ "gaProperties": [
+  {
+   "account_name": "Harsa Designer Boutique",
+   "sessions": 167,
+   "totalusers": 149,
+   "screen_page_views": 293,
+   "engagement_rate": 0.2515,
+   "average_session_duration": 109.0285
+  },
+  {
+   "account_name": "MyKavo",
+   "sessions": 651,
+   "totalusers": 418,
+   "screen_page_views": 3089,
+   "engagement_rate": 0.4885,
+   "average_session_duration": 420.9629
+  },
+  {
+   "account_name": "Shrink To Traffics",
+   "sessions": 4078,
+   "totalusers": 2098,
+   "screen_page_views": 6015,
+   "engagement_rate": 0.3843,
+   "average_session_duration": 332.5697
+  }
+ ],
+ "gaSources": [
+  {
+   "account_name": "Shrink To Traffics",
+   "source": "chatgpt.com",
+   "sessions": 2082
+  },
+  {
+   "account_name": "Shrink To Traffics",
+   "source": "(direct)",
+   "sessions": 1262
+  },
+  {
+   "account_name": "Shrink To Traffics",
+   "source": "google",
+   "sessions": 654
+  },
+  {
+   "account_name": "Shrink To Traffics",
+   "source": "bing",
+   "sessions": 54
+  },
+  {
+   "account_name": "Shrink To Traffics",
+   "source": "(not set)",
+   "sessions": 40
+  },
+  {
+   "account_name": "MyKavo",
+   "source": "(direct)",
+   "sessions": 280
+  },
+  {
+   "account_name": "MyKavo",
+   "source": "google",
+   "sessions": 222
+  },
+  {
+   "account_name": "MyKavo",
+   "source": "accounts.google.com",
+   "sessions": 56
+  },
+  {
+   "account_name": "MyKavo",
+   "source": "checkout.dodopayments.com",
+   "sessions": 17
+  },
+  {
+   "account_name": "Harsa Designer Boutique",
+   "source": "(direct)",
+   "sessions": 118
+  },
+  {
+   "account_name": "Harsa Designer Boutique",
+   "source": "google",
+   "sessions": 25
+  },
+  {
+   "account_name": "Harsa Designer Boutique",
+   "source": "chatgpt.com",
+   "sessions": 19
+  }
+ ],
+ "gaCountries": [
+  {
+   "country": "India"
+  },
+  {
+   "country": "United States"
+  },
+  {
+   "country": "Poland"
+  },
+  {
+   "country": "Canada"
+  },
+  {
+   "country": "Germany"
+  },
+  {
+   "country": "China"
+  },
+  {
+   "country": "France"
+  },
+  {
+   "country": "Denmark"
+  },
+  {
+   "country": "Iran"
+  },
+  {
+   "country": "Malaysia"
+  },
+  {
+   "country": "South Korea"
+  },
+  {
+   "country": "Taiwan"
+  },
+  {
+   "country": "United Kingdom"
+  },
+  {
+   "country": "Netherlands"
+  },
+  {
+   "country": "Pakistan"
+  },
+  {
+   "country": "Spain"
+  },
+  {
+   "country": "Belgium"
+  },
+  {
+   "country": "Ireland"
+  },
+  {
+   "country": "Italy"
+  },
+  {
+   "country": "Lithuania"
+  },
+  {
+   "country": "Sweden"
+  },
+  {
+   "country": "Türkiye"
+  },
+  {
+   "country": "Ukraine"
+  },
+  {
+   "country": "Argentina"
+  },
+  {
+   "country": "Bangladesh"
+  },
+  {
+   "country": "Brazil"
+  },
+  {
+   "country": "Japan"
+  },
+  {
+   "country": "Montenegro"
+  },
+  {
+   "country": "Philippines"
+  },
+  {
+   "country": "Slovakia"
+  },
+  {
+   "country": "Czech Republic"
+  },
+  {
+   "country": "Estonia"
+  },
+  {
+   "country": "Hong Kong"
+  },
+  {
+   "country": "Indonesia"
+  },
+  {
+   "country": "Iraq"
+  },
+  {
+   "country": "Israel"
+  },
+  {
+   "country": "Jordan"
+  },
+  {
+   "country": "Latvia"
+  },
+  {
+   "country": "Mexico"
+  },
+  {
+   "country": "Morocco"
+  },
+  {
+   "country": "North Macedonia"
+  },
+  {
+   "country": "Russia"
+  },
+  {
+   "country": "Serbia"
+  },
+  {
+   "country": "Singapore"
+  },
+  {
+   "country": "Switzerland"
+  },
+  {
+   "country": "Uganda"
+  },
+  {
+   "country": "United Arab Emirates"
+  },
+  {
+   "country": "Vietnam"
+  },
+  {
+   "country": "Yemen"
+  },
+  {
+   "country": "Nigeria"
+  },
+  {
+   "country": "Saudi Arabia"
+  },
+  {
+   "country": "Colombia"
+  },
+  {
+   "country": "Algeria"
+  },
+  {
+   "country": "Peru"
+  },
+  {
+   "country": "Australia"
+  },
+  {
+   "country": "Egypt"
+  },
+  {
+   "country": "Slovenia"
+  },
+  {
+   "country": "Chile"
+  },
+  {
+   "country": "Hungary"
+  },
+  {
+   "country": "Thailand"
+  },
+  {
+   "country": "Uzbekistan"
+  },
+  {
+   "country": "Kenya"
+  },
+  {
+   "country": "Romania"
+  },
+  {
+   "country": "Greece"
+  },
+  {
+   "country": "Laos"
+  },
+  {
+   "country": "Norway"
+  },
+  {
+   "country": "Sri Lanka"
+  },
+  {
+   "country": "Armenia"
+  },
+  {
+   "country": "Azerbaijan"
+  },
+  {
+   "country": "Georgia"
+  },
+  {
+   "country": "Paraguay"
+  },
+  {
+   "country": "South Africa"
+  },
+  {
+   "country": "Ethiopia"
+  },
+  {
+   "country": "Finland"
+  },
+  {
+   "country": "Ghana"
+  },
+  {
+   "country": "Nepal"
+  },
+  {
+   "country": "Portugal"
+  },
+  {
+   "country": "Qatar"
+  },
+  {
+   "country": "Tunisia"
+  },
+  {
+   "country": "Uruguay"
+  },
+  {
+   "country": "Benin"
+  },
+  {
+   "country": "Bulgaria"
+  },
+  {
+   "country": "Kazakhstan"
+  },
+  {
+   "country": "Moldova"
+  },
+  {
+   "country": "Mongolia"
+  },
+  {
+   "country": "Oman"
+  },
+  {
+   "country": "Venezuela"
+  },
+  {
+   "country": "Afghanistan"
+  },
+  {
+   "country": "Albania"
+  },
+  {
+   "country": "Austria"
+  },
+  {
+   "country": "Belarus"
+  },
+  {
+   "country": "Bolivia"
+  },
+  {
+   "country": "Cambodia"
+  },
+  {
+   "country": "Cameroon"
+  },
+  {
+   "country": "Congo Republic"
+  },
+  {
+   "country": "Croatia"
+  },
+  {
+   "country": "Cuba"
+  },
+  {
+   "country": "Cyprus"
+  },
+  {
+   "country": "Dominican Republic"
+  },
+  {
+   "country": "Lebanon"
+  },
+  {
+   "country": "Libya"
+  },
+  {
+   "country": "New Zealand"
+  },
+  {
+   "country": "Puerto Rico"
+  },
+  {
+   "country": "Angola"
+  },
+  {
+   "country": "Bahrain"
+  },
+  {
+   "country": "Bhutan"
+  },
+  {
+   "country": "Bosnia and Herzegovina"
+  },
+  {
+   "country": "Botswana"
+  },
+  {
+   "country": "DR Congo"
+  },
+  {
+   "country": "Costa Rica"
+  },
+  {
+   "country": "Cote d'Ivoire"
+  },
+  {
+   "country": "Ecuador"
+  },
+  {
+   "country": "El Salvador"
+  },
+  {
+   "country": "Fiji"
+  },
+  {
+   "country": "Gabon"
+  },
+  {
+   "country": "Haiti"
+  },
+  {
+   "country": "Honduras"
+  },
+  {
+   "country": "Luxembourg"
+  },
+  {
+   "country": "Madagascar"
+  },
+  {
+   "country": "Mali"
+  },
+  {
+   "country": "Myanmar"
+  },
+  {
+   "country": "Panama"
+  },
+  {
+   "country": "Senegal"
+  },
+  {
+   "country": "Sudan"
+  },
+  {
+   "country": "Tajikistan"
+  },
+  {
+   "country": "Tanzania"
+  },
+  {
+   "country": "Trinidad and Tobago"
+  }
+ ],
+ "gscCountries": [
+  {
+   "country": "India"
+  },
+  {
+   "country": "Canada"
+  },
+  {
+   "country": "France"
+  },
+  {
+   "country": "Georgia"
+  },
+  {
+   "country": "Mexico"
+  },
+  {
+   "country": "United States"
+  },
+  {
+   "country": "South Africa"
+  },
+  {
+   "country": "Germany"
+  },
+  {
+   "country": "United Kingdom"
+  },
+  {
+   "country": "Pakistan"
+  },
+  {
+   "country": "Poland"
+  },
+  {
+   "country": "Sweden"
+  },
+  {
+   "country": "Kuwait"
+  },
+  {
+   "country": "Philippines"
+  },
+  {
+   "country": "Norway"
+  },
+  {
+   "country": "Peru"
+  },
+  {
+   "country": "Nepal"
+  },
+  {
+   "country": "Netherlands"
+  },
+  {
+   "country": "United Arab Emirates"
+  },
+  {
+   "country": "Australia"
+  },
+  {
+   "country": "Brazil"
+  },
+  {
+   "country": "Greece"
+  },
+  {
+   "country": "Saudi Arabia"
+  },
+  {
+   "country": "Spain"
+  },
+  {
+   "country": "Türkiye"
+  },
+  {
+   "country": "Algeria"
+  },
+  {
+   "country": "Russia"
+  },
+  {
+   "country": "Italy"
+  },
+  {
+   "country": "Belgium"
+  },
+  {
+   "country": "Colombia"
+  },
+  {
+   "country": "Romania"
+  },
+  {
+   "country": "Japan"
+  },
+  {
+   "country": "South Korea"
+  },
+  {
+   "country": "Moldova"
+  },
+  {
+   "country": "New Zealand"
+  },
+  {
+   "country": "Serbia"
+  },
+  {
+   "country": "Vietnam"
+  },
+  {
+   "country": "Indonesia"
+  },
+  {
+   "country": "Ireland"
+  },
+  {
+   "country": "Nigeria"
+  },
+  {
+   "country": "Tunisia"
+  },
+  {
+   "country": "Thailand"
+  },
+  {
+   "country": "Albania"
+  },
+  {
+   "country": "Armenia"
+  },
+  {
+   "country": "Switzerland"
+  },
+  {
+   "country": "Jordan"
+  },
+  {
+   "country": "Kazakhstan"
+  },
+  {
+   "country": "Taiwan"
+  },
+  {
+   "country": "Bangladesh"
+  },
+  {
+   "country": "Czech Republic"
+  },
+  {
+   "country": "Ukraine"
+  },
+  {
+   "country": "Sri Lanka"
+  },
+  {
+   "country": "Portugal"
+  },
+  {
+   "country": "Israel"
+  },
+  {
+   "country": "China"
+  },
+  {
+   "country": "Denmark"
+  },
+  {
+   "country": "Hungary"
+  },
+  {
+   "country": "Malaysia"
+  },
+  {
+   "country": "Singapore"
+  },
+  {
+   "country": "Iran"
+  },
+  {
+   "country": "Hong Kong"
+  },
+  {
+   "country": "Iraq"
+  },
+  {
+   "country": "Latvia"
+  },
+  {
+   "country": "Egypt"
+  },
+  {
+   "country": "Morocco"
+  },
+  {
+   "country": "Slovenia"
+  },
+  {
+   "country": "Finland"
+  },
+  {
+   "country": "Cameroon"
+  },
+  {
+   "country": "Malta"
+  },
+  {
+   "country": "Austria"
+  },
+  {
+   "country": "Chile"
+  },
+  {
+   "country": "Slovakia"
+  },
+  {
+   "country": "Yemen"
+  },
+  {
+   "country": "Ethiopia"
+  },
+  {
+   "country": "Oman"
+  },
+  {
+   "country": "Lithuania"
+  },
+  {
+   "country": "Iceland"
+  },
+  {
+   "country": "Uzbekistan"
+  },
+  {
+   "country": "Dominican Republic"
+  },
+  {
+   "country": "Uganda"
+  },
+  {
+   "country": "Cyprus"
+  },
+  {
+   "country": "Bolivia"
+  },
+  {
+   "country": "Qatar"
+  },
+  {
+   "country": "Honduras"
+  },
+  {
+   "country": "Montenegro"
+  },
+  {
+   "country": "Bahrain"
+  },
+  {
+   "country": "Benin"
+  },
+  {
+   "country": "Ghana"
+  },
+  {
+   "country": "Libya"
+  },
+  {
+   "country": "Botswana"
+  }
+ ]
+}

@@ -15,10 +15,16 @@ import { getProductContent } from "@/lib/products-content";
 import { SITE_URL, person } from "@/lib/site";
 import { productSchema, breadcrumbSchema } from "@/lib/jsonld";
 import JsonLd from "@/components/JsonLd";
+import CtaBand from "@/components/CtaBand";
+import SiteResults from "@/components/results/SiteResults";
+import { getAnalytics } from "@/lib/analytics";
 
 type Params = { slug: string };
 
 export const dynamicParams = false;
+
+// Live results on product pages refresh every 6 hours (ISR).
+export const revalidate = 21600;
 
 export function generateStaticParams(): Params[] {
   return products.map((p) => ({ slug: p.id }));
@@ -75,8 +81,11 @@ export default async function ProductPage({
   ]);
   const schema = productSchema(product.id);
 
+  const report = await getAnalytics();
+
   return (
-    <article className="pb-24 pt-28 sm:pt-32">
+    <>
+    <article className="pb-8 pt-28 sm:pt-32">
       <JsonLd schema={schema ? [schema, breadcrumb] : [breadcrumb]} />
 
       <div className="section">
@@ -243,6 +252,8 @@ export default async function ProductPage({
           </aside>
         </div>
 
+        <SiteResults report={report} siteId={product.id} />
+
         {/* More products */}
         <section
           aria-labelledby="more-products"
@@ -285,5 +296,11 @@ export default async function ProductPage({
         </section>
       </div>
     </article>
+    <CtaBand
+      id="product-cta"
+      title="Want a product like this, built for you?"
+      subtitle="I design, build and launch web apps, SaaS and tools end to end, with SEO baked in from day one."
+    />
+    </>
   );
 }

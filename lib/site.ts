@@ -22,6 +22,13 @@ export const person = {
   email: "daksheshbabu@gmail.com",
   phone: "+91 87784 81650",
   phoneHref: "+918778481650",
+  // WhatsApp click-to-chat with a friendly pre-filled first line.
+  whatsapp:
+    "https://wa.me/918778481650?text=" +
+    encodeURIComponent(
+      "Hi Dakshesh, I saw your portfolio and I would like to discuss a project."
+    ),
+  responseTime: "within 24 hours",
   // Profile photo lives in /public/images.
   image: "/images/dakshesh-b-portrait.jpg",
   imageWidth: 1086,

@@ -6,6 +6,8 @@ import { Menu, X, ChevronDown, ArrowUpRight, Boxes } from "lucide-react";
 import { products } from "@/lib/data";
 
 const navLinks = [
+  { href: "/results", label: "Live results" },
+  { href: "/#services", label: "Services" },
   { href: "/#work", label: "Work" },
   { href: "/#about", label: "About" },
   { href: "/#skills", label: "Skills" },
@@ -126,7 +128,15 @@ export default function Header() {
           dakshesh<span className="text-accent">.</span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 md:flex">
+          <NavItem href="/results">
+            <span className="relative mr-1.5 inline-flex h-2 w-2 align-middle">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            Results
+          </NavItem>
+          <NavItem href="/#services">Services</NavItem>
           <NavItem href="/#work">Work</NavItem>
 
           <div
@@ -146,7 +156,7 @@ export default function Header() {
               aria-controls="products-panel"
               onClick={() => setMenuOpen(true)}
               onKeyDown={onTriggerKeyDown}
-              className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-semibold text-ink-muted transition-colors hover:text-ink"
+              className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold text-ink-muted transition-colors hover:text-ink"
             >
               Products
               <ChevronDown
@@ -207,9 +217,13 @@ export default function Header() {
           </div>
 
           <NavItem href="/#about">About</NavItem>
-          <NavItem href="/#skills">Skills</NavItem>
-          <Link href="/#contact" className="btn-primary ml-2 px-5 py-2.5">
-            Let us talk
+          <Link
+            href="/#contact"
+            data-cta="header-hire-me"
+            className="btn-primary ml-2 px-5 py-2.5"
+          >
+            Hire me
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </nav>
 
@@ -295,9 +309,10 @@ export default function Header() {
           <Link
             href="/#contact"
             onClick={() => setMobileOpen(false)}
+            data-cta="mobile-menu-hire-me"
             className="btn-primary mt-3"
           >
-            Let us talk
+            Hire me, get a free quote
             <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </nav>
@@ -316,7 +331,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className="rounded-full px-3.5 py-2 text-sm font-semibold text-ink-muted transition-colors hover:text-ink"
+      className="rounded-full px-3 py-2 text-sm font-semibold text-ink-muted transition-colors hover:text-ink"
     >
       {children}
     </Link>

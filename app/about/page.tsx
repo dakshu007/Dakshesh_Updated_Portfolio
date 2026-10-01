@@ -176,7 +176,7 @@ export default function AboutPage() {
           </p>
 
           {images.length > 0 ? (
-            <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
+            <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {images.map((src, i) => (
                 <li
                   key={src}
@@ -186,7 +186,7 @@ export default function AboutPage() {
                     src={src}
                     alt={`Dakshesh B, photo ${i + 1}`}
                     fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                     quality={70}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />

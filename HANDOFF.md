@@ -20,6 +20,13 @@ Netlify site: `daksheshb` (id `dc5cdbdb-3fb5-4c5f-b6c4-090c98fa4091`). If a depl
 - Google Analytics: GA4 `G-3JWWGHRKZ2` (`app/layout.tsx` + `components/Analytics.tsx`).
 - Google Search Console: verification file is live at `/googled23738155d4d0020.html`.
 
+## Live results and conversion (Oct 2026)
+- Live analytics: `lib/analytics/index.ts` builds one report from Windsor.ai (Google Search Console for 8 sites, GA4 for MyKavo, Shrinkto and Harsa Designer Boutique). Set `WINDSOR_API_KEY` in Netlify (Site configuration > Environment variables, server-side, not NEXT_PUBLIC) and the numbers refresh every 6 hours with no redeploy. Without the key the page shows `lib/analytics/snapshot.json` (data to 30 Sep 2026) and the badge reads "Verified" instead of "Live".
+- To refresh the snapshot by hand, re-pull the same fields listed in `fetchLive()` and replace the rows in `snapshot.json`.
+- Where it shows: hero proof card, the dark "Live results" section on home (`components/LiveResults.tsx`), the full report at `/results`, and a per-site strip on product pages and `/work/jp-fitness` (`components/results/SiteResults.tsx`). Site names and links are mapped in `SITES` in `lib/analytics/index.ts`; add a new domain there when you connect it in Windsor.
+- Conversion: hero CTAs (Start your project, WhatsApp), Services section with live proof, a CTA band, a sticky mobile bar and desktop pill (`components/StickyCta.tsx`), and a contact section with one-tap WhatsApp, call and email plus a short form with project type.
+- Tracking: every CTA has `data-cta`, and `components/Analytics.tsx` sends GA4 `cta_click`, `contact_click` (WhatsApp, call, email) and `generate_lead` (form sent). In GA4 mark `contact_click` and `generate_lead` as key events to count leads.
+
 ## Structure
 - Home is a one-page scroll. Sub-routes: 9 product pages at `/[slug]` (`app/[slug]/`), `/work/jp-fitness`, `/about` (with photo gallery + FAQ).
 - MyKavo (https://mykavo.app/) is the flagship SaaS: first in `products` in `lib/data.ts` (with `featured: true` and a real logo at `public/images/logos/mykavo.png`), a dedicated home section (`components/SaasSpotlight.tsx`, warm yellow, black "Try free now" CTA), its own page at `/mykavo`, and a SaaS badge in the header dropdown and products grid.
@@ -27,7 +34,7 @@ Netlify site: `daksheshb` (id `dc5cdbdb-3fb5-4c5f-b6c4-090c98fa4091`). If a depl
 - Black sections: the Cartrabbit strip (`components/LogoStrip.tsx`, six products with brand logos that show on hover on desktop and always on touch), Work, Skills, Metrics band, Footer.
 - Hero headline reads "Dakshesh builds" plus a typewriter cycling 15 products in brand colours (`components/HeroTyping.tsx`, list in `lib/data.ts` `heroProducts`, MyKavo first).
 - Favicons: the snow-design "D" logo, declared explicitly in `app/layout.tsx` `metadata.icons` with stable files in `public/` (favicon.ico, icon.svg, icon-48/96/192.png, apple-icon.png). Google search may show its own cached favicon until Googlebot re-crawls; that lag is Google-side, do not debug the site for it.
-- Gallery is dynamic: drop photos into `public/images/gallery/` and they appear on `/about`.
+- Gallery is dynamic: drop photos into `public/images/gallery/` and they appear on `/about` (4 photos, in a 4 column grid on desktop; the shirtless gym photo was removed on request).
 - Content/data: `lib/site.ts`, `lib/data.ts`, `lib/products-content.ts`, `lib/jsonld.ts`.
 - SEO targeting: og locale is en_US with en_GB and en_IN alternates, WebSite JSON-LD `inLanguage` is "en", offers use USD. "Open to Bangalore" was removed everywhere on request.
 

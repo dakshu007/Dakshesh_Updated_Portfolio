@@ -18,6 +18,15 @@ The site was redesigned to a light, minimal, high-contrast look inspired by hack
 - Cartrabbit logo: the Experience card uses the real Cartrabbit mark at `public/images/cartrabbit-logo.svg`.
 - Cartrabbit product strip: the six product names link to their live sites (new tab) and turn their brand colour on hover, set per item via a `--bc` CSS variable and the `.brand-link` rule in `app/globals.css` (Tailwind does not generate arbitrary `var()` hover utilities, so the hover lives in CSS).
 
+## Live results and conversion (Oct 2026)
+
+- Goal: the site was getting clicks but few enquiries, so it now leads with proof and makes contact one tap away.
+- Proof is real data only: Google Search Console and GA4 via Windsor.ai. Claims that depend on data are computed (for example "ChatGPT sends more visitors than Google" only shows while that is true), so live numbers can never contradict the copy.
+- Live without a redeploy: ISR every 6 hours on the pages that show numbers. The hero background is now a fixed path rather than a filesystem probe, so background regeneration renders the same page.
+- Page 1 keywords means an average Google position of 10 or better with at least three clicks in the period. "Non-brand" marks queries that do not contain the site's own name.
+- Charts: one series in the accent (lifted to #6B94FF on dark for contrast), a grey for de-emphasised bars, hairline grid, hover tooltips, and a screen-reader table behind the trend chart.
+- WhatsApp is the primary fast channel (JP Fitness showed it converts mobile visitors), with call and email next to it. The form asks only for project type, name, email, optional phone and a message.
+
 ## Confirmed with you
 
 - Contact form delivery: Formspree, live at `https://formspree.io/f/xrevwraj`.

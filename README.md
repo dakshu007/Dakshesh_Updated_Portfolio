@@ -54,6 +54,7 @@ cp .env.example .env.local
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_FORMSPREE_ENDPOINT` | The contact form posts here. Create a form at https://formspree.io and paste its endpoint, for example `https://formspree.io/f/abcdwxyz`. Until this is set, the form validates and shows a clear "not configured yet" message instead of failing silently. |
+| `WINDSOR_API_KEY` | Makes the live results live. Server-side only. When set, the home page, `/results`, product pages and the JP Fitness case study fetch Google Search Console and GA4 numbers from the Windsor.ai API and regenerate every 6 hours (ISR). When unset or if Windsor fails, the snapshot in `lib/analytics/snapshot.json` is used. |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin used for metadata, canonicals, sitemap, robots and JSON-LD. Defaults to `https://dakshesh.co.in` when unset. |
 
 ## Where to drop real images

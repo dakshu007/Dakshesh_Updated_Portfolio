@@ -6,6 +6,9 @@ import { getProject } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 import { projectSchema, breadcrumbSchema } from "@/lib/jsonld";
 import JsonLd from "@/components/JsonLd";
+import CtaBand from "@/components/CtaBand";
+import SiteResults from "@/components/results/SiteResults";
+import { getAnalytics } from "@/lib/analytics";
 
 const project = getProject("jp-fitness")!;
 
@@ -28,7 +31,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function JpFitnessPage() {
+// Live results refresh every 6 hours (ISR).
+export const revalidate = 21600;
+
+export default async function JpFitnessPage() {
+  const report = await getAnalytics();
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: `${SITE_URL}/` },
     { name: "Work", url: `${SITE_URL}/#work` },
@@ -36,7 +43,8 @@ export default function JpFitnessPage() {
   ]);
 
   return (
-    <article className="section pb-24 pt-28 sm:pt-32">
+    <>
+    <article className="section pb-8 pt-28 sm:pt-32">
       <JsonLd schema={[projectSchema(project), breadcrumb]} />
 
       <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
@@ -77,8 +85,8 @@ export default function JpFitnessPage() {
               <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
             </a>
           )}
-          <Link href="/#contact" className="btn-secondary">
-            Work with me
+          <Link href="/#contact" data-cta="case-study-work-with-me" className="btn-secondary">
+            Get a site like this
           </Link>
         </div>
       </header>
@@ -132,6 +140,8 @@ export default function JpFitnessPage() {
         </aside>
       </div>
 
+      <SiteResults report={report} siteId="jp-fitness" />
+
       <Link
         href="/#work"
         className="mt-16 inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-hover"
@@ -140,5 +150,11 @@ export default function JpFitnessPage() {
         Back to work
       </Link>
     </article>
+    <CtaBand
+      id="case-study-cta"
+      title="Want results like JP Fitness?"
+      subtitle="A fast, local-SEO website that ranks for your business and makes it easy to call or WhatsApp you."
+    />
+    </>
   );
 }

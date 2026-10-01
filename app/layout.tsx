@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import Analytics from "@/components/Analytics";
+import StickyCta from "@/components/StickyCta";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-3JWWGHRKZ2";
 
@@ -120,6 +121,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <StickyCta />
         <BackToTop />
 
         {/* Google Analytics (GA4). Loaded after hydration so it stays off the

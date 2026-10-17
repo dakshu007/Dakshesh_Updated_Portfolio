@@ -12,7 +12,7 @@ export default function CtaBand({
   text?: string;
 }) {
   return (
-    <section aria-label="Get in touch" className="py-16 sm:py-24">
+    <section aria-label="Get in touch" className="cv py-16 sm:py-24">
       <div className="section">
         <div className="relative isolate overflow-hidden rounded-[2.5rem] bg-ink px-6 py-14 text-center text-white sm:px-12 sm:py-20" data-reveal="scale">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">

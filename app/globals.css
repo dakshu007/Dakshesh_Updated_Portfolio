@@ -287,8 +287,11 @@
   }
 }
 
-/* Below-the-fold home sections: let the browser skip their layout and paint
-   until they approach the viewport. Big win for first render on phones. */
+/* Below-the-fold sections: let the browser skip their layout and paint
+   until they approach the viewport. Big win for first render on phones.
+   On inner pages that is every section after the first one. */
+main section ~ section,
+.cv,
 #products,
 #billzap-live,
 #results,

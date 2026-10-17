@@ -43,8 +43,9 @@ export const WHATSAPP_URL =
 
 export const socials = {
   github: "https://github.com/dakshu007",
-  linkedin: "https://www.linkedin.com/in/daksheshb/",
-  linkedinOld: "https://www.linkedin.com/in/dakshesh-b-wordpress-developer/",
+  linkedin: "https://in.linkedin.com/in/daksheshb",
+  /** Same profile on the global domain, for schema.org sameAs. */
+  linkedinGlobal: "https://www.linkedin.com/in/daksheshb",
   wordpress: "https://profiles.wordpress.org/dakshu007/",
   playDeveloper:
     "https://play.google.com/store/apps/developer?id=Dakshesh+B",
@@ -58,7 +59,7 @@ export const sameAs = [
   socials.github,
   socials.wordpress,
   socials.playDeveloper,
-  socials.linkedinOld,
+  socials.linkedinGlobal,
   socials.oldSite1,
   socials.oldSite2,
 ];

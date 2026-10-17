@@ -30,7 +30,7 @@ const SOURCES = {
     label: "Success stories form",
     toolname: "get_seo_plan",
     tooldescription:
-      "Ask Dakshesh B for a free local SEO plan for your business, like the one that brought JP Fitness about 35 new members in 35 days. He replies within 24 hours.",
+      "Ask Dakshesh B for a free local SEO plan for your business, like the one that brought JP Fitness 30+ new members in 75 days. He replies within 24 hours.",
   },
   contact: {
     label: "Contact section form",

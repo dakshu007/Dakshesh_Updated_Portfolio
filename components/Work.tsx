@@ -93,8 +93,8 @@ export default function Work() {
           </blockquote>
           <span className="flex items-center gap-4">
             <span>
-              <span className="block font-display text-4xl font-semibold">35</span>
-              <span className="block text-sm text-ink-muted">new members in 35 days</span>
+              <span className="block font-display text-4xl font-semibold">30+</span>
+              <span className="block text-sm text-ink-muted">new members in 75 days</span>
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-white">
               Read the story

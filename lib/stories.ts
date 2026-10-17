@@ -14,21 +14,21 @@ export const jpStory = {
   owner: { name: "Jaya Prakash", role: "Gym Owner and Trainer" },
   published: "2026-10-17",
 
-  title: "How local SEO brought JP Fitness 35 new members in 35 days",
-  metaTitle: "Local SEO Success Story: 35 New Gym Members in 35 Days | Dakshesh B",
+  title: "How local SEO brought JP Fitness 30+ new members in 75 days",
+  metaTitle: "Local SEO Success Story: 30+ New Gym Members in 75 Days | Dakshesh B",
   metaDescription:
-    "How Dakshesh B used local SEO to put JP Fitness, a gym in Kalapatti, Coimbatore, on Google page 1 for \"gym near me\" and bring about 35 new members in 35 days for ₹4,999.",
+    "How Dakshesh B used local SEO to put JP Fitness, a gym in Kalapatti, Coimbatore, on Google page 1 for \"gym near me\" and bring 30+ new members in 75 days for ₹4,999.",
   dek:
-    "The owner did not believe in SEO. Three months later his gym showed up on Google page 1 for \"gym near me\", and in the next 35 days about 35 new members walked in after finding the website.",
+    "The owner did not believe in SEO. Three months later his gym showed up on Google page 1 for \"gym near me\", and over the next 75 days more than 30 new members walked in after finding the website.",
 
   testimonial:
     "Honestly, I did not believe in SEO. Once I handed it over to Dakshesh, I was shocked. I could feel the increase in members, so I started asking new visitors how they found our gym, and the answer kept coming back: through the website. Personally, I am very satisfied with Dakshesh's work.",
 
   inShort:
-    "JP Fitness is a gym in Kalapatti, Coimbatore. Dakshesh B ran a local SEO audit across greater Coimbatore, rebuilt the website to be fast and easy to enquire from, and optimised it for local searches. After about three months the site ranked on Google page 1 for searches like \"gym near me\", \"jp fitness\" and \"gym fees in coimbatore\". In the 35 days that followed, about 35 new members joined after finding the gym through the website. The SEO cost ₹4,999 for three months.",
+    "JP Fitness is a gym in Kalapatti, Coimbatore. Dakshesh B ran a local SEO audit across greater Coimbatore, rebuilt the website to be fast and easy to enquire from, and optimised it for local searches. After about three months the site ranked on Google page 1 for searches like \"gym near me\", \"jp fitness\" and \"gym fees in coimbatore\". In the 75 days that followed, more than 30 new members joined after finding the gym through the website. The SEO cost ₹4,999 for three months.",
 
   stats: [
-    { value: "35", label: "new members in about 35 days, found through the website" },
+    { value: "30+", label: "new members in 75 days, found through the website" },
     { value: "₹4,999", label: "total SEO investment for 3 months" },
     { value: "Page 1", label: "on Google for \"gym near me\" around Kalapatti" },
     { value: "7,877", label: "Google impressions, 250 clicks (Search Console)" },
@@ -61,7 +61,7 @@ export const jpStory = {
   timeline: [
     { when: "Week 1", what: "Local SEO audit and keyword map for greater Coimbatore" },
     { when: "Months 1 to 3", what: "New site live, rankings climb for local gym searches" },
-    { when: "Next 35 days", what: "About 35 new members join after finding the website" },
+    { when: "Next 75 days", what: "30+ new members join after finding the website" },
   ],
 
   funnel: [
@@ -101,7 +101,7 @@ export const jpStory = {
     {
       question: "How long does local SEO take to show results?",
       answer:
-        "For JP Fitness it took about three months to rank well for local gym searches in Coimbatore. After that, about 35 new members joined in the next 35 days after finding the gym through the website. Timelines depend on competition in your area, but three months is a realistic first milestone.",
+        "For JP Fitness it took about three months to rank well for local gym searches in Coimbatore. After that, more than 30 new members joined in the next 75 days after finding the gym through the website. Timelines depend on competition in your area, but three months is a realistic first milestone.",
     },
     {
       question: "Is SEO better than Google Ads for a local business?",
@@ -111,7 +111,7 @@ export const jpStory = {
     {
       question: "How much did the local SEO cost JP Fitness?",
       answer:
-        "₹4,999 for three months. Against about 35 new members in 35 days, that is a very small cost per member, and the rankings keep working after the three months.",
+        "₹4,999 for three months. Against 30+ new members in 75 days, that is a very small cost per member, and the rankings keep working after the three months.",
     },
     {
       question: "Can my gym or local business rank for \"near me\" searches?",

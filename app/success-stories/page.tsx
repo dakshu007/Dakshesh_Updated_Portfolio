@@ -123,7 +123,7 @@ export default function SuccessStoriesPage() {
           <div className="min-w-0">
             <p className="eyebrow" data-reveal>Success story · Local SEO · {story.location}</p>
             <h1 className="display-1 mt-6 text-ink" data-split>
-              How local SEO brought JP Fitness <span className="serif-em text-gradient">35 new members in 35 days.</span>
+              How local SEO brought JP Fitness <span className="serif-em text-gradient">30+ new members in 75 days.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl" data-reveal>
               {story.dek}
@@ -258,7 +258,7 @@ export default function SuccessStoriesPage() {
             ₹4,999 for three months. <span className="serif-em text-gradient">Do the profit maths.</span>
           </h2>
           <p className="lead mt-5 max-w-2xl" data-reveal>
-            Move the sliders to your own fee and see what 35 new members are worth against the cost of the SEO.
+            Move the sliders to your own fee and see what 30+ new members are worth against the cost of the SEO.
           </p>
           <div className="mt-10" data-reveal>
             <RoiCalculator />

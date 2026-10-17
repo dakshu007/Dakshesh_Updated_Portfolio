@@ -7,14 +7,14 @@ const COST = 4999;
 const fmt = (n: number) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
 /**
- * Plug in your own numbers: what 35 new members would be worth against the
+ * Plug in your own numbers: what 30+ new members would be worth against the
  * ₹4,999 JP Fitness spent on three months of local SEO.
  */
 export default function RoiCalculator() {
   const id = useId();
   const [fee, setFee] = useState(1500);
   const [months, setMonths] = useState(3);
-  const [members, setMembers] = useState(35);
+  const [members, setMembers] = useState(30);
 
   const revenue = fee * months * members;
   const multiple = revenue / COST;
@@ -53,7 +53,7 @@ export default function RoiCalculator() {
         ))}
         <p className="text-xs leading-relaxed text-ink-soft">
           Example figures: change them to match your business. JP Fitness spent {fmt(COST)} on three months of
-          local SEO and got about 35 members in 35 days.
+          local SEO and got 30+ new members in 75 days.
         </p>
       </div>
 

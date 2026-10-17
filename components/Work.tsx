@@ -78,7 +78,7 @@ export default function Work() {
         </ul>
 
         <Link
-          href="/success-stories"
+          href={`/success-stories/${jpStory.slug}`}
           className="group mt-6 grid gap-6 overflow-hidden rounded-[2rem] border border-red-100 bg-gradient-to-br from-[#FFF1F1] via-white to-[#F3EEFF] p-7 text-ink shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-lift sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center"
           data-reveal
         >

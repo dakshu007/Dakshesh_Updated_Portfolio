@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL, LAST_UPDATED } from "@/lib/site";
 import { products, projects } from "@/lib/data";
 import { roles } from "@/lib/roles";
+import { stories } from "@/lib/stories";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(LAST_UPDATED);
@@ -16,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     })),
     { url: url("/success-stories"), lastModified, changeFrequency: "monthly", priority: 0.9 },
+    ...stories.map((s) => ({
+      url: url(`/success-stories/${s.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
     { url: url("/results"), lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: url("/about"), lastModified, changeFrequency: "monthly", priority: 0.8 },
     ...products.map((p) => ({

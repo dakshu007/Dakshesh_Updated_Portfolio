@@ -148,7 +148,7 @@ export default async function WorkPage({ params }: { params: Promise<Params> }) 
 
         <div className="mt-16 flex flex-wrap gap-6">
           {project.slug === "jp-fitness" && (
-            <Link href="/success-stories" className="inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-hover">
+            <Link href="/success-stories/jp-fitness" className="inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-hover">
               Read the success story: 30+ new members in 75 days
               <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
             </Link>

@@ -38,6 +38,16 @@ const nextConfig = {
       { source: "/habbit-tracker", destination: "/habit-tracker", permanent: true },
       { source: "/habit", destination: "/habit-tracker", permanent: true },
       { source: "/hire", destination: "/#hire", permanent: false },
+      // Success stories: alternative spellings go to the canonical slug.
+      // (Capitalised URLs are lowercased by middleware.ts; redirect matching
+      // here ignores case, so listing them would loop.)
+      { source: "/success-stories/jpfitness", destination: "/success-stories/jp-fitness", permanent: true },
+      { source: "/success-stories/jp_fitness", destination: "/success-stories/jp-fitness", permanent: true },
+      { source: "/success-story", destination: "/success-stories", permanent: true },
+      { source: "/success-story/:slug", destination: "/success-stories/:slug", permanent: true },
+      { source: "/stories", destination: "/success-stories", permanent: true },
+      { source: "/stories/:slug", destination: "/success-stories/:slug", permanent: true },
+      { source: "/case-studies", destination: "/success-stories", permanent: true },
       { source: "/contact", destination: "/#contact", permanent: false },
       {
         source: "/resume",

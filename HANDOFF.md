@@ -45,6 +45,6 @@ The October 2026 live site had been deployed from a local copy that was ahead of
 - GA4 events: `form_start` (first time someone focuses a field) and `generate_lead` (successful send), both with a `form_location` parameter of `hero` or `contact`. In GA4, see Reports > Engagement > Events.
 
 ## Success stories
-- `/success-stories` tells the JP Fitness local SEO story (content in `lib/stories.ts`): testimonial from Jaya Prakash, steps, timeline, funnel, a live ROI calculator (`components/RoiCalculator.tsx`), SEO vs ads, Search Console proof, checklist, FAQ and a lead form (`source: story`).
+- `/success-stories` lists every story; each story lives at `/success-stories/<slug>` (JP Fitness: `/success-stories/jp-fitness`, content in `lib/stories.ts`). Capitalised or mistyped slugs 301 to the lowercase URL (`next.config.mjs`). The JP Fitness page has: testimonial from Jaya Prakash, steps, timeline, funnel, a live ROI calculator (`components/RoiCalculator.tsx`), SEO vs ads, Search Console proof, checklist, FAQ and a lead form (`source: story`).
 - Schema: Article, Review, FAQPage, BreadcrumbList. Linked from the header, footer, home (client work), the JP Fitness case study and llms.txt.
-- To add another story, add it to `lib/stories.ts` and extend the page.
+- To add another story, add an object to `stories` in `lib/stories.ts`; the listing, page, share image, sitemap and llms.txt pick it up.

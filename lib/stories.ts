@@ -13,6 +13,13 @@ export const jpStory = {
   industry: "Gym and fitness centre",
   owner: { name: "Jaya Prakash", role: "Gym Owner and Trainer" },
   published: "2026-10-17",
+  service: "Local SEO and website",
+  accent: "#EF4444",
+  /** The headline result, used on cards and share images. */
+  result: { value: "30+", label: "new members in 75 days", short: "30+ members in 75 days" },
+  ogSubtitle: "How local SEO put a Coimbatore gym on Google page 1 for \"gym near me\", for ₹4,999.",
+  excerpt:
+    "A Coimbatore gym owner who did not believe in SEO. About three months later the site ranked on Google page 1 for \"gym near me\", and 30+ new members joined in the next 75 days, for ₹4,999.",
 
   title: "How local SEO brought JP Fitness 30+ new members in 75 days",
   metaTitle: "Local SEO Success Story: 30+ New Gym Members in 75 Days | Dakshesh B",
@@ -130,3 +137,12 @@ export const jpStory = {
     },
   ],
 };
+
+export type Story = typeof jpStory;
+
+/** Every success story, newest first. Each renders at /success-stories/<slug>. */
+export const stories: Story[] = [jpStory];
+
+export function getStory(slug: string): Story | undefined {
+  return stories.find((s) => s.slug === slug);
+}

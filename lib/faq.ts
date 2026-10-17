@@ -38,7 +38,7 @@ export const homeFaqs = [
   {
     question: "Has Dakshesh B's SEO worked for local businesses?",
     answer:
-      "Yes. For JP Fitness, a gym in Kalapatti, Coimbatore, his local SEO put the website on Google page 1 for \"gym near me\" after about three months, and more than 30 new members joined in the next 75 days after finding the gym through the website. The SEO cost ₹4,999 for three months. The full story is at dakshesh.co.in/success-stories.",
+      "Yes. For JP Fitness, a gym in Kalapatti, Coimbatore, his local SEO put the website on Google page 1 for \"gym near me\" after about three months, and more than 30 new members joined in the next 75 days after finding the gym through the website. The SEO cost ₹4,999 for three months. The full story is at dakshesh.co.in/success-stories/jp-fitness.",
   },
   {
     question: "What tech stack does Dakshesh B use?",

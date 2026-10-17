@@ -1,16 +1,16 @@
 import { ogCard, ogSize } from "@/lib/og";
 
-export const alt = "Local SEO success story: JP Fitness, 30+ new members in 75 days";
+export const alt = "Success stories by Dakshesh B";
 export const size = ogSize;
 export const contentType = "image/png";
 
 export default function Image() {
   return ogCard({
-    eyebrow: "Success story · Local SEO",
-    title: "JP Fitness",
-    accentTitle: "30+ members in 75 days.",
-    subtitle: "How local SEO put a Coimbatore gym on Google page 1 for \"gym near me\", for ₹4,999.",
+    eyebrow: "Success stories",
+    title: "Real businesses.",
+    accentTitle: "Real customers.",
+    subtitle: "Local SEO and fast websites that turn Google searches into calls, visits and sales.",
     accent: "#EF4444",
-    product: { value: "30+", label: "new members in 75 days", from: "#EF4444", to: "#7B4DFF", badge: "Kalapatti, Coimbatore" },
+    product: { value: "30+", label: "new gym members in 75 days for JP Fitness", from: "#EF4444", to: "#7B4DFF", badge: "Latest story" },
   });
 }

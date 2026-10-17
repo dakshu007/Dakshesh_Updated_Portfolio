@@ -66,7 +66,8 @@ ${resultTotals.map((t) => `- ${t.label}: ${t.display}`).join("\n")}
 
 ## Success stories
 
-- [${jpStory.title}](${u("/success-stories")}): ${jpStory.inShort}
+- [All success stories](${u("/success-stories")})
+- [${jpStory.title}](${u(`/success-stories/${jpStory.slug}`)}): ${jpStory.inShort}
 
 ## Client work
 
@@ -145,7 +146,7 @@ ${p.summary}
 ${p.stats.map((s) => `- ${s.label}: ${s.value}`).join("\n")}`)
   .join("\n\n")}
 
-## Success story: ${jpStory.title} (${u("/success-stories")})
+## Success story: ${jpStory.title} (${u(`/success-stories/${jpStory.slug}`)})
 
 ${jpStory.inShort}
 

@@ -81,7 +81,7 @@ export default function Experience() {
                   </div>
                   <p className="mt-5 text-ink-muted">{job.summary}</p>
                   <ul className="mt-5 space-y-2.5">
-                    {job.highlights.map((h) => (
+                    {job.highlights.slice(0, 3).map((h) => (
                       <li key={h} className="flex gap-3 text-[15px] leading-relaxed text-ink-muted">
                         <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                         {h}

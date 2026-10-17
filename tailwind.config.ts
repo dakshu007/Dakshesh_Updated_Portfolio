@@ -43,10 +43,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
-        display: ["var(--font-geist)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
-        serif: ["var(--font-instrument)", "Georgia", "serif"],
+        sans: ["var(--font-text)", "system-ui", "sans-serif"],
+        display: ["var(--font-notch)", "var(--font-text)", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
       },
       maxWidth: {
         prose: "68ch",

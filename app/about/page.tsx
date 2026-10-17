@@ -89,7 +89,7 @@ export default function AboutPage() {
 
       <div className="section">
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
+        <nav aria-label="Breadcrumb" className="text-sm text-ink-muted">
           <ol className="flex flex-wrap items-center gap-2">
             <li>
               <Link href="/" className="hover:text-accent">

@@ -94,7 +94,7 @@ export function BillZapPhone() {
               <span className="block text-[10px] text-ink-soft">Any UPI app</span>
             </span>
           </div>
-          <div className="mx-3 mt-auto mb-4 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-2.5 font-semibold text-white">
+          <div className="mx-3 mt-auto mb-4 flex items-center justify-center gap-2 rounded-full bg-[#0B7A43] py-2.5 font-semibold text-white">
             <WhatsAppIcon className="h-4 w-4" />
             Share on WhatsApp
           </div>

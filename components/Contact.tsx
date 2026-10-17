@@ -21,6 +21,13 @@ import { WhatsAppIcon } from "./icons";
 const FORMSPREE_ENDPOINT =
   process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/xrevwraj";
 
+/**
+ * WebMCP declarative annotations (toolname, tooldescription,
+ * toolparamdescription) let browser AI agents use the form as a tool.
+ * React passes these unknown lowercase attributes straight to the DOM.
+ */
+const webmcp = (attrs: Record<string, string>) => attrs as Record<string, string>;
+
 type Status = "idle" | "submitting" | "success" | "error";
 type Errors = { name?: string; email?: string; message?: string };
 type Intent = "hiring" | "project";
@@ -116,13 +123,13 @@ export default function Contact() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-3xl bg-[#25D366] p-6 text-white shadow-[0_20px_40px_-20px_rgba(37,211,102,0.8)] transition-transform duration-300 hover:-translate-y-0.5"
+              className="group flex items-center gap-4 rounded-3xl bg-[#0B7A43] p-6 text-white shadow-[0_20px_40px_-20px_rgba(11,122,67,0.7)] transition-transform duration-300 hover:-translate-y-0.5"
             >
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/20">
                 <WhatsAppIcon className="h-6 w-6" />
               </span>
               <span className="flex-1">
-                <span className="block text-xs font-semibold uppercase tracking-wider text-white/80">Fastest reply</span>
+                <span className="block text-xs font-semibold uppercase tracking-wider text-white">Fastest reply</span>
                 <span className="block text-lg font-semibold">WhatsApp {person.phone}</span>
               </span>
               <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -171,6 +178,12 @@ export default function Contact() {
           <form
             onSubmit={onSubmit}
             noValidate
+            aria-label="Contact Dakshesh B"
+            {...webmcp({
+              toolname: "contact_dakshesh",
+              tooldescription:
+                "Send Dakshesh B, a full-stack developer, frontend engineer and SEO engineer in Bangalore, a message about a full-time role or a freelance project. He replies within 24 hours.",
+            })}
             className="rounded-[2rem] border border-line bg-white p-6 shadow-lift sm:p-9"
             data-reveal
           >
@@ -196,6 +209,7 @@ export default function Contact() {
                       checked={intent === opt.id}
                       onChange={() => setIntent(opt.id)}
                       className="sr-only"
+                      {...webmcp({ toolparamdescription: "Why you are writing: hiring for a role or starting a project." })}
                     />
                     <opt.icon aria-hidden="true" className="h-4 w-4" />
                     {opt.label}
@@ -205,16 +219,17 @@ export default function Contact() {
             </fieldset>
 
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              <Field id="name" label="Name" type="text" autoComplete="name" error={errors.name} />
-              <Field id="email" label="Email" type="email" autoComplete="email" error={errors.email} />
+              <Field id="name" label="Name" type="text" autoComplete="name" error={errors.name} hint="Your full name." />
+              <Field id="email" label="Email" type="email" autoComplete="email" error={errors.email} hint="Email address for the reply." />
               <Field
                 id="company"
                 label={intent === "hiring" ? "Company and role" : "Business or website"}
                 type="text"
                 autoComplete="organization"
                 optional
+                hint="Company and role, or the business or website the project is for."
               />
-              <Field id="phone" label="Phone or WhatsApp" type="tel" autoComplete="tel" optional />
+              <Field id="phone" label="Phone or WhatsApp" type="tel" autoComplete="tel" optional hint="Optional phone or WhatsApp number for a faster reply." />
             </div>
 
             <div className="mt-5">
@@ -225,6 +240,7 @@ export default function Contact() {
                 id="message"
                 name="message"
                 rows={5}
+                {...webmcp({ toolparamdescription: "The message: role, team and location, or the project goal." })}
                 placeholder={
                   intent === "hiring"
                     ? "The role, team and location. A job link is perfect."
@@ -291,6 +307,7 @@ function Field({
   autoComplete,
   error,
   optional,
+  hint,
 }: {
   id: string;
   label: string;
@@ -298,6 +315,7 @@ function Field({
   autoComplete: string;
   error?: string;
   optional?: boolean;
+  hint?: string;
 }) {
   return (
     <div>
@@ -313,6 +331,7 @@ function Field({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className="mt-2 w-full rounded-2xl border border-line bg-canvas px-4 py-3 text-ink outline-none transition-colors focus:border-accent focus:bg-white"
+        {...(hint ? webmcp({ toolparamdescription: hint }) : {})}
       />
       {error && (
         <p id={`${id}-error`} className="mt-1.5 flex items-center gap-1 text-sm text-red-600">

@@ -52,7 +52,7 @@ const platformTone: Record<string, string> = {
   Live: "bg-emerald-50 text-emerald-700",
   "By request": "bg-amber-50 text-amber-700",
   "Coming soon": "bg-sky-50 text-sky-700",
-  "In testing": "bg-violet-soft text-violet",
+  "In testing": "bg-violet-soft text-[#5B2EE0]",
 };
 
 export default async function ProductPage({ params }: { params: Promise<Params> }) {

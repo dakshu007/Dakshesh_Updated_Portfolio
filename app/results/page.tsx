@@ -77,6 +77,7 @@ export default function ResultsPage() {
           </p>
         </header>
 
+        <h2 className="sr-only">Totals and monthly trend</h2>
         <div className="mt-14" data-reveal>
           <TotalsGrid />
         </div>

@@ -9,11 +9,13 @@ export default function Faq({
   eyebrow = "FAQ",
   title,
   items,
+  aside,
 }: {
   id?: string;
   eyebrow?: string;
   title: React.ReactNode;
   items: { question: string; answer: string }[];
+  aside?: React.ReactNode;
 }) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`} className="section-y relative scroll-mt-20">
@@ -24,6 +26,7 @@ export default function Faq({
             <h2 id={`${id}-heading`} className="display-2 mt-5 text-ink" data-split>
               {title}
             </h2>
+            {aside}
           </div>
           <div className="divide-y divide-line border-y border-line">
             {items.map((item, i) => (

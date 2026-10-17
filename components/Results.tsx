@@ -4,7 +4,6 @@ import {
   VerifiedBadge,
   TotalsGrid,
   ImpressionsChart,
-  SourcesList,
   RankingsList,
 } from "./ResultsBlocks";
 
@@ -39,12 +38,13 @@ export default function Results() {
             <div data-reveal>
               <ImpressionsChart />
             </div>
-            <div data-reveal>
-              <SourcesList />
-            </div>
+            <p className="rounded-3xl border border-line bg-accent-soft p-6 leading-relaxed text-ink" data-reveal>
+              <strong>AI search is real traffic.</strong> 43 percent of tracked visits came from ChatGPT and
+              other AI assistants, more than from Google. I build pages AI can read, trust and recommend.
+            </p>
           </div>
           <div data-reveal>
-            <RankingsList limit={9} />
+            <RankingsList limit={7} />
           </div>
         </div>
 

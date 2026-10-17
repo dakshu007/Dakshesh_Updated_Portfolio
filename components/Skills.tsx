@@ -1,4 +1,4 @@
-import { skillGroups, techMarquee } from "@/lib/data";
+import { skillGroups } from "@/lib/data";
 
 export default function Skills() {
   return (
@@ -43,15 +43,6 @@ export default function Skills() {
         </ul>
       </div>
 
-      <div className="mask-fade-x relative mt-16 overflow-hidden" aria-hidden="true">
-        <div className="flex w-max animate-marquee gap-10 [animation-duration:60s]">
-          {[...techMarquee, ...techMarquee].map((t, i) => (
-            <span key={i} className="whitespace-nowrap font-display text-4xl font-semibold tracking-tight text-ink/[0.08] sm:text-7xl">
-              {t} <span className="text-accent/30">✦</span>
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

@@ -49,7 +49,7 @@ export default function Work() {
                         <span className="rounded-full px-3 py-1.5 text-xs font-semibold text-white" style={{ background: p.accent }}>
                           Call now
                         </span>
-                        <span className="rounded-full bg-[#25D366] px-3 py-1.5 text-xs font-semibold text-white">WhatsApp</span>
+                        <span className="rounded-full bg-[#0B7A43] px-3 py-1.5 text-xs font-semibold text-white">WhatsApp</span>
                       </div>
                     </div>
                   </div>

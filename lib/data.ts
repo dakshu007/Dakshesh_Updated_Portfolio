@@ -145,26 +145,6 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
-/** Short tech list for the hero marquee. */
-export const techMarquee = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Node.js",
-  "PostgreSQL",
-  "Prisma",
-  "Tailwind CSS",
-  "Flutter",
-  "React Native",
-  "Playwright",
-  "GSAP",
-  "Three.js",
-  "Cloudflare",
-  "Supabase",
-  "Technical SEO",
-  "JSON-LD",
-];
-
 /* ----------------------------- Products ----------------------------- */
 
 export type ProductStatus = "live" | "new" | "soon";

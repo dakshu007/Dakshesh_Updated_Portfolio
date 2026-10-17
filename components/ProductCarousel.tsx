@@ -1,11 +1,9 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { mainProducts, legacyProducts, type Product } from "@/lib/data";
 import { GooglePlayIcon } from "./icons";
+import { CarouselButtons } from "./CarouselButtons";
 
 const MYKAVO_PLATFORMS = [
   { name: "Web", live: true },
@@ -23,81 +21,6 @@ const MYKAVO_PLATFORMS = [
  * Habit Tracker get the premium Exclusive card.
  */
 export default function ProductCarousel() {
-  const trackRef = useRef<HTMLUListElement>(null);
-  const railRef = useRef<HTMLDivElement>(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-
-  const update = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    const p = max > 0 ? el.scrollLeft / max : 0;
-    setAtStart(el.scrollLeft < 8);
-    setAtEnd(el.scrollLeft > max - 8);
-    if (railRef.current) railRef.current.style.transform = `scaleX(${0.12 + p * 0.88})`;
-  }, []);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    update();
-    el.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-
-    // Mouse drag to scroll (touch already scrolls natively).
-    let down = false;
-    let startX = 0;
-    let startLeft = 0;
-    let moved = false;
-    const onDown = (e: PointerEvent) => {
-      if (e.pointerType !== "mouse" || e.button !== 0) return;
-      down = true;
-      moved = false;
-      startX = e.clientX;
-      startLeft = el.scrollLeft;
-      el.style.scrollSnapType = "none";
-    };
-    const onMove = (e: PointerEvent) => {
-      if (!down) return;
-      const dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      el.scrollLeft = startLeft - dx;
-    };
-    const onUp = () => {
-      if (!down) return;
-      down = false;
-      el.style.scrollSnapType = "";
-    };
-    const onClick = (e: MouseEvent) => {
-      if (moved) {
-        e.preventDefault();
-        e.stopPropagation();
-        moved = false;
-      }
-    };
-    el.addEventListener("pointerdown", onDown);
-    window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerup", onUp);
-    el.addEventListener("click", onClick, true);
-    return () => {
-      el.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-      el.removeEventListener("pointerdown", onDown);
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-      el.removeEventListener("click", onClick, true);
-    };
-  }, [update]);
-
-  const go = (dir: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>("li");
-    const step = card ? card.offsetWidth + 20 : el.clientWidth * 0.8;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
-
   return (
     <section id="products" aria-labelledby="products-heading" className="section-y relative scroll-mt-20 overflow-hidden">
       <div className="section">
@@ -112,34 +35,11 @@ export default function ProductCarousel() {
               designed, built, launched and grown by me.
             </p>
           </div>
-          <div className="flex items-center gap-2" data-reveal>
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              disabled={atStart}
-              aria-label="Previous products"
-              aria-controls="products-track"
-              className="grid h-12 w-12 place-items-center rounded-full border border-line bg-white text-ink transition hover:border-ink disabled:opacity-35 disabled:hover:border-line"
-            >
-              <ArrowLeft aria-hidden="true" className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => go(1)}
-              disabled={atEnd}
-              aria-label="Next products"
-              aria-controls="products-track"
-              className="grid h-12 w-12 place-items-center rounded-full bg-ink text-white transition hover:bg-accent disabled:opacity-35 disabled:hover:bg-ink"
-            >
-              <ArrowRight aria-hidden="true" className="h-5 w-5" />
-            </button>
-          </div>
+          <CarouselButtons trackId="products-track" />
         </div>
       </div>
-
       <ul
         id="products-track"
-        ref={trackRef}
         aria-label="Products"
         className="no-scrollbar mt-12 flex cursor-grab snap-x snap-mandatory gap-5 overflow-x-auto pb-6 pt-2 active:cursor-grabbing"
         style={{
@@ -164,7 +64,7 @@ export default function ProductCarousel() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="h-[3px] w-40 overflow-hidden rounded-full bg-line" aria-hidden="true">
             <div
-              ref={railRef}
+              data-rail="products-track"
               className="h-full w-full origin-left rounded-full bg-ink transition-transform duration-300"
               style={{ transform: "scaleX(0.12)" }}
             />

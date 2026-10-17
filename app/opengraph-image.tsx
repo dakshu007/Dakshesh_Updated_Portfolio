@@ -6,8 +6,9 @@ export const contentType = "image/png";
 
 export default function OpengraphImage() {
   return ogCard({
-    eyebrow: "Full-Stack · Frontend · SEO Engineer",
+    eyebrow: "Portfolio · Open to work",
     title: "Dakshesh B",
-    subtitle: "Builds fast web products that rank on Google and get recommended by AI. Creator of MyKavo and BillZap.",
+    accentTitle: "builds products that rank.",
+    subtitle: "Creator of MyKavo and BillZap. Front ends used by 300,000+ stores. Based in Bangalore.",
   });
 }

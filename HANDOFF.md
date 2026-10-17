@@ -5,7 +5,7 @@ Quick context for a new chat session. Design and SEO decisions are in `DECISIONS
 ## Live
 - Site: https://dakshesh.co.in (Netlify site `daksheshb`, id `dc5cdbdb-3fb5-4c5f-b6c4-090c98fa4091`)
 - Code: https://github.com/dakshu007/Dakshesh_Updated_Portfolio
-- Stack: Next.js 15 (App Router, TS), Tailwind, GSAP (ScrollTrigger, SplitText), Lenis, Three.js, lucide-react. Fonts: Geist, Geist Mono, Instrument Serif.
+- Stack: Next.js 15 (App Router, TS), Tailwind, GSAP (ScrollTrigger, SplitText), Lenis, Three.js, lucide-react. Fonts: Stack Sans Notch (headlines) and Stack Sans Text (body), self-hosted and subset in `app/fonts/`.
 
 ## Deploy
 ```
@@ -32,3 +32,10 @@ The October 2026 live site had been deployed from a local copy that was ahead of
 - Product achievements: `products[].achievement` in `lib/data.ts`.
 - Search Console / GA4 numbers: `lib/results.ts`.
 - Experience counter rolls forward monthly from Oct 2024 (`lib/site.ts`).
+
+## Performance and agentic audits (Lighthouse 13)
+- Measured locally with Lighthouse 13.5 (the engine behind PageSpeed Insights): every page scores 100 for Accessibility, Best Practices, SEO and Agentic Browsing; desktop Performance 100; mobile Performance 94 to 98 (simulated slow 4G; real LCP is about 0.2s).
+- GSAP, Lenis and the Three.js hero load on the first interaction (`lib/interaction.ts`); content is fully visible without them.
+- Below-the-fold home sections use `content-visibility: auto` (`app/globals.css`).
+- Agentic: llms.txt, a valid accessibility tree, WebMCP annotations on the contact form and read-only WebMCP tools (`components/AgentTools.tsx`). No `ai-catalog.json` on purpose: the site has no agents or MCP servers to list, so Lighthouse marks it not applicable.
+- Share images: every route has an `opengraph-image.tsx` built from `lib/og.tsx` (Stack Sans TTFs and the portrait live in `lib/og-assets/`).

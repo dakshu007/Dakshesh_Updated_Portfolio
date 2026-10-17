@@ -65,13 +65,17 @@ export default function Footer() {
           />
         </div>
 
-        <p
-          aria-hidden="true"
-          className="pointer-events-none mt-16 select-none whitespace-nowrap text-center font-display font-semibold leading-none tracking-[-0.06em] text-ink/[0.05]"
-          style={{ fontSize: "clamp(4rem, 17vw, 22rem)" }}
-        >
-          dakshesh
-        </p>
+        <svg aria-hidden="true" viewBox="0 0 1000 190" className="mt-16 block w-full select-none">
+          <text
+            x="500"
+            y="160"
+            textAnchor="middle"
+            className="fill-ink/[0.05] font-display font-semibold"
+            style={{ fontSize: 215, letterSpacing: "-0.04em" }}
+          >
+            dakshesh
+          </text>
+        </svg>
 
         <div className="flex flex-col gap-4 border-t border-line py-6 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between">
           <p>

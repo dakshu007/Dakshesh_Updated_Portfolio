@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { SITE_URL, person } from "@/lib/site";
@@ -12,28 +12,27 @@ import Analytics from "@/components/Analytics";
 import SmoothScroll from "@/components/SmoothScroll";
 import Motion from "@/components/Motion";
 import MobileDock from "@/components/MobileDock";
+import AgentTools from "@/components/AgentTools";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-3JWWGHRKZ2";
 
-const geist = Geist({
-  subsets: ["latin"],
+/** Stack Sans Notch for headlines, Stack Sans Text for reading. Self-hosted. */
+const stackNotch = localFont({
+  src: "./fonts/StackSansNotch-latin.woff2",
+  weight: "200 700",
   display: "swap",
-  variable: "--font-geist",
+  variable: "--font-notch",
+  preload: true,
 });
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
+const stackText = localFont({
+  src: "./fonts/StackSansText-latin.woff2",
+  weight: "200 700",
   display: "swap",
-  variable: "--font-geist-mono",
+  variable: "--font-text",
+  preload: false,
 });
 
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
-});
 
 const DEFAULT_TITLE =
   "Dakshesh B | Full-Stack Developer, Frontend Engineer and SEO Engineer in Bangalore";
@@ -135,7 +134,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
+      className={`${stackNotch.variable} ${stackText.variable}`}
     >
       <body className="font-sans">
         <JsonLd schema={[personSchema(), websiteSchema(), mykavoOrgSchema()]} />
@@ -146,13 +145,14 @@ export default function RootLayout({
         <MobileDock />
         <SmoothScroll />
         <Motion />
+        <AgentTools />
 
         {/* Google Analytics (GA4), after hydration and off the critical path. */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

@@ -2,10 +2,10 @@
 
 ## October 2026 revamp
 
-- Light, premium redesign: cool off-white canvas `#F7F8FA`, ink `#0A0B10`, electric blue `#2B4BF2` with a violet partner for gradients. Geist for UI and headings, Instrument Serif italic for single emphasis words, Geist Mono for labels.
+- Light, premium redesign: cool off-white canvas `#F7F8FA`, ink `#0A0B10`, electric blue `#2B4BF2` with a violet partner for gradients. Stack Sans Notch for headlines (owner request), Stack Sans Text for body, system monospace for small labels.
 - Fluid layout for large monitors: the container is `100rem` wide and the root font size steps up at 1680px, 2200px and 2800px, so a 27 inch screen at 100 percent zoom is filled instead of showing a narrow column.
 - Motion: Lenis smooth scroll synced to the GSAP ticker; `components/Motion.tsx` drives reveals, SplitText headline reveals, count-ups, parallax, timeline draw, chart bars and magnetic buttons. Everything is skipped under reduced motion and content is never hidden before JS confirms motion is allowed.
-- Three.js is back, as one hero centrepiece (`components/HeroCanvas.tsx`): a shader orb with a particle halo, loaded on idle, paused off-screen, DPR capped, one still frame under reduced motion.
+- Hero centrepiece (`components/HeroCanvas.tsx`): about 6,500 Three.js particles that morph between a globe, the cloud D logo and a `</>` bracket, scatter from the pointer and tilt in 3D. A CSS dot globe shows until the first interaction loads the scene.
 - One products carousel replaces the separate SaaS spotlight and products grid. MyKavo and Habit Tracker get the Exclusive dark card. BillZap gets its own "live on Google Play" home section.
 - Removed as redundant: SaaS spotlight, metrics band, separate About band (merged into Experience), pre-contact CTA band, services section (folded into Hire).
 - Location is Bangalore (Bengaluru) everywhere: metadata, Person JSON-LD (`hasOccupation` with `occupationLocation`), llms.txt and copy.

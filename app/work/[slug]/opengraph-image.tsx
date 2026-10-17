@@ -13,11 +13,18 @@ export function generateStaticParams() {
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = getProject(slug)!;
   return ogCard({
     eyebrow: "Client case study",
-    title: project?.title ?? "Client work",
-    subtitle: project?.tagline ?? "A website by Dakshesh B",
-    accent: project?.accent ?? "#2B4BF2",
+    title: project.title,
+    subtitle: project.tagline,
+    accent: project.accent,
+    product: {
+      value: project.stats[0].value,
+      label: `${project.stats[0].label}, ranking #${project.rankings[0].position} on Google`,
+      from: project.accent,
+      to: "#7B4DFF",
+      badge: project.location,
+    },
   });
 }

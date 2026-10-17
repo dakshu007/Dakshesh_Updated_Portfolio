@@ -9,7 +9,8 @@ export default function Image() {
   const role = getRole("full-stack-developer-bangalore")!;
   return ogCard({
     eyebrow: "Hiring in Bangalore",
-    title: `${role.role} in Bangalore`,
+    title: role.role,
+    accentTitle: "in Bangalore.",
     subtitle: "Dakshesh B. Open to full-time roles, ready to relocate anywhere. Creator of MyKavo and BillZap.",
   });
 }

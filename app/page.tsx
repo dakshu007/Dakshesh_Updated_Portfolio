@@ -13,6 +13,7 @@ import Skills from "@/components/Skills";
 import Hire from "@/components/Hire";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
+import InShort from "@/components/InShort";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -38,6 +39,7 @@ export default function HomePage() {
           </>
         }
         items={homeFaqs}
+        aside={<InShort />}
       />
       <Contact />
     </>

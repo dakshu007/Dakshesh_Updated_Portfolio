@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 export default function Breadcrumbs({ trail }: { trail: { name: string; href?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
+    <nav aria-label="Breadcrumb" className="text-sm text-ink-muted">
       <ol className="flex flex-wrap items-center gap-1.5">
         {trail.map((item, i) => (
           <li key={item.name} className="flex items-center gap-1.5">
@@ -13,7 +13,7 @@ export default function Breadcrumbs({ trail }: { trail: { name: string; href?: s
                 {item.name}
               </Link>
             ) : (
-              <span className="font-medium text-ink-muted" aria-current="page">
+              <span className="font-medium text-ink" aria-current="page">
                 {item.name}
               </span>
             )}

@@ -9,6 +9,8 @@ const nextConfig = {
   // root to this project so deployment file tracing is correct.
   outputFileTracingRoot: projectRoot,
   reactStrictMode: true,
+  // Inline the (small) stylesheet so nothing blocks the first paint.
+  experimental: { inlineCss: true },
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],

@@ -61,17 +61,17 @@ export default function Hire() {
                 what we build get found.
               </p>
 
-              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {facts.map((f) => (
-                  <div key={f.label} className="flex items-start gap-3 rounded-2xl border border-line bg-canvas/70 p-4">
+                  <li key={f.label} className="flex items-start gap-3 rounded-2xl border border-line bg-canvas/70 p-4">
                     <f.icon aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                    <div>
-                      <dt className="text-xs font-medium uppercase tracking-wider text-ink-soft">{f.label}</dt>
-                      <dd className="mt-0.5 font-semibold text-ink">{f.value}</dd>
-                    </div>
-                  </div>
+                    <span>
+                      <span className="block text-xs font-medium uppercase tracking-wider text-ink-soft">{f.label}</span>
+                      <span className="mt-0.5 block font-semibold text-ink">{f.value}</span>
+                    </span>
+                  </li>
                 ))}
-              </dl>
+              </ul>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={person.resume} download className="btn-primary" data-magnetic>

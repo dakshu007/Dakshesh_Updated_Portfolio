@@ -139,7 +139,7 @@ export function RankingsList({ limit }: { limit?: number }) {
               <span className="block truncate font-medium text-ink">&ldquo;{r.query}&rdquo;</span>
               <span className="block text-xs text-ink-soft">
                 {r.site}
-                {r.nonBrand && <span className="ml-1.5 rounded bg-violet-soft px-1.5 py-0.5 text-[10px] font-semibold text-violet">Non-brand</span>}
+                {r.nonBrand && <span className="ml-1.5 rounded bg-violet-soft px-1.5 py-0.5 text-[10px] font-semibold text-[#5B2EE0]">Non-brand</span>}
               </span>
             </span>
             <span className="text-sm tabular text-ink-muted">

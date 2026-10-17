@@ -68,7 +68,7 @@ function MyKavoVisual() {
                 <span className="font-mono text-xs text-ink">{r.page}</span>
                 <span className="ml-auto truncate text-xs text-ink-muted">{r.note}</span>
                 {r.status === "critical" && (
-                  <span className="rounded bg-red-50 px-1.5 py-0.5 text-[10px] font-bold text-red-600">CRITICAL</span>
+                  <span className="rounded bg-red-50 px-1.5 py-0.5 text-[10px] font-bold text-red-700">CRITICAL</span>
                 )}
               </li>
             ))}

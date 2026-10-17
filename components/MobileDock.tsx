@@ -51,7 +51,7 @@ export default function MobileDock() {
         >
           <Download aria-hidden="true" className="h-[18px] w-[18px]" />
         </a>
-        <Link href="/#contact" className="btn-primary h-11 flex-1 py-0">
+        <Link href="/#hire-form" className="btn-primary h-11 flex-1 py-0">
           Hire me
         </Link>
       </div>

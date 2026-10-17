@@ -240,7 +240,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#hire" className="btn-primary ml-2 px-5 py-2.5" data-magnetic>
+          <Link href="/#hire-form" className="btn-primary ml-2 px-5 py-2.5" data-magnetic>
             Hire me
             <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </Link>
@@ -308,7 +308,7 @@ export default function Header() {
               {r.role} in Bangalore
             </Link>
           ))}
-          <Link href="/#hire" onClick={() => setMobileOpen(false)} className="btn-primary mt-3">
+          <Link href="/#hire-form" onClick={() => setMobileOpen(false)} className="btn-primary mt-3">
             Hire me
             <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </Link>

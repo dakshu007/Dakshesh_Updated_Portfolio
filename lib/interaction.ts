@@ -1,6 +1,6 @@
 /**
  * Resolves on the visitor's first real interaction (pointer, touch, wheel,
- * scroll or key). Heavy, purely visual code (GSAP, Lenis, Three.js) waits for
+ * scroll or key). Heavy, purely visual code (GSAP, Lenis) waits for
  * this, so the first paint and the main thread stay free for content.
  */
 let promise: Promise<void> | null = null;

@@ -1,8 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Download, Check } from "lucide-react";
 import { person, experienceLabel, WHATSAPP_URL } from "@/lib/site";
-import HeroVisual from "./HeroVisual";
+import ContactForm from "./ContactForm";
 import ExperienceValue from "./ExperienceValue";
 import { WhatsAppIcon, GooglePlayIcon } from "./icons";
 
@@ -63,7 +62,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3" data-reveal>
-              <Link href="#hire" className="btn-primary px-7 py-4 text-[0.95rem]" data-magnetic>
+              <Link href="#hire-form" className="btn-primary px-7 py-4 text-[0.95rem]" data-magnetic>
                 Hire me
                 <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </Link>
@@ -97,40 +96,40 @@ export default function Hero() {
             </ul>
           </div>
 
-          {/* Visual */}
+          {/* Hire me form */}
           <div className="relative lg:col-span-5">
-            <div className="relative mx-auto aspect-square w-full max-w-[34rem] lg:max-w-none">
-              <HeroVisual />
+            <div aria-hidden="true" className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-[radial-gradient(circle,rgba(201,214,255,0.9),rgba(228,216,255,0.5)_45%,transparent_70%)]" />
 
-              {/* MyKavo card */}
-              <Link
-                href="/mykavo"
-                className="glass absolute left-[2%] top-[10%] flex items-center gap-3 rounded-2xl p-3 pr-4 shadow-lift transition-transform hover:-translate-y-0.5"
-                data-parallax="0.22"
-              >
-                <Image src="/images/logos/mykavo.png" alt="" width={36} height={36} className="h-9 w-9 rounded-xl" />
-                <span>
-                  <span className="block text-sm font-semibold text-ink">MyKavo</span>
-                  <span className="block text-xs text-ink-muted">Live on 5 platforms</span>
+            <div id="hire-form" className="relative mx-auto w-full max-w-[30rem] scroll-mt-28 rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-lift backdrop-blur-xl sm:p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">Hire me</h2>
+                  <p className="mt-1 text-sm text-ink-muted">Tell me about the role or project. I reply within 24 hours.</p>
+                </div>
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                  <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-emerald-500" />
+                  Available
                 </span>
-              </Link>
-
-              {/* BillZap live card */}
-              <Link
-                href="/billzap"
-                className="glass absolute bottom-[14%] right-[2%] flex items-center gap-3 rounded-2xl p-3 pr-4 shadow-lift transition-transform hover:-translate-y-0.5"
-                data-parallax="0.18"
-              >
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-white shadow-sm ring-1 ring-black/5">
-                  <GooglePlayIcon className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold text-ink">BillZap is live</span>
-                  <span className="block text-xs text-ink-muted">Now on Google Play</span>
-                </span>
-              </Link>
-
+              </div>
+              <div className="mt-5">
+                <ContactForm source="hero" compact />
+              </div>
             </div>
+
+            {/* BillZap live card */}
+            <Link
+              href="/billzap"
+              className="glass absolute -bottom-12 -left-4 hidden items-center gap-3 rounded-2xl p-3 pr-4 shadow-lift transition-transform hover:-translate-y-0.5 sm:flex lg:-left-12"
+              data-parallax="0.18"
+            >
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-white shadow-sm ring-1 ring-black/5">
+                <GooglePlayIcon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-sm font-semibold text-ink">BillZap is live</span>
+                <span className="block text-xs text-ink-muted">Now on Google Play</span>
+              </span>
+            </Link>
           </div>
         </div>
 

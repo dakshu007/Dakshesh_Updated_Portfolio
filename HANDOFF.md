@@ -18,7 +18,7 @@ The October 2026 live site had been deployed from a local copy that was ahead of
 - Target queries: full-stack developer / frontend engineer / SEO engineer / software developer in Bangalore. Each has a landing page: `/full-stack-developer-bangalore`, `/frontend-engineer-bangalore`, `/seo-engineer-bangalore` (content in `lib/roles.ts`).
 
 ## Structure
-- Home (`app/page.tsx`): Hero (Three.js orb) > Cartrabbit marquee > Products carousel (all products in one, MyKavo and Habit Tracker marked Exclusive) > BillZap live on Google Play > Results (Search Console) > Client work > Experience > Skills > Hire (recruiters + freelance) > FAQ > Contact.
+- Home (`app/page.tsx`): Hero (headline + Hire me form) > Cartrabbit marquee > Products carousel (all products in one, MyKavo and Habit Tracker marked Exclusive) > BillZap live on Google Play > Results (Search Console) > Client work > Experience > Skills > Hire (recruiters + freelance) > FAQ > Contact.
 - Product pages at `/[slug]` (`lib/data.ts` + `lib/products-content.ts`). New: `/habit-tracker`. `/billzap` CTAs go to Google Play.
 - FocusLens, DesignLock and Melody Flow are "earlier side projects": their page content is intentionally unchanged.
 - `/results` (data in `lib/results.ts`), `/work/[slug]` (JP Fitness, Harsa Designer Boutique), `/about` (gallery from `public/images/gallery/`).
@@ -35,7 +35,11 @@ The October 2026 live site had been deployed from a local copy that was ahead of
 
 ## Performance and agentic audits (Lighthouse 13)
 - Measured locally with Lighthouse 13.5 (the engine behind PageSpeed Insights): every page scores 100 for Accessibility, Best Practices, SEO and Agentic Browsing; desktop Performance 100; mobile Performance 94 to 98 (simulated slow 4G; real LCP is about 0.2s).
-- GSAP, Lenis and the Three.js hero load on the first interaction (`lib/interaction.ts`); content is fully visible without them.
+- GSAP and Lenis load on the first interaction (`lib/interaction.ts`); content is fully visible without them.
 - Below-the-fold home sections use `content-visibility: auto` (`app/globals.css`).
 - Agentic: llms.txt, a valid accessibility tree, WebMCP annotations on the contact form and read-only WebMCP tools (`components/AgentTools.tsx`). No `ai-catalog.json` on purpose: the site has no agents or MCP servers to list, so Lighthouse marks it not applicable.
 - Share images: every route has an `opengraph-image.tsx` built from `lib/og.tsx` (Stack Sans TTFs and the portrait live in `lib/og-assets/`).
+
+## Hire me form tracking
+- The hero form and the contact section form share `components/ContactForm.tsx` and post to Formspree. Each submission carries a `source` field ("Hero form" or "Contact section form") and the email subject ends with it, so you can see which form was used.
+- GA4 events: `form_start` (first time someone focuses a field) and `generate_lead` (successful send), both with a `form_location` parameter of `hero` or `contact`. In GA4, see Reports > Engagement > Events.

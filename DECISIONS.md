@@ -37,7 +37,7 @@ The site was redesigned to a light, minimal, high-contrast look inspired by hack
 
 - Contact form delivery: Formspree, live at `https://formspree.io/f/xrevwraj`.
 - GitHub: https://github.com/dakshu007
-- LinkedIn: https://www.linkedin.com/in/dakshesh-b-wordpress-developer/
+- LinkedIn: https://in.linkedin.com/in/daksheshb
 
 ## Design
 

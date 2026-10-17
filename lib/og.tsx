@@ -1,4 +1,11 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { ImageResponse } from "next/og";
+
+/** The cloud "D" logo, inlined so OG cards render it without a network fetch. */
+const LOGO_SRC = `data:image/svg+xml;base64,${readFileSync(
+  path.join(process.cwd(), "public", "icon.svg")
+).toString("base64")}`;
 
 export const ogSize = { width: 1200, height: 630 };
 
@@ -46,22 +53,8 @@ export function ogCard({
         />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "56px",
-                height: "56px",
-                borderRadius: "16px",
-                background: "#0A0B10",
-                color: "#FFFFFF",
-                fontSize: "30px",
-                fontWeight: 800,
-              }}
-            >
-              D
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={LOGO_SRC} width={56} height={56} alt="" />
             <div style={{ fontSize: "28px", fontWeight: 700, color: "#0A0B10" }}>dakshesh.co.in</div>
           </div>
           <div

@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { person, socials } from "@/lib/site";
 import { mainProducts, projects } from "@/lib/data";
 import { roles } from "@/lib/roles";
+import Logo from "./Logo";
 
 const explore = [
   { href: "/#products", label: "Products" },
@@ -22,7 +23,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[1.4fr_0.7fr_0.9fr_1fr]">
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-ink">
-              <span className="grid h-8 w-8 place-items-center rounded-xl bg-ink text-sm font-bold text-white">D</span>
+              <Logo size={34} />
               <span>
                 dakshesh<span className="text-accent">.</span>
               </span>

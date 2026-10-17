@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown, ArrowUpRight, Sparkles } from "lucide-react";
 import { mainProducts, legacyProducts, achievementText } from "@/lib/data";
 import { roles } from "@/lib/roles";
 import { person } from "@/lib/site";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/#results", label: "Results" },
@@ -130,9 +131,7 @@ export default function Header() {
         style={scrolled ? undefined : { paddingInline: "clamp(1.25rem, 4vw, 4rem)" }}
       >
         <Link href="/" className="group flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-ink">
-          <span className="grid h-8 w-8 place-items-center rounded-xl bg-ink text-sm font-bold text-white transition-transform duration-500 group-hover:rotate-[360deg]">
-            D
-          </span>
+          <Logo size={34} className="transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110" />
           <span>
             dakshesh<span className="text-accent">.</span>
           </span>

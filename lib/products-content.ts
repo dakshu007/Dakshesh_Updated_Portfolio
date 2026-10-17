@@ -137,7 +137,7 @@ export const productContent: Record<string, ProductContent> = {
     schemaType: "MobileApplication",
     applicationCategory: "HealthApplication",
     ctaLabel: "See the app",
-    pricing: "7 days free, then Rs 59/mo, Rs 399/yr or Rs 999 lifetime",
+    pricing: "7 days free, then ₹59/mo, ₹399/yr or ₹999 lifetime",
     price: { amount: "59", currency: "INR" },
     stats: [
       { value: "22", label: "hand-drawn habit illustrations" },
@@ -177,7 +177,7 @@ export const productContent: Record<string, ProductContent> = {
     ],
     faqs: [
       { question: "When is Habit Tracker coming to Google Play?", answer: "Habit Tracker is in testing now and will be published on Google Play soon. The landing page is live at habbit-track-daily.netlify.app." },
-      { question: "Is Habit Tracker free?", answer: "You get 7 days of the full app free with no card. After that, Habit Tracker Pro is Rs 59 per month, Rs 399 per year or Rs 999 once for lifetime, billed through Google Play." },
+      { question: "Is Habit Tracker free?", answer: "You get 7 days of the full app free with no card. After that, Habit Tracker Pro is ₹59 per month, ₹399 per year or ₹999 once for lifetime, billed through Google Play." },
       { question: "Where is my data stored?", answer: "On your phone. There is no account, no ads and no third-party trackers. Routes, sleep and moods never leave your device unless you export a backup or share a card yourself." },
       { question: "How does sleep tracking work without a watch?", answer: "Set a bedtime window, for example 10 PM to 6 AM. The app counts the time your screen stayed off in that window as sleep." },
     ],
@@ -204,7 +204,7 @@ export const productContent: Record<string, ProductContent> = {
       { value: "30s", label: "to a finished GST bill" },
       { value: "100%", label: "works without internet" },
       { value: "12", label: "Indian languages" },
-      { value: "Rs 0", label: "forever, no trial" },
+      { value: "₹0", label: "forever, no trial" },
     ],
     metaTitle: "BillZap: Free GST Billing App, Live on Google Play | Dakshesh B",
     metaDescription:
@@ -372,7 +372,7 @@ export const productContent: Record<string, ProductContent> = {
   "image-size-inspector": {
     tagline: "Inspect any image size. Instantly.",
     overview:
-      "Image Size Inspector is a free Manifest V3 Chrome extension. Right-click any image on any website to see its original and displayed dimensions, file size, format, colour profile, a five-colour palette and alt text in one clean card, plus a screen colour picker in the toolbar. All processing happens locally and it collects zero data. It is used by 1,000+ developers and designers, rated 5.0 on the Chrome Web Store, and ranks #2 on Google for its name.",
+      "Image Size Inspector is a free Manifest V3 Chrome extension. Right-click any image on any website to see its original and displayed dimensions, file size, format, colour profile, a five-colour palette and alt text in one clean card, plus a screen colour picker in the toolbar. All processing happens locally and it collects zero data. It is used by 1,200+ developers and designers, rated 5.0 on the Chrome Web Store, and ranks #2 on Google for its name.",
     whoFor:
       "Web developers, designers and SEO and performance folks who need quick image metadata, oversized image checks and alt text audits without digging through DevTools.",
     category: "Chrome extension",
@@ -383,14 +383,14 @@ export const productContent: Record<string, ProductContent> = {
     price: { amount: "0", currency: "USD" },
     installUrl: "https://chromewebstore.google.com/detail/image-size-inspector/phoihlnjkbbigjgncmfjjodcbkinlihk",
     stats: [
-      { value: "1,000+", label: "users on Chrome" },
+      { value: "1,200+", label: "users on Chrome" },
       { value: "5.0", label: "Chrome Web Store rating" },
       { value: "16.2K", label: "Google impressions" },
       { value: "#2", label: "on Google for its name" },
     ],
-    metaTitle: "Image Size Inspector Chrome Extension, 1,000+ Users | Dakshesh B",
+    metaTitle: "Image Size Inspector Chrome Extension, 1,200+ Users | Dakshesh B",
     metaDescription:
-      "Image Size Inspector by Dakshesh B shows any image's dimensions, file size, format, palette and alt text with one right-click. Free, rated 5.0, 1,000+ users.",
+      "Image Size Inspector by Dakshesh B shows any image's dimensions, file size, format, palette and alt text with one right-click. Free, rated 5.0, 1,200+ users.",
     features: [
       { title: "Original versus displayed size", desc: "Natural dimensions next to the rendered size, so oversized images that hurt LCP are easy to catch." },
       { title: "File size analyser", desc: "Exact KB and MB from the image bytes, with fallbacks for CDN-served and lazy-loaded images." },

@@ -7,6 +7,7 @@ import Logo from "./Logo";
 
 const explore = [
   { href: "/#products", label: "Products" },
+  { href: "/success-stories", label: "Success stories" },
   { href: "/results", label: "Results" },
   { href: "/#experience", label: "Experience" },
   { href: "/#skills", label: "Skills" },
@@ -79,7 +80,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4 border-t border-line py-6 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {year} {person.name}. Designed and built in Bangalore with Next.js, GSAP and Three.js.
+            &copy; {year} {person.name}. Designed and built in Bangalore with Next.js, Tailwind and GSAP.
           </p>
           <div className="flex items-center gap-5">
             <a href="/llms.txt" className="hover:text-ink">llms.txt</a>

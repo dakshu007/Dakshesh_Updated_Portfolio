@@ -246,7 +246,7 @@ export const products: Product[] = [
     category: "Chrome extension",
     status: "live",
     statusLabel: "Live",
-    achievement: { value: "1,000+", label: "users, rated 5.0 on Chrome" },
+    achievement: { value: "1,200+", label: "users, rated 5.0 on Chrome" },
     brand: { from: "#22D3EE", to: "#0891B2", ink: "#083344" },
   },
   {
@@ -448,7 +448,7 @@ export const cartrabbitProducts = [
 /** Headline numbers, used in the hero and llms.txt. */
 export const headlineStats = [
   { value: 300000, suffix: "+", label: "Stores using interfaces I built", short: "300k+" },
-  { value: 2200, suffix: "+", label: "Chrome extension users", short: "2,200+" },
+  { value: 2400, suffix: "+", label: "Chrome extension users", short: "2,400+" },
   { value: 70233, suffix: "", label: "Google impressions earned", short: "70K+" },
   { value: 130, suffix: "", label: "Countries reached", short: "130" },
 ];

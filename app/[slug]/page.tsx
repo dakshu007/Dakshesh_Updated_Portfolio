@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
         {/* Hero */}
         <header className="mt-10 grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2" data-reveal>
               <span className="chip">{content.category}</span>
               {product.exclusive && (
@@ -139,7 +139,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               , {person.roles[0].toLowerCase()} in Bangalore.
             </p>
           </div>
-          <div data-reveal="scale">
+          <div className="min-w-0" data-reveal="scale">
             <ProductVisual product={product} />
           </div>
         </header>

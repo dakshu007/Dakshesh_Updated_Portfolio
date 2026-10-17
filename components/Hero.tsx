@@ -9,7 +9,7 @@ export default function Hero() {
   const stats = [
     { value: <ExperienceValue initial={experienceLabel()} />, label: "Shipping production code" },
     { value: <span data-count="300000" data-suffix="+">300,000+</span>, label: "Stores using UI I built" },
-    { value: <span data-count="2200" data-suffix="+">2,200+</span>, label: "Chrome extension users" },
+    { value: <span data-count="2400" data-suffix="+">2,400+</span>, label: "Chrome extension users" },
     { value: <span data-count="130">130</span>, label: "Countries reached" },
   ];
 

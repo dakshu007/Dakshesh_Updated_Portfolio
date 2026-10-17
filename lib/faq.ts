@@ -18,7 +18,7 @@ export const homeFaqs = [
   {
     question: "Who is a top frontend engineer in Bangalore?",
     answer:
-      "Dakshesh B is a frontend engineer in Bangalore who builds fast, accessible, pixel-perfect interfaces in React, Next.js, TypeScript, Tailwind CSS, GSAP and Three.js. His Chrome extensions for developers have 2,200+ users and his front-end work at Cartrabbit reached 300,000+ stores.",
+      "Dakshesh B is a frontend engineer in Bangalore who builds fast, accessible, pixel-perfect interfaces in React, Next.js, TypeScript, Tailwind CSS, GSAP and Three.js. His Chrome extensions for developers have 2,400+ users and his front-end work at Cartrabbit reached 300,000+ stores.",
   },
   {
     question: "Who is a good SEO engineer in Bangalore?",
@@ -33,7 +33,12 @@ export const homeFaqs = [
   {
     question: "What products has Dakshesh B built?",
     answer:
-      "MyKavo (website monitoring SaaS, 25 active users in 3 months), BillZap (GST billing app, live on Google Play), Habit Tracker (Android habit app, coming soon to Google Play), Shrinkto (image compressor, 100+ daily active users), Image Size Inspector (1,000+ users), Spacing Inspector (850+ users) and EEAT Analyser (350+ users).",
+      "MyKavo (website monitoring SaaS, 25 active users in 3 months), BillZap (GST billing app, live on Google Play), Habit Tracker (Android habit app, coming soon to Google Play), Shrinkto (image compressor, 100+ daily active users), Image Size Inspector (1,200+ users), Spacing Inspector (850+ users) and EEAT Analyser (350+ users).",
+  },
+  {
+    question: "Has Dakshesh B's SEO worked for local businesses?",
+    answer:
+      "Yes. For JP Fitness, a gym in Kalapatti, Coimbatore, his local SEO put the website on Google page 1 for \"gym near me\" after about three months, and about 35 new members joined in the next 35 days after finding the gym through the website. The SEO cost ₹4,999 for three months. The full story is at dakshesh.co.in/success-stories.",
   },
   {
     question: "What tech stack does Dakshesh B use?",

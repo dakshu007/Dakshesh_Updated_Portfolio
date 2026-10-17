@@ -11,7 +11,7 @@ export default function ProductVisual({ product }: { product: Product }) {
   if (product.id === "billzap")
     return (
       <Stage from="#DCFCE7" to="#ECFEFF">
-        <div className="mx-auto w-[40%] max-w-[15rem]">
+        <div className="mx-auto w-[17.5rem] max-w-full">
           <BillZapPhone />
         </div>
       </Stage>
@@ -22,11 +22,11 @@ export default function ProductVisual({ product }: { product: Product }) {
 function Stage({ children, from, to }: { children: React.ReactNode; from: string; to: string }) {
   return (
     <div
-      className="relative grid aspect-[4/3.4] place-items-center overflow-hidden rounded-[2rem] border border-line"
+      className="relative grid place-items-center overflow-hidden rounded-[2rem] border border-line px-6 py-10 sm:py-12"
       style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
     >
       <div aria-hidden="true" className="bg-dots absolute inset-0 opacity-40" />
-      <div className="relative w-full py-8">{children}</div>
+      <div className="relative w-full">{children}</div>
     </div>
   );
 }
@@ -65,8 +65,8 @@ function MyKavoVisual() {
                 ) : (
                   <AlertTriangle aria-hidden="true" className={`h-4 w-4 shrink-0 ${r.status === "critical" ? "text-red-500" : "text-amber-500"}`} />
                 )}
-                <span className="font-mono text-xs text-ink">{r.page}</span>
-                <span className="ml-auto truncate text-xs text-ink-muted">{r.note}</span>
+                <span className="shrink-0 font-mono text-xs text-ink">{r.page}</span>
+                <span className="ml-auto min-w-0 truncate text-xs text-ink-muted">{r.note}</span>
                 {r.status === "critical" && (
                   <span className="rounded bg-red-50 px-1.5 py-0.5 text-[10px] font-bold text-red-700">CRITICAL</span>
                 )}
@@ -82,7 +82,7 @@ function MyKavoVisual() {
           </div>
         </div>
       </div>
-      <div className="glass absolute bottom-3 right-3 rounded-2xl px-3 py-2 text-xs font-semibold text-ink shadow-lift sm:bottom-5 sm:right-5">
+      <div className="glass mt-3 inline-flex rounded-2xl px-3 py-2 text-xs font-semibold text-ink shadow-lift sm:absolute sm:bottom-5 sm:right-5 sm:mt-0">
         Alert sent to Slack · before and after attached
       </div>
     </div>
@@ -97,7 +97,7 @@ function HabitVisual() {
   ];
   return (
     <Stage from="#E0F2FE" to="#EDE9FE">
-      <div className="mx-auto w-[40%] max-w-[15rem]">
+      <div className="mx-auto w-[17.5rem] max-w-full">
         <PhoneFrame className="rotate-[3deg]">
           <div className="flex h-full flex-col bg-[#F4F9FE] px-3 pt-10 text-[11px] text-ink">
             <div className="flex items-center justify-between px-1">
@@ -164,7 +164,7 @@ function HabitVisual() {
 function GenericVisual({ product }: { product: Product }) {
   return (
     <div
-      className="relative grid aspect-[4/3.4] place-items-center overflow-hidden rounded-[2rem] border border-line"
+      className="relative grid place-items-center overflow-hidden rounded-[2rem] border border-line px-6 py-10 sm:py-12"
       style={{ background: `linear-gradient(135deg, ${product.brand.from}22, #ffffff 55%, ${product.brand.to}22)` }}
     >
       <div aria-hidden="true" className="bg-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(circle,#000,transparent_70%)]" />

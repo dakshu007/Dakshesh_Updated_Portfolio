@@ -100,12 +100,12 @@ export const roles: Role[] = [
     intro:
       "I am Dakshesh B, a frontend engineer open to full-time roles in Bangalore and ready to relocate anywhere. I turn Figma into pixel-perfect, accessible, fast interfaces, and I care about the details users feel: smooth motion, zero layout shift and pages that behave the same on a budget phone and a 27 inch monitor.",
     pitch:
-      "At Cartrabbit I built and maintained the front end for six WooCommerce products used by 300,000+ stores. This portfolio is my live frontend demo: Next.js, GSAP, Three.js and Tailwind, server-rendered and accessible.",
+      "At Cartrabbit I built and maintained the front end for six WooCommerce products used by 300,000+ stores. This portfolio is my live frontend demo: Next.js, GSAP, Lenis and Tailwind, server-rendered and accessible.",
     proof: [
       { title: "Interfaces for 300,000+ stores", desc: "Retainful, Flycart, WPLoyalty, UpsellWP, Spark Editor and Yuko at Cartrabbit, from Figma to production.", metric: "6 products" },
       { title: "Core Web Vitals", desc: "Improved page speed with Lighthouse, PageSpeed Insights and GTmetrix. The BillZap site scores 100 on Lighthouse performance.", href: "/billzap", metric: "100 Lighthouse" },
-      { title: "Developer tools people use", desc: "Image Size Inspector, Spacing Inspector and EEAT Analyser are Chrome extensions with 2,200+ users combined.", href: "/image-size-inspector", metric: "2,200+ users" },
-      { title: "Motion and 3D", desc: "GSAP ScrollTrigger, SplitText and a Three.js shader scene on this very site, all reduced-motion aware.", metric: "This site" },
+      { title: "Developer tools people use", desc: "Image Size Inspector, Spacing Inspector and EEAT Analyser are Chrome extensions with 2,400+ users combined.", href: "/image-size-inspector", metric: "2,400+ users" },
+      { title: "Motion that stays fast", desc: "GSAP ScrollTrigger, SplitText and Lenis smooth scroll on this very site, loaded on first interaction and reduced-motion aware, with 100 Lighthouse scores on desktop.", metric: "This site" },
     ],
     skills: [
       "React 19",
@@ -132,7 +132,7 @@ export const roles: Role[] = [
     faqs: [
       { question: "Who is a good frontend engineer in Bangalore open to work?", answer: "Dakshesh B is a frontend engineer open to full-time roles in Bangalore and ready to relocate. He built frontend interfaces for six WooCommerce products used by 300,000+ stores at Cartrabbit and works in React, Next.js, TypeScript, Tailwind CSS, GSAP and Three.js." },
       { question: "Does Dakshesh B care about performance and accessibility?", answer: "Yes. He tunes Core Web Vitals with Lighthouse and PageSpeed Insights, ships semantic, accessible HTML with visible focus states, and respects reduced-motion settings in every animation." },
-      { question: "What frontend tools has Dakshesh B built?", answer: "Image Size Inspector (1,000+ users), Spacing Inspector (850+ users) and EEAT Analyser (350+ users), all Chrome extensions, plus Shrinkto, an in-browser image compressor with 100+ daily active users." },
+      { question: "What frontend tools has Dakshesh B built?", answer: "Image Size Inspector (1,200+ users), Spacing Inspector (850+ users) and EEAT Analyser (350+ users), all Chrome extensions, plus Shrinkto, an in-browser image compressor with 100+ daily active users." },
       { question: "How do I contact Dakshesh B for a frontend role?", answer: "Email daksheshbabu@gmail.com, call or WhatsApp +91 87784 81650, or use the contact form at dakshesh.co.in." },
     ],
   },

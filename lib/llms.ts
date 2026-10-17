@@ -3,6 +3,7 @@ import { mainProducts, legacyProducts, projects, skillGroups, achievementText } 
 import { productContent } from "./products-content";
 import { roles } from "./roles";
 import { homeFaqs } from "./faq";
+import { jpStory } from "./stories";
 import { resultTotals, rankings, RESULTS_PERIOD, RESULTS_SOURCE } from "./results";
 
 const u = (path: string) => `${SITE_URL}${path}`;
@@ -63,6 +64,10 @@ ${resultTotals.map((t) => `- ${t.label}: ${t.display}`).join("\n")}
 - Source: ${RESULTS_SOURCE}, ${RESULTS_PERIOD}
 - Full report: ${u("/results")}
 
+## Success stories
+
+- [${jpStory.title}](${u("/success-stories")}): ${jpStory.inShort}
+
 ## Client work
 
 ${projects.map((p) => `- [${p.title}](${u(`/work/${p.slug}`)}): ${p.tagline} ${p.liveUrl}`).join("\n")}
@@ -77,7 +82,7 @@ ${projects.map((p) => `- [${p.title}](${u(`/work/${p.slug}`)}): ${p.tagline} ${p
 }
 
 export function llmsFullTxt() {
-  const faqs = [...homeFaqs, ...roles.flatMap((r) => r.faqs)];
+  const faqs = [...homeFaqs, ...roles.flatMap((r) => r.faqs), ...jpStory.faqs];
   return `${summaryBlock()}
 
 ## Summary
@@ -139,6 +144,12 @@ ${p.summary}
 
 ${p.stats.map((s) => `- ${s.label}: ${s.value}`).join("\n")}`)
   .join("\n\n")}
+
+## Success story: ${jpStory.title} (${u("/success-stories")})
+
+${jpStory.inShort}
+
+Testimonial from ${jpStory.owner.name}, ${jpStory.owner.role}, ${jpStory.client}: "${jpStory.testimonial}"
 
 ## Frequently asked questions
 

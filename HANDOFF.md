@@ -43,3 +43,8 @@ The October 2026 live site had been deployed from a local copy that was ahead of
 ## Hire me form tracking
 - The hero form and the contact section form share `components/ContactForm.tsx` and post to Formspree. Each submission carries a `source` field ("Hero form" or "Contact section form") and the email subject ends with it, so you can see which form was used.
 - GA4 events: `form_start` (first time someone focuses a field) and `generate_lead` (successful send), both with a `form_location` parameter of `hero` or `contact`. In GA4, see Reports > Engagement > Events.
+
+## Success stories
+- `/success-stories` tells the JP Fitness local SEO story (content in `lib/stories.ts`): testimonial from Jaya Prakash, steps, timeline, funnel, a live ROI calculator (`components/RoiCalculator.tsx`), SEO vs ads, Search Console proof, checklist, FAQ and a lead form (`source: story`).
+- Schema: Article, Review, FAQPage, BreadcrumbList. Linked from the header, footer, home (client work), the JP Fitness case study and llms.txt.
+- To add another story, add it to `lib/stories.ts` and extend the page.

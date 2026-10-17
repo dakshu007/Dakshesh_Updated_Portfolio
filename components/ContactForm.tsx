@@ -26,6 +26,12 @@ const SOURCES = {
     tooldescription:
       "Hire Dakshesh B, a full-stack developer, frontend engineer and SEO engineer in Bangalore. Send the role or project details; he replies within 24 hours.",
   },
+  story: {
+    label: "Success stories form",
+    toolname: "get_seo_plan",
+    tooldescription:
+      "Ask Dakshesh B for a free local SEO plan for your business, like the one that brought JP Fitness about 35 new members in 35 days. He replies within 24 hours.",
+  },
   contact: {
     label: "Contact section form",
     toolname: "contact_dakshesh",
@@ -43,12 +49,14 @@ const SOURCES = {
 export default function ContactForm({
   source,
   compact = false,
+  defaultIntent = "hiring",
 }: {
   source: keyof typeof SOURCES;
   compact?: boolean;
+  defaultIntent?: Intent;
 }) {
   const meta = SOURCES[source];
-  const [intent, setIntent] = useState<Intent>("hiring");
+  const [intent, setIntent] = useState<Intent>(defaultIntent);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Errors>({});
   const [statusMessage, setStatusMessage] = useState("");

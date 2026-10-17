@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
+import { jpStory } from "@/lib/stories";
 
 export default function Work() {
   return (
@@ -75,6 +76,32 @@ export default function Work() {
             </li>
           ))}
         </ul>
+
+        <Link
+          href="/success-stories"
+          className="group mt-6 grid gap-6 overflow-hidden rounded-[2rem] border border-red-100 bg-gradient-to-br from-[#FFF1F1] via-white to-[#F3EEFF] p-7 text-ink shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-lift sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center"
+          data-reveal
+        >
+          <blockquote>
+            <p className="font-display text-xl font-medium leading-snug tracking-tight sm:text-2xl">
+              &ldquo;I did not believe in SEO. Once I handed it over to Dakshesh, I was shocked. New visitors
+              kept telling me they found us through the website.&rdquo;
+            </p>
+            <footer className="mt-4 text-sm text-ink-muted">
+              {jpStory.owner.name}, {jpStory.owner.role}, {jpStory.client}
+            </footer>
+          </blockquote>
+          <span className="flex items-center gap-4">
+            <span>
+              <span className="block font-display text-4xl font-semibold">35</span>
+              <span className="block text-sm text-ink-muted">new members in 35 days</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-white">
+              Read the story
+              <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </span>
+          </span>
+        </Link>
       </div>
     </section>
   );

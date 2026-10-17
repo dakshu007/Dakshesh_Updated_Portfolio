@@ -1,48 +1,54 @@
-import { skillGroups } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { skillGroups, techMarquee } from "@/lib/data";
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      aria-labelledby="skills-heading"
-      className="scroll-mt-24 bg-black py-24 sm:py-28"
-    >
-      <div className="section">
-        <SectionHeading
-          headingId="skills-heading"
-          eyebrow="Skills"
-          title="The toolkit I build with"
-          description="Grouped by what they do. No vanity percentage bars, just the tools I reach for and the areas I own."
-          dark
-        />
+    <section id="skills" aria-labelledby="skills-heading" className="section-y relative scroll-mt-20">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 -inset-y-32 -z-10 overflow-hidden">
+        <div className="absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-[#DCE4FF] opacity-70 blur-[130px]" />
+        <div className="absolute -right-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-[#EDE4FF] opacity-70 blur-[130px]" />
+      </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="section relative">
+        <div className="max-w-3xl">
+          <p className="eyebrow" data-reveal>Skills</p>
+          <h2 id="skills-heading" className="display-2 mt-5 text-ink" data-split>
+            The full stack, <span className="serif-em text-gradient">front to back.</span>
+          </h2>
+          <p className="lead mt-5" data-reveal>
+            Grouped by what they do. No vanity percentage bars, just the tools I ship production
+            code with every week.
+          </p>
+        </div>
+
+        <ul className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group) => (
-            <div
+            <li
               key={group.id}
+              className="spotlight group rounded-3xl border border-line bg-white/80 p-7 shadow-card backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
               data-reveal
-              className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.12] to-white/[0.03] p-6 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)] ring-1 ring-inset ring-white/5 backdrop-blur-xl transition-colors duration-300 hover:border-white/20 hover:from-white/[0.16]"
             >
-              <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-xl border border-white/15 bg-white/10 text-white">
-                  <group.icon aria-hidden="true" className="h-5 w-5" />
-                </span>
-                <h3 className="font-display text-lg font-bold text-white">
-                  {group.title}
-                </h3>
-              </div>
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent-soft text-accent transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
+                <group.icon aria-hidden="true" className="h-5 w-5" />
+              </span>
+              <h3 className="mt-5 text-lg font-semibold text-ink">{group.title}</h3>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-sm font-medium text-white/90"
-                  >
+                  <li key={skill} className="rounded-full border border-line bg-canvas px-3 py-1 text-[13px] text-ink-muted">
                     {skill}
                   </li>
                 ))}
               </ul>
-            </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mask-fade-x relative mt-16 overflow-hidden" aria-hidden="true">
+        <div className="flex w-max animate-marquee gap-10 [animation-duration:60s]">
+          {[...techMarquee, ...techMarquee].map((t, i) => (
+            <span key={i} className="whitespace-nowrap font-display text-4xl font-semibold tracking-tight text-ink/[0.08] sm:text-7xl">
+              {t} <span className="text-accent/30">✦</span>
+            </span>
           ))}
         </div>
       </div>

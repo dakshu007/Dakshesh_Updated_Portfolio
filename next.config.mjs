@@ -12,8 +12,8 @@ const nextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    // The shipped thumbnails are first-party SVG placeholders. We sandbox them
-    // (no scripts, attachment disposition) so serving SVG stays safe.
+    // Brand logos are first-party SVG. We sandbox them (no scripts,
+    // attachment disposition) so serving SVG stays safe.
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -33,6 +33,15 @@ const nextConfig = {
         permanent: true,
       },
       { source: "/projects", destination: "/", permanent: true },
+      { source: "/habbit-tracker", destination: "/habit-tracker", permanent: true },
+      { source: "/habit", destination: "/habit-tracker", permanent: true },
+      { source: "/hire", destination: "/#hire", permanent: false },
+      { source: "/contact", destination: "/#contact", permanent: false },
+      {
+        source: "/resume",
+        destination: "/dakshesh-b-full-stack-developer-resume.pdf",
+        permanent: false,
+      },
     ];
   },
   async headers() {

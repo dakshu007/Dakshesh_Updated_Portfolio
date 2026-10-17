@@ -5,17 +5,38 @@
 @layer base {
   :root {
     color-scheme: light;
+    --header-h: 4.5rem;
   }
 
+  /* Fluid root size: everything in rem scales up gently on large monitors
+     (27 inch at 100 percent zoom), so the layout fills the screen instead of
+     floating in the middle. */
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    font-size: 100%;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (min-width: 1680px) {
+    html {
+      font-size: 106.25%;
+    }
+  }
+  @media (min-width: 2200px) {
+    html {
+      font-size: 115%;
+    }
+  }
+  @media (min-width: 2800px) {
+    html {
+      font-size: 130%;
+    }
   }
 
   body {
     @apply bg-canvas text-ink antialiased;
-    font-feature-settings: "kern", "ss01";
+    font-feature-settings: "ss01", "cv11";
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
   h1,
@@ -26,8 +47,8 @@
 
   :focus-visible {
     outline: 2px solid theme("colors.accent.DEFAULT");
-    outline-offset: 2px;
-    border-radius: 6px;
+    outline-offset: 3px;
+    border-radius: 8px;
   }
 
   ::selection {
@@ -44,72 +65,196 @@
     @apply not-sr-only fixed left-4 top-4 z-[100] rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lift;
   }
 
-  /* Pill buttons */
+  /* Wide, fluid container: fills large screens, keeps a comfortable gutter. */
+  .section {
+    @apply mx-auto w-full max-w-site;
+    padding-inline: clamp(1.25rem, 4vw, 4rem);
+  }
+
+  .section-y {
+    padding-block: clamp(4rem, 6.5vw, 7rem);
+  }
+
+  /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-semibold transition-[transform,background-color,border-color,box-shadow,color] duration-300 will-change-transform;
   }
   .btn-primary {
-    @apply btn bg-accent text-white hover:bg-accent-hover;
+    @apply btn bg-ink text-white shadow-[0_10px_30px_-12px_rgba(10,11,16,0.55)] hover:bg-accent hover:shadow-glow;
+  }
+  .btn-accent {
+    @apply btn bg-accent text-white shadow-glow hover:bg-accent-hover;
   }
   .btn-secondary {
-    @apply btn border border-ink/15 bg-surface text-ink hover:border-ink/40;
+    @apply btn border border-ink/10 bg-white/80 text-ink backdrop-blur hover:border-ink/30 hover:bg-white;
   }
   .btn-ghost {
-    @apply btn text-ink hover:bg-ink/5;
+    @apply btn px-4 text-ink-muted hover:text-ink;
   }
-  /* On dark sections */
   .btn-on-dark {
     @apply btn bg-white text-ink hover:bg-white/90;
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink-muted;
-  }
-
-  .section {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white/80 px-3.5 py-1.5 text-sm font-medium text-ink-muted backdrop-blur;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-accent;
+    @apply inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-6 bg-current;
   }
 
-  /* Cartrabbit product link: ink by default, brand colour (via --bc) on hover. */
+  .card {
+    @apply rounded-3xl border border-line bg-surface shadow-card;
+  }
+
+  .glass {
+    @apply border border-white/60 bg-white/65 backdrop-blur-xl backdrop-saturate-150;
+  }
+
+  /* Big editorial headings, fluid */
+  .display-1 {
+    @apply font-display font-semibold tracking-[-0.045em];
+    font-size: clamp(2.6rem, 5.6vw, 6.25rem);
+    line-height: 0.98;
+  }
+  .display-hero {
+    @apply font-display font-semibold tracking-[-0.045em];
+    font-size: clamp(2.6rem, 5vw, 5.4rem);
+    line-height: 0.98;
+  }
+  .display-2 {
+    @apply font-display font-semibold tracking-[-0.035em];
+    font-size: clamp(2.1rem, 3.9vw, 4rem);
+    line-height: 1;
+  }
+  .display-3 {
+    @apply font-display font-semibold tracking-[-0.03em];
+    font-size: clamp(1.75rem, 2.8vw, 2.75rem);
+    line-height: 1.05;
+  }
+  .lead {
+    @apply text-ink-muted;
+    font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+    line-height: 1.6;
+  }
+
+  .serif-em {
+    @apply font-serif font-normal italic tracking-normal;
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, #2b4bf2 0%, #7b4dff 45%, #e0479e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* SplitText wraps each word in its own element; carry the clipped
+     gradient onto them or the words render transparent. */
+  .text-gradient div,
+  .text-gradient span {
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-anim {
+    background: linear-gradient(100deg, #2b4bf2, #7b4dff, #e0479e, #2b4bf2);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    @apply animate-shimmer;
+  }
+
+  /* Cartrabbit brand hover via --bc */
   .brand-link {
-    @apply text-ink-muted transition-colors duration-200;
+    @apply text-ink-muted transition-colors duration-300;
   }
   .brand-link:hover,
   .brand-link:focus-visible {
     color: var(--bc);
   }
 
-  /* Cartrabbit product logo: visible by default on touch devices (mobile and
-     tablet, where there is no hover), and revealed on hover or focus for
-     pointer devices (laptop and desktop). Space is always reserved so the
-     reveal fades in without shifting the layout. */
-  .product-logo {
-    @apply transition-all duration-200 ease-out;
+  /* Pointer spotlight for cards. --mx / --my are set by Motion. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
   }
-  @media (hover: hover) {
-    .product-logo {
-      opacity: 0;
-      transform: translateY(6px);
-    }
-    .brand-link:hover .product-logo,
-    .brand-link:focus-visible .product-logo {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(43, 75, 242, 0.1),
+      transparent 45%
+    );
+    z-index: 1;
+  }
+  .spotlight:hover::after {
+    opacity: 1;
   }
 
-  /* Big editorial headings */
-  .display-1 {
-    @apply font-display font-bold leading-[1.02] tracking-tight;
-    font-size: clamp(2.5rem, 6vw, 4.75rem);
+  /* Exclusive card: animated aurora border */
+  .exclusive-border {
+    position: relative;
+    isolation: isolate;
   }
-  .display-2 {
-    @apply font-display font-bold leading-[1.05] tracking-tight;
-    font-size: clamp(2rem, 4vw, 3.25rem);
+  .exclusive-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      rgba(255, 255, 255, 0.08),
+      #7b4dff,
+      #2b4bf2,
+      #facc15,
+      rgba(255, 255, 255, 0.08)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: spin-angle 6s linear infinite;
+    z-index: -1;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(10, 11, 16, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 11, 16, 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(rgba(10, 11, 16, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -120,13 +265,42 @@
   .text-pretty {
     text-wrap: pretty;
   }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
-/* Blinking caret for the hero typewriter. */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Typed caret */
 .type-cursor {
   display: inline-block;
-  margin-left: 0.04em;
-  font-weight: 400;
+  width: 0.08em;
+  height: 0.9em;
+  margin-left: 0.06em;
+  transform: translateY(0.08em);
+  background: currentColor;
   animation: blink 1.05s steps(1, start) infinite;
 }
 @keyframes blink {
@@ -135,11 +309,20 @@
   }
 }
 
-/* GSAP reveal: hidden only once JS confirms motion is allowed, so content is
-   always visible without JS (crawler and a11y safe). */
-.gsap-ready [data-reveal] {
+/* Reveal states: hidden only once JS confirms motion is allowed, so content
+   is always visible without JS (crawler and a11y safe). */
+.motion-ready [data-reveal] {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(28px);
+}
+.motion-ready [data-reveal="scale"] {
+  transform: translateY(20px) scale(0.97);
+}
+.split-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -154,11 +337,8 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .gsap-ready [data-reveal] {
+  .motion-ready [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
-  }
-  .animate-marquee {
-    animation: none !important;
   }
 }

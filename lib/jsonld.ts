@@ -1,5 +1,11 @@
-import { SITE_URL, person, experience, sameAs } from "./site";
-import { skillGroups, products, type Project } from "./data";
+import {
+  SITE_URL,
+  LAST_UPDATED,
+  person,
+  education,
+  sameAs,
+} from "./site";
+import { skillGroups, products, mainProducts, type Project } from "./data";
 import { productContent } from "./products-content";
 
 /**
@@ -8,18 +14,43 @@ import { productContent } from "./products-content";
  * read it without running JavaScript. No em dashes in any string.
  */
 
-const PERSON_ID = `${SITE_URL}/#person`;
+export const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
+const MYKAVO_ID = `${SITE_URL}/#mykavo`;
 
 const knowsAbout = Array.from(
   new Set([
-    "Frontend web development",
-    "Web engineering",
-    "Flutter development",
-    "Full stack development",
+    "Full-stack development",
+    "Frontend engineering",
+    "Search engine optimisation",
+    "Technical SEO",
+    "Answer engine optimisation",
+    "Generative engine optimisation",
+    "Web performance",
+    "SaaS development",
+    "Mobile app development",
     ...skillGroups.flatMap((group) => group.skills),
   ])
 );
+
+const bengaluru = {
+  "@type": "City",
+  name: "Bengaluru",
+  alternateName: "Bangalore",
+  containedInPlace: {
+    "@type": "State",
+    name: "Karnataka",
+    containedInPlace: { "@type": "Country", name: "India" },
+  },
+};
+
+const occupation = (name: string, skills: string[]) => ({
+  "@type": "Occupation",
+  name,
+  occupationLocation: bengaluru,
+  skills: skills.join(", "),
+  experienceRequirements: "About 2 years of professional experience",
+});
 
 export function personSchema() {
   return {
@@ -27,35 +58,85 @@ export function personSchema() {
     "@type": "Person",
     "@id": PERSON_ID,
     name: person.name,
-    alternateName: ["Dakshesh", "Dakshesh B"],
+    alternateName: ["Dakshesh", "Dakshesh Babu", "dakshu007"],
     givenName: person.firstName,
-    jobTitle: [
-      "Frontend Web Developer",
-      "Web Engineer",
-      "Frontend Developer",
-      "Flutter Developer",
-      "Full Stack Developer",
-    ],
-    description:
-      "Dakshesh B, also known as Dakshesh, is a frontend web developer, web engineer, Flutter developer and full stack developer based in Kotagiri, India. He builds fast, accessible, high-performance web interfaces and ships full web products end to end.",
+    jobTitle: person.headline,
+    description: `${person.name} is a full-stack developer, frontend engineer and SEO engineer in Bangalore (Bengaluru), India. ${person.availability} He built MyKavo, a website monitoring SaaS on every platform, and BillZap, a GST billing app live on Google Play, and previously built frontend interfaces used by 300,000+ stores at Cartrabbit.`,
     url: `${SITE_URL}/`,
-    // Real photo (valid raster image for the schema.org image property).
-    image: `${SITE_URL}${person.image}`,
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}${person.image}`,
+      width: person.imageWidth,
+      height: person.imageHeight,
+    },
     email: `mailto:${person.email}`,
     telephone: person.phoneHref,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Kotagiri",
-      addressRegion: "Tamil Nadu",
+      addressLocality: "Bengaluru",
+      addressRegion: "Karnataka",
       addressCountry: "IN",
     },
-    worksFor: {
-      "@type": "Organization",
-      name: experience.company,
-      url: experience.companyUrl,
+    homeLocation: bengaluru,
+    nationality: { "@type": "Country", name: "India" },
+    hasOccupation: [
+      occupation("Full-Stack Developer", [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Prisma",
+        "Flutter",
+      ]),
+      occupation("Frontend Engineer", [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "GSAP",
+        "Three.js",
+        "Accessibility",
+      ]),
+      occupation("SEO Engineer", [
+        "Technical SEO",
+        "JSON-LD",
+        "Core Web Vitals",
+        "AEO",
+        "GEO",
+        "Search Console",
+      ]),
+    ],
+    worksFor: { "@id": MYKAVO_ID },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: education.school,
+      url: education.schoolUrl,
+      address: { "@type": "PostalAddress", addressLocality: "Coimbatore", addressCountry: "IN" },
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "degree",
+      name: education.degree,
+      recognizedBy: { "@type": "CollegeOrUniversity", name: education.school },
     },
     knowsAbout,
+    knowsLanguage: ["English"],
     sameAs,
+  };
+}
+
+export function mykavoOrgSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": MYKAVO_ID,
+    name: "MyKavo",
+    url: "https://mykavo.app/",
+    logo: `${SITE_URL}/images/logos/mykavo.png`,
+    founder: { "@id": PERSON_ID },
+    foundingDate: "2026",
+    description: "Website change and regression monitoring SaaS.",
   };
 }
 
@@ -65,9 +146,12 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     name: `${person.name} Portfolio`,
+    alternateName: "dakshesh.co.in",
     url: `${SITE_URL}/`,
     inLanguage: "en",
+    description: `Portfolio of ${person.name}, ${person.headline}.`,
     publisher: { "@id": PERSON_ID },
+    author: { "@id": PERSON_ID },
   };
 }
 
@@ -75,17 +159,19 @@ export function profilePageSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
+    "@id": `${SITE_URL}/#profilepage`,
     url: `${SITE_URL}/`,
-    name: `${person.name} - ${person.role}`,
+    name: `${person.name} - ${person.headline}`,
     isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": PERSON_ID },
     mainEntity: { "@id": PERSON_ID },
+    dateCreated: "2026-06-01",
+    dateModified: LAST_UPDATED,
+    inLanguage: "en",
   };
 }
 
-export function breadcrumbSchema(
-  trail: { name: string; url: string }[]
-) {
+export function breadcrumbSchema(trail: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -99,57 +185,73 @@ export function breadcrumbSchema(
 }
 
 export function projectSchema(project: Project) {
-  const base = {
+  return {
     "@context": "https://schema.org",
-    "@type": project.schemaType,
-    name: project.title,
+    "@type": "CreativeWork",
+    name: `${project.title} website`,
+    headline: project.metaTitle,
     description: project.metaDescription,
     url: `${SITE_URL}/work/${project.slug}`,
-    // Raster PNG generated by the work opengraph-image route.
     image: `${SITE_URL}/work/${project.slug}/opengraph-image`,
     creator: { "@id": PERSON_ID },
     author: { "@id": PERSON_ID },
-  };
-
-  if (project.schemaType === "WebSite") {
-    return base;
-  }
-
-  // Software and mobile applications get extra app fields.
-  return {
-    ...base,
-    applicationCategory:
-      project.schemaType === "MobileApplication"
-        ? "MultimediaApplication"
-        : "DeveloperApplication",
-    operatingSystem:
-      project.schemaType === "MobileApplication" ? "Android" : "Chrome",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
+    about: {
+      "@type": "WebSite",
+      name: project.title,
+      url: project.liveUrl,
     },
+    dateModified: LAST_UPDATED,
   };
 }
 
-export function productSchema(slug: string) {
+function appSchema(slug: string) {
   const product = products.find((p) => p.id === slug);
   const content = productContent[slug];
   if (!product || !content) return null;
+  const price = content.price ?? { amount: "0", currency: "USD" };
 
   return {
-    "@context": "https://schema.org",
     "@type": content.schemaType,
+    "@id": `${SITE_URL}/${product.id}#app`,
     name: product.name,
     description: content.metaDescription,
     url: `${SITE_URL}/${product.id}`,
     image: `${SITE_URL}/${product.id}/opengraph-image`,
     applicationCategory: content.applicationCategory,
     operatingSystem: content.platform,
+    featureList: content.features.map((f) => f.title),
     creator: { "@id": PERSON_ID },
     author: { "@id": PERSON_ID },
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    sameAs: product.url,
+    ...(content.installUrl ? { installUrl: content.installUrl } : {}),
+    offers: {
+      "@type": "Offer",
+      price: price.amount,
+      priceCurrency: price.currency,
+      ...(product.status === "soon"
+        ? { availability: "https://schema.org/PreOrder" }
+        : { availability: "https://schema.org/InStock" }),
+    },
+    sameAs: Array.from(new Set([product.url, product.site].filter(Boolean))),
+  };
+}
+
+export function productSchema(slug: string) {
+  const app = appSchema(slug);
+  return app ? { "@context": "https://schema.org", ...app } : null;
+}
+
+/** Every main product as an ItemList, for the home page. */
+export function productListSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Products built by ${person.name}`,
+    itemListElement: mainProducts.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${SITE_URL}/${p.id}`,
+      name: p.name,
+    })),
   };
 }
 

@@ -1,77 +1,57 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { cartrabbitProducts } from "@/lib/data";
 
-const cartrabbitProducts = [
-  {
-    name: "Retainful",
-    color: "#F85C1B",
-    url: "https://www.retainful.com/",
-    logo: "/images/logos/retainful.svg",
-  },
-  {
-    name: "Flycart",
-    color: "#EA242B",
-    url: "https://www.flycart.org/",
-    logo: "/images/logos/flycart.svg",
-  },
-  {
-    name: "WPLoyalty",
-    color: "#4F47EB",
-    url: "https://wployalty.net/",
-    logo: "/images/logos/wployalty.svg",
-  },
-  {
-    name: "UpsellWP",
-    color: "#3B82F6",
-    url: "https://upsellwp.com/",
-    logo: "/images/logos/upsellwp.svg",
-  },
-  {
-    name: "Spark Editor",
-    color: "#2FBF71",
-    url: "https://sparkeditor.com/",
-    logo: "/images/logos/spark.svg",
-  },
-  {
-    name: "Yuko",
-    color: "#6F65F8",
-    url: "https://yuko.so/",
-    logo: "/images/logos/yuko.svg",
-  },
-];
-
+/**
+ * Infinite marquee of the six Cartrabbit products whose front end I built.
+ * The list is rendered twice for a seamless loop; the copy is hidden from
+ * assistive tech so screen readers hear each product once.
+ */
 export default function LogoStrip() {
   return (
-    <section
-      aria-label="Products I build for at Cartrabbit"
-      className="bg-black py-12"
-    >
+    <section aria-labelledby="cartrabbit-heading" className="relative pb-4 pt-14 sm:pt-20">
       <div className="section">
-        <p className="text-center text-sm font-medium text-white/70">
-          Front end I build and maintain at Cartrabbit, used by 300,000+ stores
-        </p>
-        <ul className="mt-7 flex flex-wrap items-start justify-center gap-x-10 gap-y-6">
-          {cartrabbitProducts.map((product) => (
-            <li key={product.name}>
-              <a
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ "--bc": product.color } as CSSProperties}
-                className="brand-link flex flex-col items-center gap-2 font-display text-lg font-bold tracking-tight text-white sm:text-xl"
-              >
-                <Image
-                  src={product.logo}
-                  alt={`${product.name} logo`}
-                  width={40}
-                  height={40}
-                  className="product-logo h-10 w-10"
-                />
-                <span>{product.name}</span>
-              </a>
-            </li>
+        <h2
+          id="cartrabbit-heading"
+          className="text-center font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink-soft"
+        >
+          Front end I built at Cartrabbit, used by 300,000+ stores
+        </h2>
+      </div>
+
+      <div className="mask-fade-x mt-8 overflow-hidden">
+        <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused]">
+          {[0, 1].map((copy) => (
+            <ul
+              key={copy}
+              aria-hidden={copy === 1 ? true : undefined}
+              className="flex shrink-0 items-center gap-4 pr-4 sm:gap-6 sm:pr-6"
+            >
+              {cartrabbitProducts.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabIndex={copy === 1 ? -1 : undefined}
+                    className="brand-link group flex items-center gap-3 rounded-2xl border border-line bg-white/70 px-6 py-4 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:shadow-card"
+                    style={{ "--bc": item.color } as React.CSSProperties}
+                  >
+                    <Image
+                      src={item.logo}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="h-7 w-7 object-contain grayscale transition duration-300 group-hover:grayscale-0"
+                    />
+                    <span className="font-display text-lg font-semibold tracking-tight sm:text-xl">
+                      {item.name}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

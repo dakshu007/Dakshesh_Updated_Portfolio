@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="section flex min-h-[70vh] flex-col items-center justify-center py-28 text-center">
-      <p className="text-6xl font-extrabold text-accent">404</p>
-      <h1 className="mt-4 text-3xl font-extrabold text-ink sm:text-4xl">
+      <p className="display-1 text-gradient">404</p>
+      <h1 className="display-3 mt-4 text-ink">
         This page could not be found
       </h1>
       <p className="mt-3 max-w-prose text-lg text-ink-muted">

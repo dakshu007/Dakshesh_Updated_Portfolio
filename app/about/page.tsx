@@ -3,8 +3,8 @@ import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Building2, Rocket, Camera } from "lucide-react";
-import { SITE_URL, person, experience } from "@/lib/site";
+import { ArrowRight, MapPin, Building2, Rocket, Camera, GraduationCap } from "lucide-react";
+import { SITE_URL, person, jobs, education } from "@/lib/site";
 import { breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import JsonLd from "@/components/JsonLd";
 
@@ -12,29 +12,34 @@ const faqs = [
   {
     question: "Who is Dakshesh?",
     answer:
-      "Dakshesh B, also known as Dakshesh, is a frontend web developer and web engineer based in Kotagiri, India. He builds fast, accessible web interfaces and ships full web products end to end.",
+      "Dakshesh B, also known as Dakshesh, is a full-stack developer, frontend engineer and SEO engineer based in Bangalore, India. He builds fast, accessible web products end to end and grows them with technical SEO.",
   },
   {
     question: "What does Dakshesh do?",
     answer:
-      "Dakshesh works as a frontend web developer, web engineer and Flutter developer. At Cartrabbit he maintains the front end for six WooCommerce products used by more than 300,000 stores, and he has shipped nine of his own products, including MyKavo, a website change detection and monitoring SaaS.",
+      "Dakshesh builds and runs MyKavo, a website monitoring SaaS available on web, WordPress, Chrome, AI assistants and Android. He also built BillZap, a GST billing app live on Google Play, and Habit Tracker, coming soon to Google Play. Before that he was a Frontend Engineer at Cartrabbit, building interfaces for six WooCommerce products used by 300,000+ stores.",
   },
   {
     question: "What technologies does Dakshesh use?",
     answer:
-      "Dakshesh builds with HTML, CSS and JavaScript, React, Next.js and Tailwind CSS, WordPress and WooCommerce, Chrome Extensions (Manifest V3), Flutter and Dart, and PHP.",
+      "TypeScript, React, Next.js, Tailwind CSS, Node.js, PostgreSQL, Prisma, Supabase, Cloudflare Workers, Flutter, React Native, Playwright and Vitest, plus technical SEO, JSON-LD and Core Web Vitals.",
   },
   {
     question: "Is Dakshesh available for work?",
     answer:
-      "Yes. Dakshesh is open to frontend and full stack roles, remote friendly, and based in Kotagiri, India. You can reach him at daksheshbabu@gmail.com.",
+      "Yes. Dakshesh is open to full-time Full-Stack Developer, Frontend Engineer and SEO Engineer roles in Bangalore and ready to relocate anywhere. Reach him at daksheshbabu@gmail.com or +91 87784 81650.",
+  },
+  {
+    question: "Where did Dakshesh study?",
+    answer:
+      "Dakshesh completed a B.E. in Computer Science and Engineering at Dr. N.G.P. Institute of Technology (Anna University), Coimbatore, from 2021 to 2025.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "About Dakshesh B | Frontend Web Engineer",
+  title: "About Dakshesh B | Full-Stack Developer in Bangalore",
   description:
-    "More about Dakshesh B, a frontend web engineer in Kotagiri, India. The work, the way I build, and a few photos along the way.",
+    "More about Dakshesh B, a full-stack developer, frontend engineer and SEO engineer in Bangalore. The work, the way I build, and a few photos along the way.",
   alternates: { canonical: "/about" },
   openGraph: {
     type: "profile",
@@ -42,15 +47,15 @@ export const metadata: Metadata = {
     siteName: "Dakshesh B",
     locale: "en_US",
     alternateLocale: ["en_GB", "en_IN"],
-    title: "About Dakshesh B | Frontend Web Engineer",
+    title: "About Dakshesh B | Full-Stack Developer in Bangalore",
     description:
-      "More about Dakshesh B, a frontend web engineer in Kotagiri, India. The work, the way I build, and a few photos along the way.",
+      "More about Dakshesh B, a full-stack developer, frontend engineer and SEO engineer in Bangalore. The work, the way I build, and a few photos along the way.",
   },
   twitter: {
     card: "summary_large_image",
     title: "About Dakshesh B",
     description:
-      "More about Dakshesh B, a frontend web engineer building fast, accessible web products.",
+      "More about Dakshesh B, a full-stack developer in Bangalore building fast web products that rank.",
   },
 };
 
@@ -64,9 +69,10 @@ function galleryImages(): string[] {
 }
 
 const facts = [
-  { icon: Rocket, label: "Around 2 years building for the web" },
-  { icon: Building2, label: "Web Engineer at Cartrabbit" },
-  { icon: MapPin, label: person.location },
+  { icon: Rocket, label: "2 years shipping production code" },
+  { icon: Building2, label: `${jobs[0].title}, ${jobs[0].company}` },
+  { icon: GraduationCap, label: `B.E. CSE, ${education.period}` },
+  { icon: MapPin, label: `${person.location}, open to relocate` },
 ];
 
 export default function AboutPage() {
@@ -101,17 +107,19 @@ export default function AboutPage() {
         <div className="mt-10 grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div>
             <p className="eyebrow">About</p>
-            <h1 className="mt-4 display-2 text-ink">
-              I build for the web, and I sweat the details.
+            <h1 className="mt-5 display-1 text-ink" data-split>
+              I build for the web, and I <span className="serif-em text-gradient">sweat the details.</span>
             </h1>
             <p className="mt-6 max-w-prose text-lg leading-relaxed text-ink-muted">
               {person.summary}
             </p>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink-muted">
-              At {experience.company} I help maintain the front end for six
-              production products used by more than 300,000 stores. Outside of
-              that, I design and ship my own apps and developer tools end to
-              end, from the first commit to the page that sells them.
+              Today I build MyKavo full time, a website monitoring SaaS that runs on
+              the web, in WordPress, in Chrome, inside AI assistants and on Android.
+              Before that, at Cartrabbit, I built the front end for six WooCommerce
+              products used by more than 300,000 stores. Alongside, I design and ship
+              my own apps and developer tools end to end, from the first commit to
+              the page that sells them.
             </p>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink-muted">
               I care most about how a site feels: fast loads, clean
@@ -143,17 +151,17 @@ export default function AboutPage() {
           <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
             <Image
               src={person.image}
-              alt="Dakshesh B, Frontend Web Engineer"
+              alt="Dakshesh B, full-stack developer in Bangalore"
               width={person.imageWidth}
               height={person.imageHeight}
               sizes="(max-width: 1024px) 100vw, 33vw"
               className="aspect-[3/4] w-full rounded-2xl border border-line object-cover"
               priority
             />
-            <p className="mt-5 font-display text-lg font-bold text-ink">
+            <p className="mt-5 font-display text-lg font-semibold text-ink">
               {person.name}
             </p>
-            <p className="text-sm text-ink-muted">Frontend Web Engineer</p>
+            <p className="text-sm text-ink-muted">Full-Stack Developer · Bangalore</p>
           </div>
         </div>
 
@@ -209,7 +217,7 @@ export default function AboutPage() {
           <dl className="mt-8 divide-y divide-line border-t border-line">
             {faqs.map((faq) => (
               <div key={faq.question} className="py-5">
-                <dt className="font-display text-lg font-bold text-ink">
+                <dt className="font-display text-lg font-semibold text-ink">
                   {faq.question}
                 </dt>
                 <dd className="mt-2 leading-relaxed text-ink-muted">

@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { person, socials } from "@/lib/site";
-import { products } from "@/lib/data";
+import { mainProducts, projects } from "@/lib/data";
+import { roles } from "@/lib/roles";
 
 const explore = [
-  { href: "/#work", label: "Work" },
   { href: "/#products", label: "Products" },
-  { href: "/#about", label: "About" },
+  { href: "/results", label: "Results" },
+  { href: "/#experience", label: "Experience" },
   { href: "/#skills", label: "Skills" },
+  { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -15,100 +17,92 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-black text-white">
-      <div className="section py-14">
-        <div className="grid gap-10 md:grid-cols-[1.3fr_0.8fr_1fr]">
+    <footer className="relative overflow-hidden border-t border-line bg-white pb-28 md:pb-0">
+      <div className="section pt-16">
+        <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[1.4fr_0.7fr_0.9fr_1fr]">
           <div className="max-w-sm">
-            <Link
-              href="/"
-              className="font-display text-xl font-bold tracking-tight text-white"
-            >
-              dakshesh<span className="text-accent">.</span>
+            <Link href="/" className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight text-ink">
+              <span className="grid h-8 w-8 place-items-center rounded-xl bg-ink text-sm font-bold text-white">D</span>
+              <span>
+                dakshesh<span className="text-accent">.</span>
+              </span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-white/70">
-              {person.role} in {person.location}. Building fast, accessible web
-              interfaces and shipping products end to end.
+            <p className="mt-5 text-sm leading-relaxed text-ink-muted">
+              {person.name} is a Full-Stack Developer, Frontend Engineer and SEO Engineer in
+              Bangalore. {person.availability}
             </p>
-            <div className="mt-5 flex items-center gap-2">
-              <a
-                href={socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white hover:text-white"
-              >
-                <Github aria-hidden="true" className="h-5 w-5" />
-              </a>
-              <a
-                href={socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white hover:text-white"
-              >
-                <Linkedin aria-hidden="true" className="h-5 w-5" />
-              </a>
-              <a
-                href={`mailto:${person.email}`}
-                aria-label="Send an email"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white hover:text-white"
-              >
-                <Mail aria-hidden="true" className="h-5 w-5" />
-              </a>
+            <div className="mt-6 flex items-center gap-2">
+              {[
+                { href: socials.linkedin, label: "LinkedIn profile", icon: Linkedin },
+                { href: socials.github, label: "GitHub profile", icon: Github },
+                { href: `mailto:${person.email}`, label: "Send an email", icon: Mail },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  {...(s.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  aria-label={s.label}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink-muted transition-colors hover:border-ink hover:text-ink"
+                >
+                  <s.icon aria-hidden="true" className="h-[18px] w-[18px]" />
+                </a>
+              ))}
             </div>
           </div>
 
-          <nav aria-label="Explore">
-            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white/50">
-              Explore
-            </h2>
-            <ul className="mt-4 space-y-2.5">
-              {explore.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label="Products">
-            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white/50">
-              Products
-            </h2>
-            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">
-              {products.map((product) => (
-                <li key={product.id}>
-                  <Link
-                    href={`/${product.id}`}
-                    className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-                  >
-                    {product.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <FooterNav title="Explore" links={explore} />
+          <FooterNav
+            title="Products"
+            links={mainProducts.map((p) => ({ href: `/${p.id}`, label: p.name }))}
+          />
+          <FooterNav
+            title="Hire in Bangalore"
+            links={[
+              ...roles.map((r) => ({ href: `/${r.slug}`, label: `${r.role} in Bangalore` })),
+              ...projects.map((p) => ({ href: `/work/${p.slug}`, label: `${p.title} case study` })),
+            ]}
+          />
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <p
+          aria-hidden="true"
+          className="pointer-events-none mt-16 select-none whitespace-nowrap text-center font-display font-semibold leading-none tracking-[-0.06em] text-ink/[0.05]"
+          style={{ fontSize: "clamp(4rem, 17vw, 22rem)" }}
+        >
+          dakshesh
+        </p>
+
+        <div className="flex flex-col gap-4 border-t border-line py-6 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {year} {person.name}. Built with Next.js, React, GSAP and
-            Tailwind CSS.
+            &copy; {year} {person.name}. Designed and built in Bangalore with Next.js, GSAP and Three.js.
           </p>
-          <a
-            href="#main"
-            className="inline-flex items-center gap-1 font-medium text-white/70 transition-colors hover:text-white"
-          >
-            Back to top
-            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-          </a>
+          <div className="flex items-center gap-5">
+            <a href="/llms.txt" className="hover:text-ink">llms.txt</a>
+            <a href="/sitemap.xml" className="hover:text-ink">Sitemap</a>
+            <a href="#main" className="inline-flex items-center gap-1 font-medium text-ink-muted hover:text-ink">
+              Back to top
+              <ArrowUpRight aria-hidden="true" className="h-4 w-4 -rotate-45" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterNav({ title, links }: { title: string; links: { href: string; label: string }[] }) {
+  return (
+    <nav aria-label={title}>
+      <h2 className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-ink-soft">{title}</h2>
+      <ul className="mt-5 space-y-3">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className="text-sm font-medium text-ink-muted transition-colors hover:text-ink">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

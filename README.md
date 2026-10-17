@@ -1,6 +1,6 @@
 # Dakshesh B - Portfolio
 
-Personal portfolio for Dakshesh B, Frontend Web Developer. Built to load fast, score well on Lighthouse across all four categories, stay fully crawlable for search engines and AI agents, and feel like the work of someone who cares about craft.
+Personal portfolio for Dakshesh B, Full-Stack Developer, Frontend Engineer and SEO Engineer in Bangalore. Built to load fast, score well on Lighthouse across all four categories, stay fully crawlable for search engines and AI agents, and feel like the work of someone who cares about craft.
 
 Live domain: https://dakshesh.co.in
 
@@ -9,23 +9,24 @@ Live domain: https://dakshesh.co.in
 Everything needed to pick this project up from scratch:
 
 1. **Read the context docs first**: `HANDOFF.md` (current state, keys, structure) and `DECISIONS.md` (every design and SEO decision made so far). Point Claude Code at both at the start of a session, for example: "Read HANDOFF.md, DECISIONS.md and README.md to catch up, then wait for my next change."
-2. **Get the code**: `git clone https://github.com/dakshu007/Dakshesh_Updated-_Portfolio.git`
+2. **Get the code**: `git clone https://github.com/dakshu007/Dakshesh_Updated_Portfolio.git`
 3. **Install and run**: `npm install`, then `npm run dev` (http://localhost:3000). Copy `.env.example` to `.env.local` (current live values are documented in `HANDOFF.md`).
 4. **Deploy to production** (Netlify site `daksheshb`, domain dakshesh.co.in). Log in once with `netlify login`, then:
    ```bash
    netlify deploy --build --prod --site dc5cdbdb-3fb5-4c5f-b6c4-090c98fa4091
    ```
    If the build fails with a generic "Error while running build", it is usually transient: run the same command again.
-5. **Push to GitHub**: authenticate once with `gh auth login` (account `dakshu007`), then normal `git push`. The remote is `https://github.com/dakshu007/Dakshesh_Updated-_Portfolio.git` on branch `main`.
+5. **Push to GitHub**: authenticate once with `gh auth login` (account `dakshu007`), then normal `git push`. The remote is `https://github.com/dakshu007/Dakshesh_Updated_Portfolio.git` on branch `main`.
 6. **Copy rules used across the site**: no em dashes or en dashes anywhere in copy or docs (plain hyphens only), Indian English spellings in prose (optimise, colour), and exactly one H1 per page.
 
 ## Tech stack
 
 - Next.js (App Router) with React and TypeScript
-- Tailwind CSS for styling (light only: near-black ink plus one electric-blue accent, hackajob-inspired)
-- GSAP and ScrollTrigger for scroll reveals and the count-up band
+- Tailwind CSS for styling (light only: near-black ink, electric blue and violet accents)
+- GSAP (ScrollTrigger, SplitText) and Lenis for motion and smooth scroll
+- Three.js for the hero scene
 - lucide-react icons throughout
-- Space Grotesk (display headings) and Inter (body) via `next/font/google` (self-hosted, `display: swap`)
+- Geist, Geist Mono and Instrument Serif via `next/font/google` (self-hosted, `display: swap`)
 
 ## Getting started
 

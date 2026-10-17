@@ -1,5 +1,20 @@
 # Decisions and assumptions
 
+## October 2026 revamp
+
+- Light, premium redesign: cool off-white canvas `#F7F8FA`, ink `#0A0B10`, electric blue `#2B4BF2` with a violet partner for gradients. Geist for UI and headings, Instrument Serif italic for single emphasis words, Geist Mono for labels.
+- Fluid layout for large monitors: the container is `100rem` wide and the root font size steps up at 1680px, 2200px and 2800px, so a 27 inch screen at 100 percent zoom is filled instead of showing a narrow column.
+- Motion: Lenis smooth scroll synced to the GSAP ticker; `components/Motion.tsx` drives reveals, SplitText headline reveals, count-ups, parallax, timeline draw, chart bars and magnetic buttons. Everything is skipped under reduced motion and content is never hidden before JS confirms motion is allowed.
+- Three.js is back, as one hero centrepiece (`components/HeroCanvas.tsx`): a shader orb with a particle halo, loaded on idle, paused off-screen, DPR capped, one still frame under reduced motion.
+- One products carousel replaces the separate SaaS spotlight and products grid. MyKavo and Habit Tracker get the Exclusive dark card. BillZap gets its own "live on Google Play" home section.
+- Removed as redundant: SaaS spotlight, metrics band, separate About band (merged into Experience), pre-contact CTA band, services section (folded into Hire).
+- Location is Bangalore (Bengaluru) everywhere: metadata, Person JSON-LD (`hasOccupation` with `occupationLocation`), llms.txt and copy.
+- AEO / GEO: answer-first FAQs with FAQPage JSON-LD on home, product and role pages; robots.txt explicitly allows AI crawlers; `llms.txt` and `llms-full.txt`; Dataset JSON-LD on `/results`.
+- Product facts were re-crawled from each product's live site and store listing in October 2026. Achievement numbers are the owner's figures.
+
+---
+
+
 Every choice made where the brief left room, plus the stubs you may want to revisit. No em dashes or en dashes are used anywhere in the project copy, headings, metadata, alt text, JSON-LD or docs, per the brief.
 
 ## Current design (redesign)

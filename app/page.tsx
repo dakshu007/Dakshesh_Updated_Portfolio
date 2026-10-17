@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
-import { profilePageSchema } from "@/lib/jsonld";
-import ScrollAnimations from "@/components/ScrollAnimations";
+import { profilePageSchema, productListSchema, faqSchema } from "@/lib/jsonld";
+import { homeFaqs } from "@/lib/faq";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
-import SaasSpotlight from "@/components/SaasSpotlight";
-import ProductsStrip from "@/components/ProductsStrip";
+import ProductCarousel from "@/components/ProductCarousel";
+import BillZapLive from "@/components/BillZapLive";
+import Results from "@/components/Results";
 import Work from "@/components/Work";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
-import Metrics from "@/components/Metrics";
+import Skills from "@/components/Skills";
+import Hire from "@/components/Hire";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
@@ -20,17 +21,24 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <JsonLd schema={profilePageSchema()} />
-      <ScrollAnimations />
+      <JsonLd schema={[profilePageSchema(), productListSchema(), faqSchema(homeFaqs)]} />
       <Hero />
       <LogoStrip />
-      <SaasSpotlight />
-      <ProductsStrip />
+      <ProductCarousel />
+      <BillZapLive />
+      <Results />
       <Work />
-      <About />
-      <Skills />
       <Experience />
-      <Metrics />
+      <Skills />
+      <Hire />
+      <Faq
+        title={
+          <>
+            Quick answers about <span className="serif-em text-gradient">Dakshesh B.</span>
+          </>
+        }
+        items={homeFaqs}
+      />
       <Contact />
     </>
   );

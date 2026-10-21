@@ -86,25 +86,44 @@ function setup(gsap: Gsap, ScrollTrigger: ST, SplitText: Split, cleanups: (() =>
   });
   root.classList.add("motion-ready");
 
-  const ctx = gsap.context(() => {
-    /* Reveal */
-    ScrollTrigger.batch("[data-reveal]:not([data-shown])", {
-      start: "top 90%",
-      once: true,
-      onEnter: (els) =>
-        gsap.to(els, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: "power3.out",
-          overwrite: true,
-        }),
-    });
+  // Scroll-in effects fire from each element's live position on screen
+  // (IntersectionObserver), not from offsets measured once at setup, so they
+  // can never go stale and leave content hidden when fonts, images or late
+  // layout change the page height. Anything already scrolled past is shown too.
+  const ctx = gsap.context(() => {});
+  const onEnter = (selector: string, fn: (els: HTMLElement[]) => void) => {
+    const els = gsap.utils.toArray<HTMLElement>(selector);
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        const hits = entries.filter((e) => e.isIntersecting).map((e) => e.target as HTMLElement);
+        if (!hits.length) return;
+        hits.forEach((el) => io.unobserve(el));
+        ctx.add(() => fn(hits));
+      },
+      { rootMargin: "200% 0px 15% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    cleanups.push(() => io.disconnect());
+  };
 
-    /* Split headings */
-    gsap.utils.toArray<HTMLElement>("[data-split]:not([data-shown])").forEach((el) => {
+  /* Reveal */
+  onEnter("[data-reveal]:not([data-shown])", (els) => {
+    gsap.to(els, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.7,
+      stagger: 0.06,
+      ease: "power3.out",
+      overwrite: true,
+      onComplete: () => els.forEach((el) => el.setAttribute("data-shown", "")),
+    });
+  });
+
+  /* Split headings */
+  onEnter("[data-split]:not([data-shown])", (els) =>
+    els.forEach((el) => {
       const split = SplitText.create(el, {
         type: "lines,words",
         linesClass: "split-line",
@@ -117,15 +136,16 @@ function setup(gsap: Gsap, ScrollTrigger: ST, SplitText: Split, cleanups: (() =>
             duration: 1,
             ease: "expo.out",
             stagger: 0.035,
-            scrollTrigger: { trigger: el, start: "top 88%", once: true },
           });
         },
       });
       cleanups.push(() => split.revert());
-    });
+    })
+  );
 
-    /* Count up */
-    gsap.utils.toArray<HTMLElement>("[data-count]:not([data-shown])").forEach((el) => {
+  /* Count up */
+  onEnter("[data-count]:not([data-shown])", (els) =>
+    els.forEach((el) => {
       const end = Number(el.dataset.count);
       if (!Number.isFinite(end)) return;
       const decimals = Number(el.dataset.decimals ?? 0);
@@ -138,26 +158,32 @@ function setup(gsap: Gsap, ScrollTrigger: ST, SplitText: Split, cleanups: (() =>
           minimumFractionDigits: decimals,
           maximumFractionDigits: decimals,
         })}${suffix}`;
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 92%",
-        once: true,
-        onEnter: () => {
-          gsap.to(state, {
-            v: end,
-            duration: 2,
-            ease: "power3.out",
-            onUpdate: () => {
-              el.textContent = fmt(state.v);
-            },
-            onComplete: () => {
-              el.textContent = final;
-            },
-          });
+      gsap.to(state, {
+        v: end,
+        duration: 2,
+        ease: "power3.out",
+        onUpdate: () => {
+          el.textContent = fmt(state.v);
+        },
+        onComplete: () => {
+          el.textContent = final;
         },
       });
-    });
+    })
+  );
 
+  /* Bars that grow, e.g. the impressions chart */
+  onEnter("[data-bar]:not([data-shown])", (els) =>
+    gsap.from(els, {
+      scaleY: 0,
+      transformOrigin: "bottom center",
+      duration: 1.1,
+      ease: "expo.out",
+      stagger: 0.05,
+    })
+  );
+
+  ctx.add(() => {
     /* Parallax */
     gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
       const speed = Number(el.dataset.parallax) || 0.15;
@@ -191,18 +217,6 @@ function setup(gsap: Gsap, ScrollTrigger: ST, SplitText: Split, cleanups: (() =>
         }
       );
     });
-
-    /* Bars that grow, e.g. the impressions chart */
-    gsap.utils.toArray<HTMLElement>("[data-bar]:not([data-shown])").forEach((el, i) => {
-      gsap.from(el, {
-        scaleY: 0,
-        transformOrigin: "bottom center",
-        duration: 1.1,
-        ease: "expo.out",
-        delay: (i % 12) * 0.05,
-        scrollTrigger: { trigger: el, start: "top 95%", once: true },
-      });
-    });
   });
 
   /* Magnetic buttons (fine pointers only) */
@@ -228,9 +242,20 @@ function setup(gsap: Gsap, ScrollTrigger: ST, SplitText: Split, cleanups: (() =>
     });
   }
 
-  // Fonts and images can shift layout after first paint.
-  const refresh = () => ScrollTrigger.refresh();
+  // Fonts, images and late content change the page height after first
+  // paint; keep the scrubbed effects (parallax, draw-in) measured correctly.
+  let timer = 0;
+  const refresh = () => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => ScrollTrigger.refresh(), 200);
+  };
   document.fonts?.ready.then(refresh).catch(() => {});
+  const ro = new ResizeObserver(refresh);
+  ro.observe(document.body);
+  cleanups.push(() => {
+    ro.disconnect();
+    window.clearTimeout(timer);
+  });
 
   return ctx;
 }

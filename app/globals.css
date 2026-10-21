@@ -287,11 +287,9 @@
   }
 }
 
-/* Below-the-fold sections: let the browser skip their layout and paint
+/* Below-the-fold home sections: let the browser skip their layout and paint
    until they approach the viewport. Big win for first render on phones.
-   On inner pages that is every section after the first one. */
-main section ~ section,
-.cv,
+   Safe with the scroll-in effects, which read live positions (Motion.tsx). */
 #products,
 #billzap-live,
 #results,
@@ -300,8 +298,7 @@ main section ~ section,
 #skills,
 #hire,
 #faq,
-#contact,
-footer {
+#contact {
   content-visibility: auto;
   contain-intrinsic-size: auto 1100px;
 }

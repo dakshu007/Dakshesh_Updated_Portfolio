@@ -137,10 +137,10 @@ function StatusPill({ product, dark = false }: { product: Product; dark?: boolea
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="spotlight group relative flex h-full min-h-[27rem] flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white p-7 shadow-card transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-lift">
+    <article className="spotlight group relative isolate flex h-full min-h-[27rem] flex-col overflow-hidden rounded-[1.75rem] border border-line bg-white p-7 shadow-card transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-lift">
       <div
         aria-hidden="true"
-        className="absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
+        className="absolute -right-16 -top-16 -z-10 h-48 w-48 rounded-full opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
         style={{ background: product.brand.from }}
       />
       <div className="relative flex items-start justify-between gap-3">
@@ -150,7 +150,7 @@ function ProductCard({ product }: { product: Product }) {
       <p className="relative mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-soft">
         {product.category}
       </p>
-      <h3 className="relative mt-1.5 text-2xl font-semibold text-ink">
+      <h3 className="mt-1.5 text-2xl font-semibold text-ink">
         <Link href={`/${product.id}`} className="after:absolute after:inset-0 after:z-[2] after:content-['']" draggable={false}>
           {product.name}
         </Link>
@@ -184,8 +184,8 @@ function ProductCard({ product }: { product: Product }) {
 function ExclusiveCard({ product }: { product: Product }) {
   const isKavo = product.id === "mykavo";
   return (
-    <article className="exclusive-border group relative flex h-full min-h-[27rem] flex-col overflow-hidden rounded-[1.75rem] bg-night p-8 text-white shadow-lift">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
+    <article className="exclusive-border group relative isolate flex h-full min-h-[27rem] flex-col overflow-hidden rounded-[1.75rem] bg-night p-8 text-white shadow-lift">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[inherit]">
         <div
           className="absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-40 blur-3xl transition-transform duration-700 group-hover:scale-125"
           style={{ background: product.brand.from }}
@@ -194,7 +194,7 @@ function ExclusiveCard({ product }: { product: Product }) {
         <div className="bg-dots absolute inset-0 opacity-[0.15] invert" />
       </div>
 
-      <div className="relative flex items-start justify-between gap-3">
+      <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <Mark product={product} size={52} />
           <div>
